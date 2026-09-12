@@ -4,3 +4,6 @@
 # *.png
 # I need add images for publish in the github lel
 *.swp
+
+# Claude Code local settings (may contain local permissions/credentials)
+.claude/settings.local.json
