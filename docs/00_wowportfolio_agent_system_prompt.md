@@ -12,6 +12,25 @@ animaciones, color y forma como frontend designer de alto nivel. La Fase 1
 del flujo original (que pide "3 mejores proyectos") se adapta: en su lugar
 se pregunta por habilidades/estilos a flexear y referencias estéticas.
 
+## Enmiendas del usuario (13 sep 2026) — prevalecen sobre el prompt original
+
+1. **Three.js es la ÚNICA excepción** a "Cero Librerías Pesadas". Se permite
+   exclusivamente para escenas 3D e iluminación avanzada (sable de luz,
+   fondo espacial). Debe cargarse como ES module *después* del primer
+   render (lazy), con fallback CSS si WebGL no está disponible. Siguen
+   prohibidos React, Angular, Vue, GSAP y jQuery. La meta Lighthouse pasa a
+   ≥ 90 en móvil / 100 en escritorio.
+2. **Temática 100 % Star Wars + videojuegos** en copy, color, forma y sonido
+   opcional. Menciones abundantes pero al servicio del perfil profesional.
+3. **Intro:** un sable de luz rebana el video del sitio anterior y de ese
+   corte nace el sitio nuevo. Corta (≤ 4 s), saltable, respeta
+   `prefers-reduced-motion`.
+4. **El foco es el impacto de ver el perfil de trabajo.** Elegir lado
+   (Jedi/Sith) no bloquea la entrada: es el toggle de tema y una capa para
+   quien explore más.
+5. Perfil, USP y material real están en
+   [02_contexto_bryan_key.md](./02_contexto_bryan_key.md).
+
 ---
 
 ## SYSTEM PROMPT: Agente Experto en Portafolios "Efecto Wow"
