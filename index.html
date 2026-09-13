@@ -70,6 +70,8 @@ h2{font-size:clamp(22px,3.6vw,44px);font-weight:900;font-family:var(--display);l
 .kicker{font:600 clamp(10px,2.4vw,12px)/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;gap:10px;align-items:baseline;flex-wrap:nowrap}
 .kicker::before{content:"";width:clamp(16px,5vw,28px);height:2px;flex:none;background:var(--saber);box-shadow:0 0 12px var(--saber);transform:translateY(-4px)}
 .knum{color:var(--muted);font-weight:700;letter-spacing:.08em;flex:none}
+.kico{flex:none;fill:none;stroke:var(--saber);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transform:translateY(2px);filter:drop-shadow(0 0 6px var(--saber-soft))}
+.kicker .kico+.knum{margin-left:-2px}
 /* Ritmo editorial: cada sección separada por una línea, no por cajas */
 section+section{border-top:1px solid var(--line)}
 /* Historial comprimido */
@@ -156,7 +158,11 @@ section+section{border-top:1px solid var(--line)}
   .stop::before{left:auto;right:-9px}
   .stop:nth-child(even)::before{right:auto;left:-9px}
 }
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,2.4vw,28px);backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.card{--mx:50%;--my:50%;position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,2.4vw,28px);backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+/* Foco que sigue al puntero */
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(340px circle at var(--mx) var(--my),color-mix(in oklch,var(--saber) 26%,transparent),transparent 62%)}
+.card:hover::before,.card:focus-within::before{opacity:1}
+.card>*{position:relative}
 .tilt:hover,.tilt:focus-within{border-color:var(--saber);box-shadow:0 20px 60px -30px var(--saber),0 0 0 1px var(--saber-soft)}
 .card header{display:flex;align-items:flex-start;gap:13px}
 .card .htxt{min-width:0;flex:1}
@@ -166,6 +172,9 @@ section+section{border-top:1px solid var(--line)}
 .colog.on-light{background:oklch(98% 0.004 90)}
 .colog.on-dark{background:oklch(19% 0.022 265)}
 :root[data-theme="light"] .colog.on-dark{background:oklch(24% 0.025 265)}
+/* logos que ya traen su propio fondo (iconos de app): llenan la caja */
+.colog.has-bg{background:transparent;border-color:transparent}
+.colog.has-bg img{padding:0;object-fit:cover;border-radius:11px}
 @media (max-width:560px){
   .card header{flex-direction:column;align-items:flex-start;gap:10px}
   .colog{width:96px;height:54px}
@@ -260,7 +269,23 @@ html[data-intro="skip"] #gate{display:none}
 .gate-card{width:min(520px,100%);max-height:calc(100svh - clamp(16px,4vh,40px));display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,2.6vh,30px) clamp(16px,4vw,30px);box-shadow:0 40px 120px -40px oklch(0% 0 0 / .9)}
 .gate-card h2{font-size:clamp(18px,3.4vh,28px);margin-top:3px}
 .gate-sub{color:var(--muted);margin:clamp(6px,1.2vh,10px) 0 0;font-size:clamp(12px,1.7vh,14.5px);line-height:1.45}
-.powers{list-style:none;margin:clamp(11px,2vh,20px) 0 0;padding:0;display:grid;gap:clamp(6px,1.1vh,9px);min-height:0;overflow:auto}
+/* Elige tu lado */
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:clamp(11px,2vh,18px);flex:none}
+.side{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;padding:clamp(9px,1.5vh,14px) 8px;border-radius:13px;border:1px solid var(--line);background:var(--glass);color:var(--fg);font:inherit;cursor:pointer;overflow:hidden;transition:border-color .22s,transform .22s,box-shadow .22s}
+.side b{font-size:clamp(12.5px,1.8vh,14.5px);font-weight:800}
+.side em{font:600 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-style:normal}
+.side .blade-ico{width:4px;height:clamp(20px,3.4vh,30px);border-radius:3px;background:oklch(99% 0 0);transition:box-shadow .22s,opacity .22s;opacity:.45}
+.side.dark .blade-ico{box-shadow:0 0 8px oklch(62% .25 25),0 0 20px oklch(62% .25 25)}
+.side.light .blade-ico{box-shadow:0 0 8px oklch(72% .21 145),0 0 20px oklch(72% .21 145)}
+.side:hover{transform:translateY(-2px)}
+.side.dark:hover,.side.dark[aria-checked="true"]{border-color:oklch(62% .25 25)}
+.side.light:hover,.side.light[aria-checked="true"]{border-color:oklch(72% .21 145)}
+.side[aria-checked="true"] .blade-ico{opacity:1;height:clamp(26px,4.2vh,38px)}
+.side[aria-checked="true"]{box-shadow:inset 0 0 0 1px currentColor}
+.side.dark[aria-checked="true"]{background:linear-gradient(180deg,oklch(30% .09 25 / .4),transparent)}
+.side.light[aria-checked="true"]{background:linear-gradient(180deg,oklch(40% .09 145 / .35),transparent)}
+@media (max-height:600px){.side em{display:none}}
+.powers{list-style:none;margin:clamp(10px,1.8vh,16px) 0 0;padding:0;display:grid;gap:clamp(6px,1.1vh,9px);min-height:0;overflow:auto}
 .power{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:var(--glass);border:1px solid var(--line);border-radius:13px;padding:clamp(8px,1.4vh,12px) 12px;color:var(--fg);font:inherit;cursor:pointer;transition:border-color .2s}
 .power:hover{border-color:var(--saber)}
 .power .ico{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--bg-2);font-size:17px}
@@ -354,6 +379,18 @@ html.saber-cursor #saber{display:block}
     <p class="kicker"><span lang="es" data-t="general.02">Autorizaciones de vuelo</span><span lang="en" data-t="general.02">Flight clearance</span></p>
     <h2 id="gate-t"><span lang="es" data-t="general.03">Antes de subir a bordo</span><span lang="en" data-t="general.03">Before you board</span></h2>
     <p class="gate-sub"><span lang="es" data-t="general.04">Este sitio tiene algunos poderes opcionales. Enciende los que quieras — <b>todo el contenido funciona igual sin ninguno</b>, y nada sale de tu dispositivo.</span><span lang="en" data-t="general.04">This site has a few optional powers. Turn on whichever you like — <b>everything works without them</b>, and nothing leaves your device.</span></p>
+    <div class="sides" role="radiogroup" aria-label="Elige tu lado">
+      <button type="button" class="side dark" data-side="dark" role="radio" aria-checked="true">
+        <span class="blade-ico" aria-hidden="true"></span>
+        <b><span lang="es" data-t="general.32">Lado Oscuro</span><span lang="en" data-t="general.32">Dark Side</span></b>
+        <em><span lang="es" data-t="general.33">Negro y rojo</span><span lang="en" data-t="general.33">Black and red</span></em>
+      </button>
+      <button type="button" class="side light" data-side="light" role="radio" aria-checked="false">
+        <span class="blade-ico" aria-hidden="true"></span>
+        <b><span lang="es" data-t="general.34">Lado de la Luz</span><span lang="en" data-t="general.34">Light Side</span></b>
+        <em><span lang="es" data-t="general.35">Claro y verde</span><span lang="en" data-t="general.35">Light and green</span></em>
+      </button>
+    </div>
     <ul class="powers" id="powers">
       <li><button type="button" class="power" role="switch" aria-checked="true" data-p="sound">
         <span class="ico" aria-hidden="true">🔊</span>
@@ -448,7 +485,7 @@ html.saber-cursor #saber{display:block}
   <!-- Bitácora -->
   <section id="bitacora" aria-labelledby="h-bitacora">
     <div class="wrap">
-      <p class="kicker"><span class="knum">02</span><span lang="es" data-t="bitacora.01">Registro de bitácora</span><span lang="en" data-t="bitacora.01">Captain's log</span></p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="knum">02</span><span lang="es" data-t="bitacora.01">Registro de bitácora</span><span lang="en" data-t="bitacora.01">Captain's log</span></p>
       <h2 id="h-bitacora"><span lang="es" data-t="bitacora.02">Me cansé de hacer código. No de crear.</span><span lang="en" data-t="bitacora.02">I got tired of writing code. Not of creating.</span></h2>
       <div class="crawl-stage"><div class="crawl">
         <div lang="es" data-t="bitacora.03">
@@ -468,7 +505,7 @@ html.saber-cursor #saber{display:block}
   <!-- Hoja de servicio -->
   <section id="servicio" aria-labelledby="h-servicio">
     <div class="wrap">
-      <p class="kicker"><span class="knum">03</span><span lang="es" data-t="servicio.01">Hoja de servicio · 8 paradas registradas</span><span lang="en" data-t="servicio.01">Service record · 8 logged stops</span></p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 16.5 17 7.5"/><circle cx="12" cy="12" r="1.3"/></svg><span class="knum">03</span><span lang="es" data-t="servicio.01">Hoja de servicio · 8 paradas registradas</span><span lang="en" data-t="servicio.01">Service record · 8 logged stops</span></p>
       <h2 id="h-servicio"><span lang="es" data-t="servicio.02">Ruta de hiperespacio 2018 → 2026</span><span lang="en" data-t="servicio.02">Hyperspace route 2018 → 2026</span></h2>
       <p class="lede"><span lang="es" data-t="servicio.03">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en" data-t="servicio.03">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
       <ol class="route"><li class="stop now reveal"><article class="card tilt">
@@ -486,14 +523,14 @@ html.saber-cursor #saber{display:block}
           <div class="chips"><span>C#</span><span>.NET Framework</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog on-light"><img src="./assets/logos/libretickets.png" alt="LibreTickets" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></div></header>
+          <header><figure class="colog has-bg"><img src="./assets/logos/libretickets.png" alt="LibreTickets" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></div></header>
           <time datetime="2024-10"><span lang="es" data-t="servicio.12">oct 2024 – ene 2025</span><span lang="en" data-t="servicio.12">Oct 2024 – Jan 2025</span></time><span class="loc">Córdoba, AR</span>
           <ul lang="es" data-t="servicio.13"><li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li></ul>
           <ul lang="en" data-t="servicio.13"><li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li></ul>
           <div class="chips"><span>Next.js</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog on-dark"><img src="./assets/logos/lapzo.png" alt="Lapzo" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></div></header>
+          <header><figure class="colog on-light"><img src="./assets/logos/lapzo.png" alt="Lapzo" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></div></header>
           <time datetime="2022-10"><span lang="es" data-t="servicio.14">oct 2022 – sep 2024</span><span lang="en" data-t="servicio.14">Oct 2022 – Sep 2024</span></time><span class="loc">CDMX · <span lang="es" data-t="servicio.15">remoto</span><span lang="en" data-t="servicio.15">remote</span></span>
           <ul lang="es" data-t="servicio.16"><li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li></ul>
           <ul lang="en" data-t="servicio.16"><li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li></ul>
@@ -539,7 +576,7 @@ html.saber-cursor #saber{display:block}
   <!-- Arsenal -->
   <section id="arsenal" aria-labelledby="h-arsenal">
     <div class="wrap">
-      <p class="kicker"><span class="knum">04</span>Arsenal</p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><rect x="10.5" y="14" width="3" height="7" rx="1"/><path d="M12 13V3"/><path d="M9.6 14.6h4.8"/></svg><span class="knum">04</span>Arsenal</p>
       <h2 id="h-arsenal"><span lang="es" data-t="arsenal.01">Un sable por cada batalla</span><span lang="en" data-t="arsenal.01">A saber for every battle</span></h2>
       <p class="lede"><span lang="es" data-t="arsenal.02">Tócalos o pásales el cursor: cada empuñadura enciende su hoja.</span><span lang="en" data-t="arsenal.02">Tap them or hover: every hilt ignites its blade.</span></p>
       <div class="arsenal">
@@ -592,7 +629,7 @@ html.saber-cursor #saber{display:block}
   <!-- Hangar -->
   <section id="hangar" aria-labelledby="h-hangar">
     <div class="wrap">
-      <p class="kicker"><span class="knum">05</span>Hangar</p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path d="M12 3 14.4 9H21l-5 4 1.8 7L12 16.6 6.2 20 8 13l-5-4h6.6z"/></svg><span class="knum">05</span>Hangar</p>
       <h2 id="h-hangar"><span lang="es" data-t="hangar.01">Proyecto personal en construcción</span><span lang="en" data-t="hangar.01">Personal project under construction</span></h2>
       <div class="hangar">
         <article class="card tilt grain reveal">
@@ -612,7 +649,7 @@ html.saber-cursor #saber{display:block}
   <!-- Canal abierto -->
   <section id="canal" aria-labelledby="h-canal">
     <div class="wrap">
-      <p class="kicker"><span class="knum">06</span><span lang="es" data-t="canal.01">Canal abierto</span><span lang="en" data-t="canal.01">Open channel</span></p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path d="M12 15v6"/><path d="M8 21h8"/><circle cx="12" cy="9" r="2.4"/><path d="M6.5 14.5a7 7 0 0 1 0-11M17.5 3.5a7 7 0 0 1 0 11"/></svg><span class="knum">06</span><span lang="es" data-t="canal.01">Canal abierto</span><span lang="en" data-t="canal.01">Open channel</span></p>
       <h2 id="h-canal"><span lang="es" data-t="canal.02">Hablemos hoy. Respondo rápido.</span><span lang="en" data-t="canal.02">Let's talk today. I reply fast.</span></h2>
       <p class="lede"><span lang="es" data-t="canal.03">Reclutador, CTO o fundador: elige el canal y en menos de 24 h tienes respuesta.</span><span lang="en" data-t="canal.03">Recruiter, CTO or founder: pick a channel and you'll hear back within 24 hours.</span></p>
       <div class="channels">
@@ -627,7 +664,7 @@ html.saber-cursor #saber{display:block}
   <!-- Transmisiones -->
   <section id="transmisiones" aria-labelledby="h-trans">
     <div class="wrap">
-      <p class="kicker"><span class="knum">07</span><span lang="es" data-t="transmisiones.01">Transmisiones aliadas</span><span lang="en" data-t="transmisiones.01">Allied transmissions</span></p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="12" cy="12" r="2.2"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2M19.1 4.9a10 10 0 0 1 0 14.2"/></svg><span class="knum">07</span><span lang="es" data-t="transmisiones.01">Transmisiones aliadas</span><span lang="en" data-t="transmisiones.01">Allied transmissions</span></p>
       <h2 id="h-trans"><span lang="es" data-t="transmisiones.02">Lo que dicen quienes volaron conmigo</span><span lang="en" data-t="transmisiones.02">What those who flew with me say</span></h2>
       <div class="holo">
         <blockquote class="card reveal"><p>“Bryan is an awesome developer. Working with him is a blast because he always brings such great vibes and a positive attitude. He's really into taking on new challenges and bounces back quickly when things get tough. Super adaptable and always ready to tackle problems head-on.”</p><footer><b>Luis Manuel Flores Camarena</b><span lang="es" data-t="transmisiones.03">Desarrollador · Lapzo</span><span lang="en" data-t="transmisiones.03">Developer · Lapzo</span></footer></blockquote>
@@ -641,7 +678,7 @@ html.saber-cursor #saber{display:block}
 <footer class="foot">
   <div class="wrap">
     <p><span lang="es" data-t="transmisiones.06">Hecho con ❤ y la Fuerza · Vanilla HTML/CSS/JS + Three.js · </span><span lang="en" data-t="transmisiones.06">Made with ❤ and the Force · Vanilla HTML/CSS/JS + Three.js · </span>© 2026 Bryan Key</p>
-    <div class="socials"><a href="https://twitter.com/bryansank" target="_blank" rel="noopener">X/Twitter</a><a href="https://www.instagram.com/bryansank/" target="_blank" rel="noopener">Instagram</a><a href="https://github.com/bryansank" target="_blank" rel="noopener">GitHub</a></div>
+    <div class="socials"><a href="https://www.linkedin.com/in/bryansank/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/bryansank" target="_blank" rel="noopener">GitHub</a></div>
     <p><a href="./old_site/"><span lang="es" data-t="transmisiones.07">Ver la nave anterior (2022) →</span><span lang="en" data-t="transmisiones.07">See the previous ship (2022) →</span></a> · <span lang="es" data-t="transmisiones.08">Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar</span><span lang="en" data-t="transmisiones.08">Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber</span> · <button type="button" id="resetBtn" class="linkish"><span lang="es" data-t="footer.01">Reiniciar experiencia</span><span lang="en" data-t="footer.01">Reset experience</span></button></p>
   </div>
 </footer>
@@ -700,7 +737,9 @@ const sfx={
   /* Cambio de sección: puerta neumática */
   whoosh(){const c=this.ctx();if(!c)return;const t=c.currentTime,n=c.createBufferSource(),b=c.createBuffer(1,c.sampleRate*.55,c.sampleRate),d=b.getChannelData(0);
     for(let i=0;i<d.length;i++){const k=i/d.length;d[i]=(Math.random()*2-1)*Math.sin(Math.PI*k)*.8}
-    n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=1.1;f.frequency.setValueAtTime(420,t);f.frequency.exponentialRampToValueAtTime(1500,t+.3);f.frequency.exponentialRampToValueAtTime(380,t+.55);g.gain.value=.075;n.connect(f).connect(g).connect(c.destination);n.start(t)}
+    n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=1.4;f.frequency.setValueAtTime(320,t);f.frequency.exponentialRampToValueAtTime(980,t+.3);f.frequency.exponentialRampToValueAtTime(300,t+.55);
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.022,t+.08);g.gain.exponentialRampToValueAtTime(.0001,t+.5);
+    n.connect(f).connect(g).connect(c.destination);n.start(t)}
 };
 function paintSound(){soundBtn.setAttribute('aria-pressed',String(soundOn));soundBtn.style.color=soundOn?'var(--saber)':''}
 paintSound();
@@ -726,6 +765,12 @@ document.addEventListener('click',e=>{if(e.target.closest('a,button,[role="butto
 
 /* ---------- Reveals fallback + tilt + magnetic ---------- */
 if(!CSS.supports('animation-timeline: view()')||reduced){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});$$('.reveal').forEach(el=>io.observe(el))}
+/* Foco que sigue al puntero en todas las tarjetas (incluye teclado vía focus) */
+$$('.card').forEach(c=>{
+  c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
+  c.addEventListener('focusin',()=>{c.style.setProperty('--mx','50%');c.style.setProperty('--my','30%')});
+});
 if(!reduced&&matchMedia('(pointer:fine)').matches){
   $$('.tilt').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateX(${-y*7}deg) rotateY(${x*9}deg) translateZ(6px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
   $$('.magnetic').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
@@ -850,6 +895,17 @@ function enableTilt(){
       if(on&&p==='tilt')enableTilt().then(ok=>{if(!ok){btn.setAttribute('aria-checked','false');prefs.tilt=false}});
     });
   });
+  /* Elige tu lado: fija el tema antes de entrar */
+  const sideBtns=$$('.side',gate);
+  const paintSides=()=>{const cur=html.dataset.theme==='light'?'light':'dark';
+    sideBtns.forEach(b=>b.setAttribute('aria-checked',String(b.dataset.side===cur)))};
+  paintSides();
+  sideBtns.forEach(b=>b.addEventListener('click',()=>{
+    html.dataset.theme=b.dataset.side;store.set('bk-theme',b.dataset.side);
+    paintTheme();paintSides();sfx.ignite();
+    if(prefs.haptics&&navigator.vibrate)navigator.vibrate(12);
+  }));
+
   const go=()=>{
     soundOn=prefs.sound;store.set('bk-sound',soundOn?'1':'0');paintSound();
     if(prefs.cinema&&canFS)document.documentElement.requestFullscreen().catch(()=>{});
@@ -1012,7 +1068,7 @@ function makeStars(THREE){
     for(let k=0;k<5;k++){const l=lamp(k%2?0xff5533:0xffbb44,.5);l.userData={k};g.add(l)}
     g.userData={side:s};consoles.add(g);
   }
-  scene.add(new THREE.AmbientLight(0x1a2436,.55));
+  const amb=new THREE.AmbientLight(0x1a2436,.55);scene.add(amb);
   const winLight=new THREE.DirectionalLight(0x6f8fc4,.55);winLight.position.set(0,.2,1);scene.add(winLight);
 
   function layoutBridge(){
@@ -1071,8 +1127,17 @@ function makeStars(THREE){
     far.mat.blending=near.mat.blending=l?THREE.NormalBlending:THREE.AdditiveBlending;
     smat.color=toThreeColor(THREE,cssColor('--saber'));
     neb.forEach(m=>m.material.opacity=l?.22:.9);
-    bridge.visible=!l;
-    steel.color=toThreeColor(THREE,l?'#b9bec9':'#262a33');
+    /* El puente también existe en el Lado de la Luz: casco claro en vez de silueta negra */
+    bridge.visible=true;
+    steel.color=toThreeColor(THREE,l?'#c9d1dd':'#0c0f16');
+    steelDark.color=toThreeColor(THREE,l?'#aab3c2':'#06080d');
+    steel.roughness=l?.75:.9;steelDark.roughness=l?.8:.95;
+    /* en el Lado de la Luz la nave se insinúa, no se impone */
+    steel.transparent=steelDark.transparent=l;
+    steel.opacity=steelDark.opacity=l?.58:1;
+    amb.color=toThreeColor(THREE,l?'#c8d6ee':'#1a2436');amb.intensity=l?1.15:.55;
+    winLight.intensity=l?1.5:.55;
+    lamps.forEach(L=>L.m.material.opacity=L.base*(l?.55:1));
     far.mat.needsUpdate=near.mat.needsUpdate=true;
   }
   paint();
@@ -1351,35 +1416,93 @@ function makeHangar(THREE){
   const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,.1,300);cam.position.set(0,2.1,13);
   const col=()=>toThreeColor(THREE,cssColor('--saber'));
   const ship=new THREE.Group();scene.add(ship);
-  const body=new THREE.MeshStandardMaterial({color:0xb9bdc9,metalness:.85,roughness:.35});
-  const dark=new THREE.MeshStandardMaterial({color:0x3a3f4d,metalness:.7,roughness:.5});
-  const hull=new THREE.Mesh(new THREE.CylinderGeometry(.62,.42,5.6,10),body);hull.rotation.x=Math.PI/2;ship.add(hull);
-  const nose=new THREE.Mesh(new THREE.ConeGeometry(.62,2.1,10),body);nose.rotation.x=Math.PI/2;nose.position.z=3.8;ship.add(nose);
-  const cockpit=new THREE.Mesh(new THREE.SphereGeometry(.52,14,10,0,Math.PI*2,0,Math.PI/2),dark);cockpit.position.set(0,.42,.6);ship.add(cockpit);
-  const eng=[];
-  [[-1,1],[1,1],[-1,-1],[1,-1]].forEach(([sx,sy])=>{
-    const w=new THREE.Mesh(new THREE.BoxGeometry(3.4,.12,1.5),body);
-    w.position.set(sx*2,sy*.62,-.7);w.rotation.z=sy*.16*sx;ship.add(w);
-    const n=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,1.5,10),dark);
-    n.rotation.x=Math.PI/2;n.position.set(sx*3.3,sy*.62,-1.1);ship.add(n);
-    const e=new THREE.Mesh(new THREE.CircleGeometry(.26,12),new THREE.MeshBasicMaterial({color:col(),transparent:true,opacity:.95,blending:THREE.AdditiveBlending}));
-    e.position.set(sx*3.3,sy*.62,-1.9);e.rotation.y=Math.PI;ship.add(e);eng.push(e);
-    const trail=new THREE.Mesh(new THREE.CylinderGeometry(.2,.02,2.6,10,1,true),new THREE.MeshBasicMaterial({color:col(),transparent:true,opacity:.28,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
-    trail.rotation.x=Math.PI/2;trail.position.set(sx*3.3,sy*.62,-3.2);ship.add(trail);eng.push(trail);
+  /* Materiales: casco claro panelado, detalles oscuros, franjas de acento */
+  const body=new THREE.MeshStandardMaterial({color:0xd7dae2,metalness:.55,roughness:.42});
+  const body2=new THREE.MeshStandardMaterial({color:0xa9aebb,metalness:.6,roughness:.5});
+  const dark=new THREE.MeshStandardMaterial({color:0x272b35,metalness:.75,roughness:.42});
+  const stripe=new THREE.MeshStandardMaterial({color:0xc0392b,metalness:.3,roughness:.55,emissive:0x3a0f0a,emissiveIntensity:.5});
+  const glassM=new THREE.MeshPhysicalMaterial({color:0x2a3a52,metalness:.2,roughness:.08,transmission:.65,thickness:.6,transparent:true,opacity:.85,clearcoat:1});
+  const eng=[],lamps=[];
+
+  /* Fuselaje: nariz larga + cuerpo + sección de cola */
+  const nose=new THREE.Mesh(new THREE.CylinderGeometry(.16,.56,3.2,16),body);
+  nose.rotation.x=Math.PI/2;nose.position.z=3.3;ship.add(nose);
+  const noseTip=new THREE.Mesh(new THREE.SphereGeometry(.16,12,10),dark);noseTip.position.z=4.9;ship.add(noseTip);
+  const hull=new THREE.Mesh(new THREE.CylinderGeometry(.56,.62,4.2,16),body);
+  hull.rotation.x=Math.PI/2;hull.position.z=-.4;ship.add(hull);
+  const spine=new THREE.Mesh(new THREE.BoxGeometry(.34,.3,4.6),body2);spine.position.set(0,.5,-.6);ship.add(spine);
+  const tail=new THREE.Mesh(new THREE.CylinderGeometry(.62,.5,1.1,16),body2);
+  tail.rotation.x=Math.PI/2;tail.position.z=-3;ship.add(tail);
+  /* franjas de acento en la nariz */
+  [-1,1].forEach(s=>{
+    const st=new THREE.Mesh(new THREE.BoxGeometry(.07,.42,1.5),stripe);
+    st.position.set(s*.36,.12,3.2);st.rotation.z=s*.1;ship.add(st);
   });
-  scene.add(new THREE.AmbientLight(0x8899bb,.75));
-  const k=new THREE.DirectionalLight(0xffffff,1.5);k.position.set(3,5,4);scene.add(k);
-  const rimL=new THREE.PointLight(col(),22,26,2);rimL.position.set(-4,-1,-5);scene.add(rimL);
+
+  /* Cabina: marco + cristal + luz interior */
+  const canopyFrame=new THREE.Mesh(new THREE.SphereGeometry(.58,18,12,0,Math.PI*2,0,Math.PI/2.05),dark);
+  canopyFrame.position.set(0,.38,.75);canopyFrame.scale.set(.82,.86,1.5);ship.add(canopyFrame);
+  const canopy=new THREE.Mesh(new THREE.SphereGeometry(.54,18,12,0,Math.PI*2,0,Math.PI/2.2),glassM);
+  canopy.position.set(0,.4,.75);canopy.scale.set(.78,.82,1.42);ship.add(canopy);
+  const cockpitGlow=new THREE.Mesh(new THREE.SphereGeometry(.3,10,8),new THREE.MeshBasicMaterial({color:0x7fd4ff,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false}));
+  cockpitGlow.position.set(0,.36,.8);ship.add(cockpitGlow);lamps.push({m:cockpitGlow,base:.5,sp:1.3});
+
+  /* Cuatro alas en X con su góndola, motor y cañón */
+  [[-1,1],[1,1],[-1,-1],[1,-1]].forEach(([sx,sy])=>{
+    const arm=new THREE.Group();
+    /* ala con perfil (más fina en la punta) */
+    const wing=new THREE.Mesh(new THREE.BoxGeometry(3.5,.14,1.45),body);
+    wing.position.set(sx*2.15,0,-.6);ship.add(wing);
+    const wingEdge=new THREE.Mesh(new THREE.BoxGeometry(3.5,.06,.3),dark);
+    wingEdge.position.set(sx*2.15,.02,-1.34);ship.add(wingEdge);
+    const wingStripe=new THREE.Mesh(new THREE.BoxGeometry(.5,.16,1.3),stripe);
+    wingStripe.position.set(sx*1.35,.01,-.6);ship.add(wingStripe);
+    /* góndola del motor */
+    const nac=new THREE.Mesh(new THREE.CylinderGeometry(.34,.31,2.1,14),body2);
+    nac.rotation.x=Math.PI/2;nac.position.set(sx*3.5,0,-1);ship.add(nac);
+    const nacRing=new THREE.Mesh(new THREE.TorusGeometry(.35,.05,8,18),dark);
+    nacRing.position.set(sx*3.5,0,-.1);ship.add(nacRing);
+    /* tobera + resplandor */
+    const bell=new THREE.Mesh(new THREE.CylinderGeometry(.3,.24,.34,14),dark);
+    bell.rotation.x=Math.PI/2;bell.position.set(sx*3.5,0,-2.15);ship.add(bell);
+    const e=new THREE.Mesh(new THREE.CircleGeometry(.25,16),new THREE.MeshBasicMaterial({color:col(),transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false,toneMapped:false}));
+    e.position.set(sx*3.5,0,-2.33);e.rotation.y=Math.PI;ship.add(e);eng.push({m:e,base:.95});
+    const trail=new THREE.Mesh(new THREE.CylinderGeometry(.22,.02,3,12,1,true),new THREE.MeshBasicMaterial({color:col(),transparent:true,opacity:.22,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide,toneMapped:false}));
+    trail.rotation.x=Math.PI/2;trail.position.set(sx*3.5,0,-3.8);ship.add(trail);eng.push({m:trail,base:.22});
+    /* cañón láser en la punta del ala */
+    const gun=new THREE.Mesh(new THREE.CylinderGeometry(.07,.07,3.4,10),dark);
+    gun.rotation.x=Math.PI/2;gun.position.set(sx*3.9,0,.9);ship.add(gun);
+    const gunTip=new THREE.Mesh(new THREE.CylinderGeometry(.1,.07,.4,10),body2);
+    gunTip.rotation.x=Math.PI/2;gunTip.position.set(sx*3.9,0,2.75);ship.add(gunTip);
+    /* la separación en X se aplica al conjunto del brazo */
+    [wing,wingEdge,wingStripe,nac,nacRing,bell,e,trail,gun,gunTip].forEach(o=>{
+      o.position.y+=sy*.5;o.rotation.z+=sy*sx*.13;
+    });
+  });
+
+  /* Iluminación: clave + contra + relleno */
+  scene.add(new THREE.AmbientLight(0x6b7fa8,.55));
+  const k=new THREE.DirectionalLight(0xffffff,2.1);k.position.set(4,6,5);scene.add(k);
+  const fill=new THREE.DirectionalLight(0x88a8ff,.7);fill.position.set(-5,-2,3);scene.add(fill);
+  const rimL=new THREE.PointLight(col(),30,30,2);rimL.position.set(-4,1,-6);scene.add(rimL);
+  const engineL=new THREE.PointLight(col(),18,14,2);engineL.position.set(0,0,-3.6);scene.add(engineL);
   function size(){const r=host.getBoundingClientRect();if(!r.width)return;renderer.setSize(r.width,r.height,false);cam.aspect=r.width/r.height;cam.updateProjectionMatrix()}
   size();addEventListener('resize',size);
   let on=false,last=performance.now();
   new IntersectionObserver(([e])=>on=e.isIntersecting,{rootMargin:'150px'}).observe(host);
   (function loop(now){requestAnimationFrame(loop);if(!on||document.hidden)return;
     const dt=Math.min(.05,(now-last)/1000);last=now;
-    ship.rotation.y+=dt*.34;ship.rotation.z=Math.sin(now/1400)*.09;ship.position.y=Math.sin(now/1100)*.22;
-    const p=.75+Math.sin(now/120)*.25;eng.forEach((e,i)=>e.material.opacity=(i%2?.28:.95)*p);
+    /* vuelo: giro lento, alabeo y cabeceo suaves */
+    ship.rotation.y+=dt*.3;
+    ship.rotation.z=Math.sin(now/1500)*.11;
+    ship.rotation.x=Math.sin(now/2100)*.06;
+    ship.position.y=Math.sin(now/1200)*.24;
+    const pulse=.8+Math.sin(now/110)*.2;
+    eng.forEach(e=>e.m.material.opacity=e.base*pulse);
+    engineL.intensity=15+Math.sin(now/110)*5;
+    lamps.forEach(l=>l.m.material.opacity=l.base*(.6+.4*Math.sin(now/1000*l.sp)));
     renderer.render(scene,cam);})(performance.now());
-  return{recolor(){const c=col();eng.forEach(e=>e.material.color=c);rimL.color=c}};
+  return{recolor(){const c=col();eng.forEach(e=>e.m.material.color=c);rimL.color=c;engineL.color=c}};
 }
 </script>
 </body>

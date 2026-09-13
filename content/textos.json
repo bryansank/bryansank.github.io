@@ -15,6 +15,22 @@
     "es": "Este sitio tiene algunos poderes opcionales. Enciende los que quieras — <b>todo el contenido funciona igual sin ninguno</b>, y nada sale de tu dispositivo.",
     "en": "This site has a few optional powers. Turn on whichever you like — <b>everything works without them</b>, and nothing leaves your device."
   },
+  "general.32": {
+    "es": "Lado Oscuro",
+    "en": "Dark Side"
+  },
+  "general.33": {
+    "es": "Negro y rojo",
+    "en": "Black and red"
+  },
+  "general.34": {
+    "es": "Lado de la Luz",
+    "en": "Light Side"
+  },
+  "general.35": {
+    "es": "Claro y verde",
+    "en": "Light and green"
+  },
   "general.05": {
     "es": "Sonido del sable",
     "en": "Saber sound"

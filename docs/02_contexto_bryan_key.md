@@ -18,8 +18,10 @@ sitio viejo en `old_site/`, repos públicos de GitHub (`bryansank`).
 - **Experiencia:** +8 años (2018–2026). Senior Fullstack, hoy más backend
   (NestJS/TS/SQL) pero con raíces y gusto frontend. Autodidacta.
 - **Idiomas:** Español nativo, inglés B1 → sitio ES/EN obligatorio.
-- **Contacto:** bryansan055@gmail.com · linkedin.com/in/bryansank ·
-  github.com/bryansank · twitter.com/bryansank · instagram.com/bryansank.
+- **Contacto profesional:** bryansan055@gmail.com · linkedin.com/in/bryansank ·
+  github.com/bryansank.
+- **No publicar:** teléfono personal, Twitter/X ni Instagram — son cuentas
+  personales, no profesionales (decisión del usuario, 2026-09-13).
 
 ## Trayectoria (LinkedIn, cronológica inversa)
 
