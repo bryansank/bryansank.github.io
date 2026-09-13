@@ -96,7 +96,7 @@ y se exporta a PDF con Playwright para que sea regenerable desde los datos.
 
 1. **Base sin JS**: HTML semántico con todo el contenido ES (y EN oculto por
    `hidden` hasta que JS elija). CTA como enlaces reales (`mailto:`,
-   `https://wa.me/584242014704?text=…`, PDF, LinkedIn).
+   LinkedIn, PDF). Sin teléfono público.
 2. **CSS**: tokens OKLCH en `:root[data-theme]`; layout Grid; hero con
    `min-height: 100svh`; crawl con `animation-timeline: scroll()`; reveals
    con `animation-timeline: view()` y `@supports not` → clase `.in-view` por

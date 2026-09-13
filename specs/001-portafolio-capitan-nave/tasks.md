@@ -20,8 +20,8 @@ la constitución (consola, teclado, reduced-motion, 414/1440 px) + Lighthouse.
 
 ## Phase 3: US1 — Contacto primero (P1) 🎯 MVP
 
-- [x] T006 [US1] Hero "Puente de mando": nombre, USP, píldora Open to work, CTA `Descargar CV ya` (PDF por idioma) y `Hablar ahora` (WhatsApp con texto, email `mailto:` con asunto, LinkedIn)
-- [x] T007 [US1] Dock fijo con los 4 CTA (se oculta mientras los CTA del hero están a la vista); foco inicial en CV tras la intro → WhatsApp → Email → LinkedIn
+- [x] T006 [US1] Hero "Puente de mando": nombre, USP, píldora Open to work, CTA `Descargar CV ya` (PDF por idioma) y `Hablar ahora` (LinkedIn, email `mailto:` con asunto, GitHub)
+- [x] T007 [US1] Dock fijo con los 4 CTA (se oculta mientras los CTA del hero están a la vista); foco inicial en CV tras la intro → LinkedIn → Email → GitHub
 - [x] T008 [P] [US1] `cv/es.html` y `cv/en.html` imprimibles desde `docs/02`; exportados a `assets/files/CV-Bryan-Key-2026-{ES,EN}.pdf` con `cv/build-pdf.js` (Playwright)
 
 ## Phase 4: US2 — Trayectoria en 60 s (P1)
@@ -54,7 +54,8 @@ la constitución (consola, teclado, reduced-motion, 414/1440 px) + Lighthouse.
 
 ## Pendientes fuera de alcance (para el usuario)
 
-- Confirmar que +58 424-201-4704 sigue siendo el WhatsApp correcto.
+- ~~Confirmar el WhatsApp~~ → resuelto: el usuario decidió no publicar
+  teléfono (riesgo de scraping/spam). Canales: LinkedIn, email, GitHub.
 - Aportar logos de Consolidez, QPlus, Lapzo y KED si quiere insignias reales en la hoja de servicio.
 - Revisar y ajustar textos del CV 2026 (`cv/es.html`, `cv/en.html`) y regenerar con `node cv/build-pdf.js`.
 

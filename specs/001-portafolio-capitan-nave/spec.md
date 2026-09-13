@@ -18,16 +18,16 @@ mi CV YA y hablar conmigo YA. Bilingüe ES/EN, accesible, rápido."
 
 Un reclutador técnico abre el sitio desde LinkedIn (móvil o escritorio). Sin
 esperar ni desplazarse ve el nombre, la propuesta de valor, el estado "Open
-to work" y tres acciones: descargar CV, escribir por WhatsApp, abrir
-LinkedIn/email. Mientras lee, una barra fija mantiene esas acciones a un
+to work" y tres acciones: descargar CV, escribir por LinkedIn, abrir
+email/GitHub. Mientras lee, una barra fija mantiene esas acciones a un
 toque.
 
 **Why this priority**: es el único objetivo de negocio del sitio; sin esto,
 lo demás no vale.
 
 **Independent Test**: abrir la página en 414 px y 1440 px; en ≤10 s y sin
-scroll el CV se descarga y WhatsApp/email/LinkedIn se abren con el mensaje
-prellenado.
+scroll el CV se descarga y LinkedIn/email/GitHub se abren (el email con
+asunto prellenado).
 
 **Acceptance Scenarios**:
 
@@ -35,7 +35,7 @@ prellenado.
    CTA de CV y contacto son visibles sobre el pliegue en ≤4 s aunque la
    intro siga reproduciéndose, y un botón "Saltar" la termina al instante.
 2. **Given** el usuario está en cualquier sección, **When** quiere contactar,
-   **Then** la barra fija ofrece CV + WhatsApp + email + LinkedIn sin volver
+   **Then** la barra fija ofrece CV + LinkedIn + email + GitHub sin volver
    arriba.
 3. **Given** un usuario con teclado, **When** pulsa Tab desde el inicio,
    **Then** el primer foco cae en "Descargar CV" y el segundo en "Hablar
@@ -122,17 +122,19 @@ corresponde al idioma.
   fondo usa CSS; ningún error visible.
 - El video del sitio viejo no carga: la intro corta un póster estático.
 - JavaScript deshabilitado: el perfil completo y los CTA funcionan (enlaces
-  `mailto:`, `https://wa.me`, PDF).
+  `mailto:`, LinkedIn, PDF).
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
 - **FR-001**: El hero MUST mostrar nombre, USP, estado "Open to work" y los
-  CTA "Descargar CV" y "Hablar ahora" (WhatsApp, email, LinkedIn) sobre el
+  CTA "Descargar CV" y "Hablar ahora" (LinkedIn, email, GitHub) sobre el
   pliegue en móvil y escritorio.
 - **FR-002**: Una barra de contacto fija MUST estar disponible en toda la
-  página con CV, WhatsApp, email y LinkedIn.
+  página con CV, LinkedIn, email y GitHub.
+- **FR-002b**: El sitio y el CV MUST NOT exponer el número de teléfono
+  personal, para evitar scraping y spam (decisión del usuario, 2026-09-13).
 - **FR-003**: El CV MUST descargarse como PDF actualizado (2026) en el idioma
   activo; los enlaces de contacto MUST llevar un mensaje prellenado.
 - **FR-004**: La intro (video viejo rebanado) MUST durar ≤4 s, ser saltable
@@ -176,8 +178,8 @@ corresponde al idioma.
 
 ## Assumptions
 
-- El teléfono (+58 424-2014704) del CV 2022 sigue vigente para WhatsApp;
-  confirmar con el usuario antes de publicar.
+- Resuelto: no se publica teléfono. Los canales son LinkedIn (principal),
+  email y GitHub.
 - El CV 2026 se genera desde `docs/02_contexto_bryan_key.md` (ES y EN) como
   PDF estático en `assets/files/`.
 - No hay logos nuevos de Consolidez/QPlus/Lapzo/KED; se usan iniciales en
