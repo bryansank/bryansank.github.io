@@ -1,50 +1,94 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# bryansank.github.io Constitution
+
+Sitio personal de Bryan Key Hernández. Objetivo único: que un reclutador
+técnico o CTO entienda su perfil en menos de 60 segundos y lo contacte.
+Documentos rectores: `docs/00_wowportfolio_agent_system_prompt.md` (agente y
+enmiendas) y `docs/02_contexto_bryan_key.md` (perfil real).
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Contacto Primero (NON-NEGOTIABLE)
+Descargar el CV y hablar con Bryan (WhatsApp, email, LinkedIn) MUST ser lo
+primero visible y accesible en cualquier viewport, sin scroll y sin esperar
+ninguna animación. La intro MUST poder saltarse en ≤1 s y MUST NOT ocultar
+los CTA de contacto más de 4 s. Cada sección MUST terminar a ≤1 gesto de un
+CTA de contacto (barra fija o botón visible).
+*Rationale:* el sitio existe para conseguir empleo; todo efecto que retrase
+el contacto va en contra del objetivo.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Perfil Real sobre Espectáculo
+Todo contenido MUST provenir de `docs/02_contexto_bryan_key.md` (LinkedIn,
+CV). MUST NOT inventarse puestos, métricas ni tecnologías. La temática Star
+Wars + videojuegos es la envoltura: nombres de sección, copy, color y forma;
+nunca sustituye la información profesional. Un reclutador que lea solo el
+texto (sin CSS ni JS) MUST obtener el perfil completo.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Vanilla + Three.js como Única Excepción
+HTML5 semántico, CSS3 moderno (custom properties, Grid, Flexbox, container
+queries, scroll-driven animations) y JavaScript ES2022+ nativo. Three.js es
+la ÚNICA librería permitida, exclusivamente para escenas 3D (sable, campo de
+estrellas); MUST cargarse como ES module después del primer render y MUST
+tener fallback CSS cuando WebGL o el módulo fallen. PROHIBIDOS React, Vue,
+Angular, GSAP, jQuery, Tailwind y cualquier build step. El sitio MUST
+desplegarse como archivos estáticos desde la raíz del repo (GitHub Pages).
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Accesibilidad y Movimiento Respetuoso
+WCAG 2.1 AA mínimo, AAA en contraste de texto. Navegación completa por
+teclado con foco visible; landmarks y ARIA en toggles, intro y regiones
+dinámicas. `prefers-reduced-motion: reduce` MUST desactivar intro 3D,
+hiperespacio, crawl y parallax (contenido visible de inmediato). Sonido MUST
+ser opt-in, apagado por defecto y sin autoplay. Bilingüe ES/EN sin recarga
+con `lang` correcto en el documento.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Rendimiento Medible
+Lighthouse móvil ≥ 90 en Performance y 100 en Accessibility, Best Practices
+y SEO; escritorio 100 en los cuatro. Animaciones solo con `transform`,
+`opacity`, `clip-path` y filtros compuestos a 60 fps. Peso inicial (HTML +
+CSS + JS crítico) ≤ 150 KB; Three.js y el video del sitio viejo se cargan
+diferidos. Cero bloqueos de renderizado por fuentes o scripts externos.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Propiedad Intelectual Limpia
+MUST NOT usarse logos, personajes, tipografías oficiales, música ni audio de
+Lucasfilm/Disney ni de videojuegos comerciales. Sables, estrellas, hologramas
+y sonidos MUST ser originales (CSS/Three.js/Web Audio sintetizado). Nombres
+de secciones y guiños son referencias culturales, no assets ajenos.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Restricciones Técnicas
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- Un solo `index.html` en la raíz con CSS en `<style>` y JS en `<script>`;
+  assets en `assets/` (video del sitio viejo, CV PDF, favicon). Three.js vía
+  import map desde CDN pinneado a versión exacta.
+- Paleta en OKLCH definida en `:root`; tema por defecto Lado Oscuro
+  (`data-theme="dark"`), Lado Luz con `data-theme="light"`; ambos MUST pasar
+  contraste AAA en texto de cuerpo.
+- Responsive de 200 px (smartwatch) a 3840 px: `clamp()` para tipografía y
+  espaciado; bajo 320 px el sitio MUST degradar a lista vertical sin 3D.
+- Contenido ES/EN en diccionario JS único; el idioma inicial se infiere de
+  `navigator.language` y se persiste en `localStorage`.
+- Video del sitio viejo (`assets/media/old-site.webm`) se reproduce muteado,
+  `preload="none"`, solo en la intro y solo si no hay reduced-motion.
+- `old_site/` MUST permanecer intacto y accesible en `/old_site/`.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Flujo de Trabajo
+
+- Spec Kit: constitución → `/speckit-specify` → `/speckit-plan` →
+  `/speckit-tasks` → `/speckit-implement`. Cada feature vive en
+  `specs/NNN-nombre/`.
+- Antes de cada push a `main` (que es producción en GitHub Pages) MUST
+  verificarse: carga sin errores de consola, teclado recorre todos los CTA,
+  reduced-motion muestra el perfil completo, y el sitio se ve correcto en
+  414 px y 1440 px.
+- Commits en español, concisos; la raíz del repo MUST servir siempre una
+  página funcional (nunca un estado roto en producción).
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Esta constitución prevalece sobre cualquier otra práctica del repo. Una
+enmienda requiere: registrar el cambio en `docs/00_…` (sección "Enmiendas
+del usuario") con fecha, actualizar este archivo y subir la versión
+(MAJOR: quitar/redefinir un principio; MINOR: añadir principio o sección;
+PATCH: aclaraciones). Todo plan y spec MUST incluir un "Constitution Check"
+que cite qué principio satisface o viola cada decisión; las violaciones se
+justifican en "Complexity Tracking" o se descartan.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-09-13 | **Last Amended**: 2026-09-13
