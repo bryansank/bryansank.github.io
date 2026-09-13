@@ -87,7 +87,8 @@ section+section{border-top:1px solid var(--line)}
 @media (min-width:768px) and (pointer:fine){.top{backdrop-filter:blur(14px) saturate(1.3);background:color-mix(in oklch,var(--bg) 72%,transparent)}}
 .top .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.06em;font-family:var(--display);font-size:15px}
-.brand .key{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--saber),var(--accent));color:oklch(12% 0 0);font:900 15px var(--mono);box-shadow:0 0 18px var(--saber-soft)}
+.brand .key{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--saber),var(--accent));color:oklch(12% 0 0);box-shadow:0 0 18px var(--saber-soft);flex:none}
+.brand .key svg{display:block}
 .nav{display:none;gap:4px;margin-inline:auto}
 .nav a{text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px;font-weight:600}
 .nav a:hover{color:var(--fg);background:var(--glass)}
@@ -102,10 +103,11 @@ section+section{border-top:1px solid var(--line)}
 .pill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--glass);border-radius:999px;padding:8px 14px 8px 10px;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg)}
 .pill i{width:10px;height:10px;border-radius:50%;background:var(--saber);box-shadow:0 0 12px var(--saber);animation:pulse 1.8s ease-in-out infinite;will-change:transform,opacity}
 @keyframes pulse{50%{transform:scale(.7);opacity:.6}}
-.hero h1{font-family:var(--display);font-size:clamp(30px,6.4vw,84px);font-weight:900;letter-spacing:.01em;margin-top:20px;text-transform:uppercase;line-height:1.1}
+.hero h1{font-family:var(--display);font-size:clamp(38px,8.6vw,116px);font-weight:900;letter-spacing:-.008em;margin-top:clamp(14px,2vw,24px);text-transform:uppercase;line-height:.99}
 .hero h1 .w{display:block}
 .hero h1 .l{display:inline-block;animation:drop .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 45ms + .1s)}
-.hero h1 .w:last-child .l{color:var(--saber);-webkit-text-stroke:1px var(--fg);text-shadow:0 0 30px var(--saber-soft),0 0 60px var(--saber-soft)}
+.hero h1 .w:first-child .l{text-shadow:0 3px 26px oklch(0% 0 0 / .6)}
+.hero h1 .w:last-child .l{color:var(--saber);text-shadow:0 0 26px var(--saber-soft),0 0 76px var(--saber-soft),0 3px 26px oklch(0% 0 0 / .5)}
 @keyframes drop{from{opacity:0;transform:translateY(.6em) rotateX(-40deg);filter:blur(6px)}}
 .hero .role{font:600 clamp(15px,1.1vw + 8px,22px)/1.3 var(--font);color:var(--muted);margin-top:16px;max-width:34ch;letter-spacing:.01em}
 .hero .role b{color:var(--fg)}
@@ -158,10 +160,21 @@ section+section{border-top:1px solid var(--line)}
 .tilt:hover,.tilt:focus-within{border-color:var(--saber);box-shadow:0 20px 60px -30px var(--saber),0 0 0 1px var(--saber-soft)}
 .card header{display:flex;align-items:flex-start;gap:13px}
 .card .htxt{min-width:0;flex:1}
-.colog{margin:0;width:46px;height:46px;flex:none;border-radius:11px;display:grid;place-items:center;overflow:hidden;background:oklch(96% 0.008 90);border:1px solid var(--line);box-shadow:0 2px 10px -4px oklch(0% 0 0 / .6)}
-.colog img{width:100%;height:100%;object-fit:contain;padding:6px;box-sizing:border-box}
-.colog.init{background:linear-gradient(140deg,var(--saber),var(--accent));color:oklch(14% 0 0);font:900 clamp(13px,1.2vw,16px)/1 var(--display);letter-spacing:.01em;border-color:transparent}
-@media (max-width:380px){.colog{width:38px;height:38px;border-radius:9px}}
+/* Rectangular: los wordmarks apaisados se leen y los isotipos siguen centrados */
+.colog{margin:0;width:clamp(82px,11vw,112px);height:clamp(50px,6.6vw,66px);flex:none;border-radius:12px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);box-shadow:0 3px 14px -6px oklch(0% 0 0 / .7)}
+.colog img{width:100%;height:100%;object-fit:contain;padding:8px 10px;box-sizing:border-box}
+.colog.on-light{background:oklch(98% 0.004 90)}
+.colog.on-dark{background:oklch(19% 0.022 265)}
+:root[data-theme="light"] .colog.on-dark{background:oklch(24% 0.025 265)}
+@media (max-width:560px){
+  .card header{flex-direction:column;align-items:flex-start;gap:10px}
+  .colog{width:96px;height:54px}
+  .brand span:not(.key){white-space:nowrap;font-size:13px}
+  .ctl .lbl{display:none}
+  .ctl{padding:0 9px;min-width:36px;height:36px}
+  .top .wrap{gap:8px;min-height:54px}
+}
+@media (max-width:360px){.colog{width:84px;height:48px;border-radius:9px}.colog img{padding:5px 7px}}
 .card h3{font-size:clamp(19px,1.4vw + 10px,24px);font-weight:800}
 .card .co{color:var(--accent);font-weight:700}
 .card time,.card .loc{display:block;font:600 12.5px var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
@@ -240,14 +253,15 @@ section+section{border-top:1px solid var(--line)}
 .dock a:not(.primary):hover{background:var(--glass)}
 @media (max-width:560px){.dock a span{display:none}.dock a{padding:0 13px}.dock a.primary span{display:inline}}
 /* ---------- Sala de embarque ---------- */
-#gate{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:clamp(12px,3vw,24px);background:radial-gradient(ellipse at 50% -10%,oklch(22% 0.06 275),oklch(9% 0.02 275) 55%,oklch(6% 0.01 275));overflow-y:auto;transition:opacity .4s}
+/* Siempre encuadrada: nunca debe aparecer scroll */
+#gate{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:clamp(8px,2vh,20px);background:radial-gradient(ellipse at 50% -10%,oklch(22% 0.06 275),oklch(9% 0.02 275) 55%,oklch(6% 0.01 275));overflow:hidden;transition:opacity .4s}
 #gate.out{opacity:0;pointer-events:none}
 html[data-intro="skip"] #gate{display:none}
-.gate-card{width:min(520px,100%);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,4vw,32px);box-shadow:0 40px 120px -40px oklch(0% 0 0 / .9)}
-.gate-card h2{font-size:clamp(21px,3.2vw,29px);margin-top:4px}
-.gate-sub{color:var(--muted);margin:10px 0 0;font-size:14.5px;line-height:1.5}
-.powers{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:9px}
-.power{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:11px 13px;color:var(--fg);font:inherit;cursor:pointer;transition:border-color .2s}
+.gate-card{width:min(520px,100%);max-height:calc(100svh - clamp(16px,4vh,40px));display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,2.6vh,30px) clamp(16px,4vw,30px);box-shadow:0 40px 120px -40px oklch(0% 0 0 / .9)}
+.gate-card h2{font-size:clamp(18px,3.4vh,28px);margin-top:3px}
+.gate-sub{color:var(--muted);margin:clamp(6px,1.2vh,10px) 0 0;font-size:clamp(12px,1.7vh,14.5px);line-height:1.45}
+.powers{list-style:none;margin:clamp(11px,2vh,20px) 0 0;padding:0;display:grid;gap:clamp(6px,1.1vh,9px);min-height:0;overflow:auto}
+.power{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:var(--glass);border:1px solid var(--line);border-radius:13px;padding:clamp(8px,1.4vh,12px) 12px;color:var(--fg);font:inherit;cursor:pointer;transition:border-color .2s}
 .power:hover{border-color:var(--saber)}
 .power .ico{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--bg-2);font-size:17px}
 .power .txt{flex:1;min-width:0}
@@ -260,11 +274,15 @@ html[data-intro="skip"] #gate{display:none}
 .power .sw::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s}
 .power[aria-checked="true"] .sw{background:var(--saber);border-color:var(--saber)}
 .power[aria-checked="true"] .sw::after{transform:translateX(18px);background:oklch(99% 0 0)}
-.gate-actions{margin-top:20px;display:grid;gap:11px}
-.gate-actions .btn{justify-content:center;width:100%}
-.gate-skip{margin:0;text-align:center;font-size:14px;color:var(--muted)}
-.gate-note{margin:14px 0 0;font-size:11.8px;color:var(--muted);text-align:center;line-height:1.45}
-@media (max-width:350px){.power .txt em{display:none}.power .ico{width:28px;height:28px;font-size:14px}}
+.gate-actions{margin-top:clamp(11px,2vh,20px);display:grid;gap:clamp(7px,1.2vh,11px);flex:none}
+.gate-actions .btn{justify-content:center;width:100%;min-height:clamp(44px,6vh,52px)}
+.gate-skip{margin:0;text-align:center;font-size:clamp(12.5px,1.7vh,14px);color:var(--muted)}
+.gate-note{margin:clamp(8px,1.5vh,14px) 0 0;font-size:clamp(10px,1.4vh,11.8px);color:var(--muted);text-align:center;line-height:1.4;flex:none}
+/* Pantallas bajas: se recortan los adornos antes que el contenido */
+@media (max-height:720px){.power .txt em{display:none}.power .ico{width:30px;height:30px;font-size:15px}}
+@media (max-height:600px){.gate-sub{display:none}.gate-card .kicker{margin-bottom:8px}}
+@media (max-height:520px){.gate-note{display:none}}
+@media (max-width:430px){.power .txt em{display:none}.power .ico{width:30px;height:30px;font-size:15px}.gate-sub{font-size:12.5px}}
 /* ---------- Intro ---------- */
 #intro{position:fixed;inset:0;z-index:90;background:oklch(6% 0.01 275);display:grid;place-items:center;transition:opacity .6s}
 #intro canvas{position:absolute;inset:0;width:100%;height:100%}
@@ -379,7 +397,7 @@ html.saber-cursor #saber{display:block}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#puente"><span class="key" aria-hidden="true">BK</span><span>Bryan Key</span></a>
+    <a class="brand" href="#puente"><span class="key" aria-hidden="true"><svg viewBox="0 0 48 48" width="24" height="24"><path d="M24 6c-8.4 0-14.2 5.7-14.2 14.2v8.4C9.8 35.4 14.6 41 24 41s14.2-5.6 14.2-12.4v-8.4C38.2 11.7 32.4 6 24 6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M14.6 19.4h18.8l-2.6 6.8h-3.6L25.6 35h-3.2l-1.6-8.8h-3.6z" fill="currentColor"/></svg></span><span>Bryan Key</span></a>
     <nav class="nav" aria-label="Secciones">
       <a href="#bitacora"><span lang="es" data-t="general.18">Bitácora</span><span lang="en" data-t="general.18">Log</span></a>
       <a href="#servicio"><span lang="es" data-t="general.19">Hoja de servicio</span><span lang="en" data-t="general.19">Service record</span></a>
@@ -393,6 +411,9 @@ html.saber-cursor #saber{display:block}
       <button class="ctl" id="themeBtn" type="button" aria-pressed="false" aria-label="Lado: cambiar entre Lado Oscuro y Lado Luz">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
         <span class="lbl" lang="es">Lado</span><span class="lbl" lang="en">Side</span>
+      </button>
+      <button class="ctl" id="replayBtn" type="button" aria-label="Ver la intro otra vez y reiniciar preferencias">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9M20 4v4h-4"/></svg>
       </button>
       <button class="ctl" id="soundBtn" type="button" aria-pressed="false" aria-label="Sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path class="wave" d="M15 9.5a4 4 0 0 1 0 5M17.5 7a7.5 7.5 0 0 1 0 10"/></svg></button>
     </div>
@@ -451,35 +472,35 @@ html.saber-cursor #saber{display:block}
       <h2 id="h-servicio"><span lang="es" data-t="servicio.02">Ruta de hiperespacio 2018 → 2026</span><span lang="en" data-t="servicio.02">Hyperspace route 2018 → 2026</span></h2>
       <p class="lede"><span lang="es" data-t="servicio.03">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en" data-t="servicio.03">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
       <ol class="route"><li class="stop now reveal"><article class="card tilt">
-          <header><figure class="colog init" aria-hidden="true">GCS</figure><div class="htxt"><h3><span lang="es" data-t="servicio.04">Desarrollador de software</span><span lang="en" data-t="servicio.04">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></div></header>
+          <header><figure class="colog on-dark"><img src="./assets/logos/consolidez.png" alt="Consolidez (GCS)" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.04">Desarrollador de software</span><span lang="en" data-t="servicio.04">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></div></header>
           <time datetime="2025-04"><span lang="es" data-t="servicio.05">abr 2025 – actualidad</span><span lang="en" data-t="servicio.05">Apr 2025 – present</span></time><span class="loc">Caracas · <span lang="es" data-t="servicio.06">presencial</span><span lang="en" data-t="servicio.06">on-site</span></span>
           <ul lang="es" data-t="servicio.07"><li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li></ul>
           <ul lang="en" data-t="servicio.07"><li>Next.js + Supabase back-office on Vercel with administrative workflows for internal operations.</li><li>React Native (Expo) mobile app: customers, orders, payments and pricing with geolocation and Maps for field work.</li><li>Configurable dynamic questionnaires and maintenance of a 25-year-old React + .NET 4.5 + SQL Server legacy: critical bugs fixed in under 2 weeks.</li></ul>
           <div class="chips"><span>Next.js</span><span>Supabase</span><span>React Native</span><span>Expo</span><span>.NET</span><span>SQL Server</span><span>Vercel</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog init" aria-hidden="true">Q+</figure><div class="htxt"><h3>Senior Software Engineer</h3><span class="co">QPlus Software Solutions</span></div></header>
+          <header><figure class="colog on-light"><img src="./assets/logos/qplus.png" alt="QPlus Software Solutions" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Senior Software Engineer</h3><span class="co">QPlus Software Solutions</span></div></header>
           <time datetime="2025-03"><span lang="es" data-t="servicio.08">mar – may 2025 · contrato</span><span lang="en" data-t="servicio.08">Mar – May 2025 · contract</span></time><span class="loc">Córdoba, AR · <span lang="es" data-t="servicio.09">remoto</span><span lang="en" data-t="servicio.09">remote</span></span>
           <ul lang="es" data-t="servicio.10"><li>Mejoras escalables para el sector minero: organización de rutas de servidor, integración multi-idioma y monitoreo en tiempo real de cambios mecánicos y su rentabilidad.</li></ul>
           <ul lang="en" data-t="servicio.10"><li>Scalable improvements for the mining sector: server route organization, multi-language integration and real-time monitoring of mechanical changes and their profitability.</li></ul>
           <div class="chips"><span>C#</span><span>.NET Framework</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog init" aria-hidden="true">LT</figure><div class="htxt"><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></div></header>
+          <header><figure class="colog on-light"><img src="./assets/logos/libretickets.png" alt="LibreTickets" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></div></header>
           <time datetime="2024-10"><span lang="es" data-t="servicio.12">oct 2024 – ene 2025</span><span lang="en" data-t="servicio.12">Oct 2024 – Jan 2025</span></time><span class="loc">Córdoba, AR</span>
           <ul lang="es" data-t="servicio.13"><li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li></ul>
           <ul lang="en" data-t="servicio.13"><li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li></ul>
           <div class="chips"><span>Next.js</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog init" aria-hidden="true">LZ</figure><div class="htxt"><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></div></header>
+          <header><figure class="colog on-dark"><img src="./assets/logos/lapzo.png" alt="Lapzo" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></div></header>
           <time datetime="2022-10"><span lang="es" data-t="servicio.14">oct 2022 – sep 2024</span><span lang="en" data-t="servicio.14">Oct 2022 – Sep 2024</span></time><span class="loc">CDMX · <span lang="es" data-t="servicio.15">remoto</span><span lang="en" data-t="servicio.15">remote</span></span>
           <ul lang="es" data-t="servicio.16"><li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li></ul>
           <ul lang="en" data-t="servicio.16"><li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li></ul>
           <div class="chips"><span>NestJS</span><span>TypeScript</span><span>React</span><span>PostgreSQL</span><span>KNEX</span><span>Hasura</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog"><img src="./assets/logos/talently.png" alt="Talently" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Tech Mentor</h3><span class="co">Talently</span></div></header>
+          <header><figure class="colog on-light"><img src="./assets/logos/talently.png" alt="Talently" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Tech Mentor</h3><span class="co">Talently</span></div></header>
           <time datetime="2022-06"><span lang="es" data-t="servicio.17">jun 2022 – ago 2023 · autónomo</span><span lang="en" data-t="servicio.17">Jun 2022 – Aug 2023 · freelance</span></time><span class="loc">Argentina</span>
           <ul lang="es" data-t="servicio.18"><li>Mentoría 1:1 a <b>+30 desarrolladores</b> senior para pruebas técnicas y proyectos; roadmap con más del 60 % de colocación en los empleos deseados.</li></ul>
           <ul lang="en" data-t="servicio.18"><li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li></ul>
@@ -490,21 +511,21 @@ html.saber-cursor #saber{display:block}
         <summary><span lang="es" data-t="servicio.19">Historial anterior · 3 paradas (2018–2022)</span><span lang="en" data-t="servicio.19">Earlier history · 3 stops (2018–2022)</span></summary>
         <ol class="route" start="6">
 <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog"><img src="./assets/logos/arturos.png" alt="Arturo's" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.20">Programador Web Junior → Senior</span><span lang="en" data-t="servicio.20">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></div></header>
+          <header><figure class="colog on-light"><img src="./assets/logos/arturos.png" alt="Arturo's" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.20">Programador Web Junior → Senior</span><span lang="en" data-t="servicio.20">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></div></header>
           <time datetime="2019-05"><span lang="es" data-t="servicio.21">may 2019 – sep 2022</span><span lang="en" data-t="servicio.21">May 2019 – Sep 2022</span></time><span class="loc">Caracas</span>
           <ul lang="es" data-t="servicio.22"><li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li></ul>
           <ul lang="en" data-t="servicio.22"><li>Extended Odoo ERP with JavaScript and Python: fiscal invoicing (.chk with IGTF) for Aloha, removing third-party modules.</li><li>Nationwide restaurant price/exchange-rate app: <b>100% automated</b>, 0% manual handling.</li><li>Official website, hybrid help-desk monitoring, responsive SharePoint 2010 migration and XML→JSON reports.</li></ul>
           <div class="chips"><span>TypeScript</span><span>React</span><span>Angular</span><span>Ionic</span><span>Firebase</span><span>Python</span><span>Odoo</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog"><img src="./assets/logos/andromeda.png" alt="Andromeda Ventures" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.23">Analista Programador</span><span lang="en" data-t="servicio.23">Programmer Analyst</span></h3><span class="co">Andromeda Ventures</span></div></header>
+          <header><figure class="colog on-dark"><img src="./assets/logos/andromeda.png" alt="Andromeda Ventures" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.23">Analista Programador</span><span lang="en" data-t="servicio.23">Programmer Analyst</span></h3><span class="co">Andromeda Ventures</span></div></header>
           <time datetime="2020-09"><span lang="es" data-t="servicio.24">sep – nov 2020 · contrato</span><span lang="en" data-t="servicio.24">Sep – Nov 2020 · contract</span></time><span class="loc">Caracas</span>
           <ul lang="es" data-t="servicio.25"><li>Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con ORMs y stored procedures en PostgreSQL (RxJS, Redux, SOAP): código más legible y escalable.</li></ul>
           <ul lang="en" data-t="servicio.25"><li>Migrated a payment gateway from Sails.js to NestJS + TypeScript with ORMs and PostgreSQL stored procedures (RxJS, Redux, SOAP): more readable, scalable code.</li></ul>
           <div class="chips"><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><figure class="colog"><img src="./assets/logos/ked.png" alt="Inversiones KED Perú" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Full-stack Developer</h3><span class="co">Inversiones KED Perú</span></div></header>
+          <header><figure class="colog on-light"><img src="./assets/logos/ked.png" alt="Inversiones KED Perú" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Full-stack Developer</h3><span class="co">Inversiones KED Perú</span></div></header>
           <time datetime="2018-01"><span lang="es" data-t="servicio.26">ene 2018 – ene 2020</span><span lang="en" data-t="servicio.26">Jan 2018 – Jan 2020</span></time><span class="loc">Perú · <span lang="es" data-t="servicio.27">remoto</span><span lang="en" data-t="servicio.27">remote</span></span>
           <ul lang="es" data-t="servicio.28"><li>App web de paquetería con 5 módulos, tracking en tiempo real y backoffice; optimización de cargas.</li></ul>
           <ul lang="en" data-t="servicio.28"><li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li></ul>
@@ -655,7 +676,8 @@ $$('[data-kinetic]').forEach(w=>{const t=w.textContent;w.textContent='';[...t].f
 
 /* ---------- i18n ---------- */
 const langBtn=$('#langBtn'),themeBtn=$('#themeBtn'),soundBtn=$('#soundBtn');
-function applyLang(l){html.lang=l;store.set('bk-lang',l);$$('.cv-link,#cvBtn').forEach(a=>a.href=a.dataset[l]);document.title=l==='en'?'Bryan Key — Senior Fullstack Engineer · Captain of the ship':'Bryan Key — Senior Fullstack Engineer · Capitán de la nave';themeBtn.setAttribute('aria-label',l==='en'?'Side: switch between Dark Side and Light Side':'Lado: cambiar entre Lado Oscuro y Lado Luz');soundBtn.setAttribute('aria-label',l==='en'?'Sound':'Sonido');langBtn.setAttribute('aria-label',l==='en'?'ES: cambiar a español':'EN: switch to English')}
+function applyLang(l){html.lang=l;store.set('bk-lang',l);$$('.cv-link,#cvBtn').forEach(a=>a.href=a.dataset[l]);document.title=l==='en'?'Bryan Key — Senior Fullstack Engineer · Captain of the ship':'Bryan Key — Senior Fullstack Engineer · Capitán de la nave';themeBtn.setAttribute('aria-label',l==='en'?'Side: switch between Dark Side and Light Side':'Lado: cambiar entre Lado Oscuro y Lado Luz');soundBtn.setAttribute('aria-label',l==='en'?'Sound':'Sonido');langBtn.setAttribute('aria-label',l==='en'?'ES: cambiar a español':'EN: switch to English');
+ $('#replayBtn')?.setAttribute('aria-label',l==='en'?'Replay the intro and reset preferences':'Ver la intro otra vez y reiniciar preferencias')}
 applyLang(html.lang==='en'?'en':'es');
 langBtn.addEventListener('click',()=>{const next=html.lang==='en'?'es':'en';const run=()=>applyLang(next);if(document.startViewTransition&&!reduced){html.classList.add('lang-switch');document.startViewTransition(run).finished.finally(()=>html.classList.remove('lang-switch'))}else run()});
 
@@ -710,10 +732,12 @@ if(!reduced&&matchMedia('(pointer:fine)').matches){
 }
 
 /* ---------- Reiniciar experiencia: borra lo guardado y recarga ---------- */
-$('#resetBtn')?.addEventListener('click',()=>{
+function resetExperience(){
   try{['bk-theme','bk-lang','bk-sound','bk-intro'].forEach(k=>localStorage.removeItem(k))}catch(e){}
   sfx.tick();location.href=location.pathname;
-});
+}
+$('#resetBtn')?.addEventListener('click',resetExperience);
+$('#replayBtn')?.addEventListener('click',resetExperience);
 
 /* ---------- Raíl de navegación, progreso y aviso de sección ---------- */
 (function nav(){
@@ -846,7 +870,8 @@ function endIntro(){if(!intro||intro.classList.contains('out'))return;intro.clas
 skipBtn?.addEventListener('click',endIntro);
 let introGuard=null,booted=false;
 
-const lite=matchMedia('(max-width: 767px), (pointer: coarse)').matches;
+/* La nave 3D se dibuja desde tablet hacia arriba; en teléfonos, intro en CSS */
+const lite=innerWidth<640;
 const use3D=!reduced&&canUseGL&&innerWidth>320&&!lite;
 
 function bootStars(){
