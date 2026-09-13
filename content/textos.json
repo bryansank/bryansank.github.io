@@ -176,8 +176,8 @@
     "en": "on-site"
   },
   "servicio.07": {
-    "es": "<li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li>",
-    "en": "<li>Next.js + Supabase back-office on Vercel with administrative workflows for internal operations.</li><li>React Native (Expo) mobile app: customers, orders, payments and pricing with geolocation and Maps for field work.</li><li>Configurable dynamic questionnaires and maintenance of a 25-year-old React + .NET 4.5 + SQL Server legacy: critical bugs fixed in under 2 weeks.</li>"
+    "es": "Backoffice en Next.js + Supabase, app móvil React Native con geolocalización y mantenimiento de un legacy de 25 años.",
+    "en": "Next.js + Supabase back-office, React Native mobile app with geolocation, and upkeep of a 25-year-old legacy system."
   },
   "servicio.08": {
     "es": "mar – may 2025 · contrato",
@@ -188,8 +188,8 @@
     "en": "remote"
   },
   "servicio.10": {
-    "es": "<li>Mejoras escalables para el sector minero: organización de rutas de servidor, integración multi-idioma y monitoreo en tiempo real de cambios mecánicos y su rentabilidad.</li>",
-    "en": "<li>Scalable improvements for the mining sector: server route organization, multi-language integration and real-time monitoring of mechanical changes and their profitability.</li>"
+    "es": "Mejoras escalables para el sector minero: rutas de servidor, multi-idioma y monitoreo en tiempo real.",
+    "en": "Scalable improvements for the mining sector: server routes, multi-language and real-time monitoring."
   },
   "servicio.11": {
     "es": "Descanso profesional",
@@ -200,8 +200,8 @@
     "en": "Oct 2024 – Jan 2025"
   },
   "servicio.13": {
-    "es": "<li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li>",
-    "en": "<li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li>"
+    "es": "Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets.",
+    "en": "Travel and upskilling; contributed to improving the LibreTickets platform."
   },
   "servicio.14": {
     "es": "oct 2022 – sep 2024",
@@ -212,20 +212,16 @@
     "en": "remote"
   },
   "servicio.16": {
-    "es": "<li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li>",
-    "en": "<li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li>"
+    "es": "LMS empresarial con <b>+10 000 usuarios</b>: reportes históricos, análisis en tiempo real y concurrencia de datos.",
+    "en": "Enterprise LMS with <b>10,000+ users</b>: historical reports, real-time analysis and data concurrency."
   },
   "servicio.17": {
     "es": "jun 2022 – ago 2023 · autónomo",
     "en": "Jun 2022 – Aug 2023 · freelance"
   },
   "servicio.18": {
-    "es": "<li>Mentoría 1:1 a <b>+30 desarrolladores</b> senior para pruebas técnicas y proyectos; roadmap con más del 60 % de colocación en los empleos deseados.</li>",
-    "en": "<li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li>"
-  },
-  "servicio.19": {
-    "es": "Historial anterior · 3 paradas (2018–2022)",
-    "en": "Earlier history · 3 stops (2018–2022)"
+    "es": "Mentoría 1:1 a <b>+30 desarrolladores</b> senior; roadmap con más del 60 % de colocación.",
+    "en": "1:1 mentoring for <b>30+ senior developers</b>; roadmap with over 60% placement."
   },
   "servicio.20": {
     "es": "Programador Web Junior → Senior",
@@ -235,9 +231,9 @@
     "es": "may 2019 – sep 2022",
     "en": "May 2019 – Sep 2022"
   },
-  "servicio.22": {
-    "es": "<li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li>",
-    "en": "<li>Extended Odoo ERP with JavaScript and Python: fiscal invoicing (.chk with IGTF) for Aloha, removing third-party modules.</li><li>Nationwide restaurant price/exchange-rate app: <b>100% automated</b>, 0% manual handling.</li><li>Official website, hybrid help-desk monitoring, responsive SharePoint 2010 migration and XML→JSON reports.</li>"
+  "servicio.19": {
+    "es": "Odoo ERP extendido con facturación fiscal y app de precios <b>100 % automatizada</b> a nivel nacional.",
+    "en": "Extended Odoo ERP with fiscal invoicing and a <b>100% automated</b> nationwide pricing app."
   },
   "servicio.23": {
     "es": "Analista Programador",
@@ -247,9 +243,9 @@
     "es": "sep – nov 2020 · contrato",
     "en": "Sep – Nov 2020 · contract"
   },
-  "servicio.25": {
-    "es": "<li>Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con ORMs y stored procedures en PostgreSQL (RxJS, Redux, SOAP): código más legible y escalable.</li>",
-    "en": "<li>Migrated a payment gateway from Sails.js to NestJS + TypeScript with ORMs and PostgreSQL stored procedures (RxJS, Redux, SOAP): more readable, scalable code.</li>"
+  "servicio.22": {
+    "es": "Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con PostgreSQL y stored procedures.",
+    "en": "Migrated a payment gateway from Sails.js to NestJS + TypeScript with PostgreSQL and stored procedures."
   },
   "servicio.26": {
     "es": "ene 2018 – ene 2020",
@@ -259,17 +255,17 @@
     "es": "remoto",
     "en": "remote"
   },
-  "servicio.28": {
-    "es": "<li>App web de paquetería con 5 módulos, tracking en tiempo real y backoffice; optimización de cargas.</li>",
-    "en": "<li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li>"
+  "servicio.25": {
+    "es": "App web de paquetería con 5 módulos, tracking en tiempo real y backoffice de administración.",
+    "en": "Parcel-logistics web app with 5 modules, real-time tracking and an admin back-office."
   },
   "arsenal.01": {
     "es": "Un sable por cada batalla",
     "en": "A saber for every battle"
   },
   "arsenal.02": {
-    "es": "Tócalos o pásales el cursor: cada empuñadura enciende su hoja.",
-    "en": "Tap them or hover: every hilt ignites its blade."
+    "es": "30 tecnologías agrupadas por frente. Las que uso a diario están arriba de cada bloque.",
+    "en": "30 technologies grouped by front. The ones I use daily are at the top of each block."
   },
   "arsenal.03": {
     "es": "Datos",

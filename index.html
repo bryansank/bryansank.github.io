@@ -82,14 +82,6 @@ h2{font-size:clamp(22px,3.6vw,44px);font-weight:900;font-family:var(--display);l
 /* Ritmo editorial: cada sección separada por una línea, no por cajas */
 section+section{border-top:1px solid var(--line)}
 /* Historial comprimido */
-.more{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
-.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);transition:color .2s,border-color .2s}
-.more>summary::-webkit-details-marker{display:none}
-.more>summary:hover,.more>summary:focus-visible{color:var(--fg);border-color:var(--saber)}
-.more>summary::after{content:"▾";font-size:14px;transition:transform .25s}
-.more[open]>summary::after{transform:rotate(180deg)}
-.more[open]>summary{margin-bottom:18px}
-.more .route{margin-top:0}
 .lede{color:var(--muted);max-width:62ch;margin:14px 0 0;font-size:clamp(16px,1.1vw + 10px,20px)}
 /* ---------- Top bar ---------- */
 .top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
@@ -152,19 +144,16 @@ section+section{border-top:1px solid var(--line)}
     @keyframes crawl{from{transform:rotateX(26deg) translateY(120px) scale(.92)}to{transform:none}}
   }
 }
-/* ---------- Hoja de servicio: mapa galáctico ---------- */
-.route{list-style:none;margin:36px 0 0;padding:0;position:relative}
-.route::before{content:"";position:absolute;left:19px;top:0;bottom:0;width:2px;background:linear-gradient(var(--saber),var(--accent),var(--saber));box-shadow:0 0 14px var(--saber-soft)}
-@media (min-width:900px){.route::before{left:50%;margin-left:-1px}}
-.stop{position:relative;padding-left:56px;margin-bottom:26px}
-.stop::before{content:"";position:absolute;left:11px;top:22px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--saber);box-shadow:0 0 0 6px var(--bg),0 0 18px var(--saber)}
-.stop.now::before{background:var(--saber);animation:pulse 1.6s infinite}
-@media (min-width:900px){
-  .stop{width:50%;padding-left:0;padding-right:56px}
-  .stop:nth-child(even){margin-left:50%;padding-right:0;padding-left:56px}
-  .stop::before{left:auto;right:-9px}
-  .stop:nth-child(even)::before{right:auto;left:-9px}
-}
+/* ---------- Hoja de servicio: dos columnas compactas ---------- */
+.grid-exp{list-style:none;margin:clamp(26px,3vw,38px) 0 0;padding:0;display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:840px){.grid-exp{grid-template-columns:1fr 1fr}}
+.xp{position:relative}
+.xp .card{height:100%;padding:clamp(15px,1.9vw,22px)}
+.xp.now .card{border-color:color-mix(in oklch,var(--saber) 55%,var(--line))}
+.xp.now .colog::after{content:"";position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--saber);box-shadow:0 0 10px var(--saber);animation:pulse 1.8s infinite}
+.xp .colog{position:relative}
+.sum{margin:12px 0 0;color:var(--fg);font-size:clamp(14px,.9vw + 10px,15.5px);line-height:1.5}
+.sum b{color:var(--saber)}
 .card{--mx:50%;--my:50%;position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,2.4vw,28px);backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
 /* Foco que sigue al puntero */
 .card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(340px circle at var(--mx) var(--my),color-mix(in oklch,var(--saber) 26%,transparent),transparent 62%)}
@@ -198,6 +187,15 @@ section+section{border-top:1px solid var(--line)}
 .card li{margin:0 0 7px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .chips span{font:600 12px var(--mono);border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);background:var(--glass)}
+/* ---------- Arsenal: rejilla densa de bordes colapsados ---------- */
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));margin-top:clamp(26px,3vw,38px);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.sg-cat{grid-column:1/-1;margin:0;padding:clamp(16px,2vw,22px) 16px 9px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font:700 10.5px/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.sg-cat:first-child{padding-top:14px}
+.sg{position:relative;padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-weight:600;font-size:clamp(13.5px,.8vw + 9px,15px);color:var(--fg);transition:background .22s,color .22s}
+.sg::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--saber);transform:scaleX(0);transform-origin:0 50%;transition:transform .28s cubic-bezier(.2,.9,.3,1.1)}
+.sg:hover{background:var(--glass)}
+.sg:hover::after{transform:scaleX(1)}
+@media (max-width:420px){.stack-grid{grid-template-columns:1fr 1fr}.sg{padding:12px 13px}}
 /* ---------- Arsenal: empuñaduras ---------- */
 .arsenal{display:grid;gap:26px;margin-top:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
 .cat h3{font:700 13px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;gap:8px;align-items:center}
@@ -515,68 +513,56 @@ html.saber-cursor #saber{display:block}
       <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 16.5 17 7.5"/><circle cx="12" cy="12" r="1.3"/></svg><span class="knum">03</span><span lang="es" data-t="servicio.01">Hoja de servicio · 8 paradas registradas</span><span lang="en" data-t="servicio.01">Service record · 8 logged stops</span></p>
       <h2 id="h-servicio"><span lang="es" data-t="servicio.02">Ruta de hiperespacio 2018 → 2026</span><span lang="en" data-t="servicio.02">Hyperspace route 2018 → 2026</span></h2>
       <p class="lede"><span lang="es" data-t="servicio.03">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en" data-t="servicio.03">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
-      <ol class="route"><li class="stop now reveal"><article class="card tilt">
+      <ol class="grid-exp">
+        <li class="xp now"><article class="card tilt">
           <header><figure class="colog on-dark"><img src="./assets/logos/consolidez.png" alt="Consolidez (GCS)" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.04">Desarrollador de software</span><span lang="en" data-t="servicio.04">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></div></header>
           <time datetime="2025-04"><span lang="es" data-t="servicio.05">abr 2025 – actualidad</span><span lang="en" data-t="servicio.05">Apr 2025 – present</span></time><span class="loc">Caracas · <span lang="es" data-t="servicio.06">presencial</span><span lang="en" data-t="servicio.06">on-site</span></span>
-          <ul lang="es" data-t="servicio.07"><li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li></ul>
-          <ul lang="en" data-t="servicio.07"><li>Next.js + Supabase back-office on Vercel with administrative workflows for internal operations.</li><li>React Native (Expo) mobile app: customers, orders, payments and pricing with geolocation and Maps for field work.</li><li>Configurable dynamic questionnaires and maintenance of a 25-year-old React + .NET 4.5 + SQL Server legacy: critical bugs fixed in under 2 weeks.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.07">Backoffice en Next.js + Supabase, app móvil React Native con geolocalización y mantenimiento de un legacy de 25 años.</span><span lang="en" data-t="servicio.07">Next.js + Supabase back-office, React Native mobile app with geolocation, and upkeep of a 25-year-old legacy system.</span></p>
           <div class="chips"><span>Next.js</span><span>Supabase</span><span>React Native</span><span>Expo</span><span>.NET</span><span>SQL Server</span><span>Vercel</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog on-light"><img src="./assets/logos/qplus.png" alt="QPlus Software Solutions" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Senior Software Engineer</h3><span class="co">QPlus Software Solutions</span></div></header>
           <time datetime="2025-03"><span lang="es" data-t="servicio.08">mar – may 2025 · contrato</span><span lang="en" data-t="servicio.08">Mar – May 2025 · contract</span></time><span class="loc">Córdoba, AR · <span lang="es" data-t="servicio.09">remoto</span><span lang="en" data-t="servicio.09">remote</span></span>
-          <ul lang="es" data-t="servicio.10"><li>Mejoras escalables para el sector minero: organización de rutas de servidor, integración multi-idioma y monitoreo en tiempo real de cambios mecánicos y su rentabilidad.</li></ul>
-          <ul lang="en" data-t="servicio.10"><li>Scalable improvements for the mining sector: server route organization, multi-language integration and real-time monitoring of mechanical changes and their profitability.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.10">Mejoras escalables para el sector minero: rutas de servidor, multi-idioma y monitoreo en tiempo real.</span><span lang="en" data-t="servicio.10">Scalable improvements for the mining sector: server routes, multi-language and real-time monitoring.</span></p>
           <div class="chips"><span>C#</span><span>.NET Framework</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog has-bg"><img src="./assets/logos/libretickets.png" alt="LibreTickets" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></div></header>
           <time datetime="2024-10"><span lang="es" data-t="servicio.12">oct 2024 – ene 2025</span><span lang="en" data-t="servicio.12">Oct 2024 – Jan 2025</span></time><span class="loc">Córdoba, AR</span>
-          <ul lang="es" data-t="servicio.13"><li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li></ul>
-          <ul lang="en" data-t="servicio.13"><li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.13">Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets.</span><span lang="en" data-t="servicio.13">Travel and upskilling; contributed to improving the LibreTickets platform.</span></p>
           <div class="chips"><span>Next.js</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog on-light"><img src="./assets/logos/lapzo.png" alt="Lapzo" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></div></header>
           <time datetime="2022-10"><span lang="es" data-t="servicio.14">oct 2022 – sep 2024</span><span lang="en" data-t="servicio.14">Oct 2022 – Sep 2024</span></time><span class="loc">CDMX · <span lang="es" data-t="servicio.15">remoto</span><span lang="en" data-t="servicio.15">remote</span></span>
-          <ul lang="es" data-t="servicio.16"><li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li></ul>
-          <ul lang="en" data-t="servicio.16"><li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.16">LMS empresarial con <b>+10 000 usuarios</b>: reportes históricos, análisis en tiempo real y concurrencia de datos.</span><span lang="en" data-t="servicio.16">Enterprise LMS with <b>10,000+ users</b>: historical reports, real-time analysis and data concurrency.</span></p>
           <div class="chips"><span>NestJS</span><span>TypeScript</span><span>React</span><span>PostgreSQL</span><span>KNEX</span><span>Hasura</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog on-light"><img src="./assets/logos/talently.png" alt="Talently" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Tech Mentor</h3><span class="co">Talently</span></div></header>
           <time datetime="2022-06"><span lang="es" data-t="servicio.17">jun 2022 – ago 2023 · autónomo</span><span lang="en" data-t="servicio.17">Jun 2022 – Aug 2023 · freelance</span></time><span class="loc">Argentina</span>
-          <ul lang="es" data-t="servicio.18"><li>Mentoría 1:1 a <b>+30 desarrolladores</b> senior para pruebas técnicas y proyectos; roadmap con más del 60 % de colocación en los empleos deseados.</li></ul>
-          <ul lang="en" data-t="servicio.18"><li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.18">Mentoría 1:1 a <b>+30 desarrolladores</b> senior; roadmap con más del 60 % de colocación.</span><span lang="en" data-t="servicio.18">1:1 mentoring for <b>30+ senior developers</b>; roadmap with over 60% placement.</span></p>
           <div class="chips"><span>JavaScript</span><span>React</span><span>Redux</span><span>TDD</span></div>
         </article></li>
-        </ol>
-      <details class="more">
-        <summary><span lang="es" data-t="servicio.19">Historial anterior · 3 paradas (2018–2022)</span><span lang="en" data-t="servicio.19">Earlier history · 3 stops (2018–2022)</span></summary>
-        <ol class="route" start="6">
-<li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog on-light"><img src="./assets/logos/arturos.png" alt="Arturo's" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.20">Programador Web Junior → Senior</span><span lang="en" data-t="servicio.20">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></div></header>
           <time datetime="2019-05"><span lang="es" data-t="servicio.21">may 2019 – sep 2022</span><span lang="en" data-t="servicio.21">May 2019 – Sep 2022</span></time><span class="loc">Caracas</span>
-          <ul lang="es" data-t="servicio.22"><li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li></ul>
-          <ul lang="en" data-t="servicio.22"><li>Extended Odoo ERP with JavaScript and Python: fiscal invoicing (.chk with IGTF) for Aloha, removing third-party modules.</li><li>Nationwide restaurant price/exchange-rate app: <b>100% automated</b>, 0% manual handling.</li><li>Official website, hybrid help-desk monitoring, responsive SharePoint 2010 migration and XML→JSON reports.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.19">Odoo ERP extendido con facturación fiscal y app de precios <b>100 % automatizada</b> a nivel nacional.</span><span lang="en" data-t="servicio.19">Extended Odoo ERP with fiscal invoicing and a <b>100% automated</b> nationwide pricing app.</span></p>
           <div class="chips"><span>TypeScript</span><span>React</span><span>Angular</span><span>Ionic</span><span>Firebase</span><span>Python</span><span>Odoo</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog on-dark"><img src="./assets/logos/andromeda.png" alt="Andromeda Ventures" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.23">Analista Programador</span><span lang="en" data-t="servicio.23">Programmer Analyst</span></h3><span class="co">Andromeda Ventures</span></div></header>
           <time datetime="2020-09"><span lang="es" data-t="servicio.24">sep – nov 2020 · contrato</span><span lang="en" data-t="servicio.24">Sep – Nov 2020 · contract</span></time><span class="loc">Caracas</span>
-          <ul lang="es" data-t="servicio.25"><li>Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con ORMs y stored procedures en PostgreSQL (RxJS, Redux, SOAP): código más legible y escalable.</li></ul>
-          <ul lang="en" data-t="servicio.25"><li>Migrated a payment gateway from Sails.js to NestJS + TypeScript with ORMs and PostgreSQL stored procedures (RxJS, Redux, SOAP): more readable, scalable code.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.22">Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con PostgreSQL y stored procedures.</span><span lang="en" data-t="servicio.22">Migrated a payment gateway from Sails.js to NestJS + TypeScript with PostgreSQL and stored procedures.</span></p>
           <div class="chips"><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        <li class="xp"><article class="card tilt">
           <header><figure class="colog on-light"><img src="./assets/logos/ked.png" alt="Inversiones KED Perú" width="62" height="62" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Full-stack Developer</h3><span class="co">Inversiones KED Perú</span></div></header>
           <time datetime="2018-01"><span lang="es" data-t="servicio.26">ene 2018 – ene 2020</span><span lang="en" data-t="servicio.26">Jan 2018 – Jan 2020</span></time><span class="loc">Perú · <span lang="es" data-t="servicio.27">remoto</span><span lang="en" data-t="servicio.27">remote</span></span>
-          <ul lang="es" data-t="servicio.28"><li>App web de paquetería con 5 módulos, tracking en tiempo real y backoffice; optimización de cargas.</li></ul>
-          <ul lang="en" data-t="servicio.28"><li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li></ul>
+          <p class="sum"><span lang="es" data-t="servicio.25">App web de paquetería con 5 módulos, tracking en tiempo real y backoffice de administración.</span><span lang="en" data-t="servicio.25">Parcel-logistics web app with 5 modules, real-time tracking and an admin back-office.</span></p>
           <div class="chips"><span>PHP</span><span>JavaScript</span><span>SQL</span></div>
         </article></li>
-              </ol>
-      </details>
+      </ol>
     </div>
   </section>
 
@@ -585,50 +571,45 @@ html.saber-cursor #saber{display:block}
     <div class="wrap">
       <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><rect x="10.5" y="14" width="3" height="7" rx="1"/><path d="M12 13V3"/><path d="M9.6 14.6h4.8"/></svg><span class="knum">04</span>Arsenal</p>
       <h2 id="h-arsenal"><span lang="es" data-t="arsenal.01">Un sable por cada batalla</span><span lang="en" data-t="arsenal.01">A saber for every battle</span></h2>
-      <p class="lede"><span lang="es" data-t="arsenal.02">Tócalos o pásales el cursor: cada empuñadura enciende su hoja.</span><span lang="en" data-t="arsenal.02">Tap them or hover: every hilt ignites its blade.</span></p>
-      <div class="arsenal">
-        <div class="cat reveal" style="--cat:var(--saber)"><h3>Core backend</h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>NestJS<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>TypeScript<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Node.js<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>tRPC<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Hasura<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Stripe API<span class="blade"></span></button></li>
-        </ul></div>
-        <div class="cat reveal" style="--cat:var(--accent)"><h3><span lang="es" data-t="arsenal.03">Datos</span><span lang="en" data-t="arsenal.03">Data</span></h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>PostgreSQL<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>SQL Server<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>PL/SQL · SPs<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>KNEX<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Firebase<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Supabase<span class="blade"></span></button></li>
-        </ul></div>
-        <div class="cat reveal" style="--cat:var(--saber)"><h3>Frontend & mobile</h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>React<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Next.js<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>React Native · Expo<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Angular · Ionic<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>HTML · CSS · Vanilla JS<span class="blade"></span></button></li>
-        </ul></div>
-        <div class="cat reveal" style="--cat:var(--accent)"><h3><span lang="es" data-t="arsenal.04">Otros frentes</span><span lang="en" data-t="arsenal.04">Other fronts</span></h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>.NET · C#<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Python · Odoo<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>PHP<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Godot<span class="blade"></span></button></li>
-        </ul></div>
-        <div class="cat reveal" style="--cat:var(--saber)"><h3><span lang="es" data-t="arsenal.05">IA y agentes</span><span lang="en" data-t="arsenal.05">AI & agents</span></h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Claude Code<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Cursor<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Spec-driven dev<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>MCP · <span lang="es" data-t="arsenal.06">automatización</span><span lang="en" data-t="arsenal.06">automation</span><span class="blade"></span></button></li>
-        </ul></div>
-        <div class="cat reveal" style="--cat:var(--accent)"><h3>Infra</h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Docker<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Git · GitHub<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Vercel<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Ubuntu · WSL<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Kubernetes<span class="blade"></span></button></li>
-        </ul></div>
+      <p class="lede"><span lang="es" data-t="arsenal.02">30 tecnologías agrupadas por frente. Las que uso a diario están arriba de cada bloque.</span><span lang="en" data-t="arsenal.02">30 technologies grouped by front. The ones I use daily are at the top of each block.</span></p>
+      <div class="stack-grid">
+        <h3 class="sg-cat">Core backend</h3>
+        <span class="sg">NestJS</span>
+        <span class="sg">TypeScript</span>
+        <span class="sg">Node.js</span>
+        <span class="sg">tRPC</span>
+        <span class="sg">Hasura</span>
+        <span class="sg">Stripe API</span>
+        <h3 class="sg-cat"><span lang="es" data-t="arsenal.03">Datos</span><span lang="en" data-t="arsenal.03">Data</span></h3>
+        <span class="sg">PostgreSQL</span>
+        <span class="sg">SQL Server</span>
+        <span class="sg">PL/SQL · SPs</span>
+        <span class="sg">KNEX</span>
+        <span class="sg">Firebase</span>
+        <span class="sg">Supabase</span>
+        <h3 class="sg-cat">Frontend & mobile</h3>
+        <span class="sg">React</span>
+        <span class="sg">Next.js</span>
+        <span class="sg">React Native · Expo</span>
+        <span class="sg">Angular · Ionic</span>
+        <span class="sg">HTML · CSS · Vanilla JS</span>
+        <h3 class="sg-cat"><span lang="es" data-t="arsenal.04">Otros frentes</span><span lang="en" data-t="arsenal.04">Other fronts</span></h3>
+        <span class="sg">.NET · C#</span>
+        <span class="sg">Python · Odoo</span>
+        <span class="sg">PHP</span>
+        <span class="sg">Godot</span>
+        <h3 class="sg-cat"><span lang="es" data-t="arsenal.05">IA y agentes</span><span lang="en" data-t="arsenal.05">AI & agents</span></h3>
+        <span class="sg">Claude Code</span>
+        <span class="sg">Cursor</span>
+        <span class="sg">Spec-driven dev</span>
+        <span class="sg">MCP · <span lang="es" data-t="arsenal.06">automatización</span><span lang="en" data-t="arsenal.06">automation</span></span>
+        <h3 class="sg-cat">Infra</h3>
+        <span class="sg">Docker</span>
+        <span class="sg">Git · GitHub</span>
+        <span class="sg">Vercel</span>
+        <span class="sg">Ubuntu · WSL</span>
+        <span class="sg">Kubernetes</span>
+      </div>
       </div>
     </div>
   </section>
