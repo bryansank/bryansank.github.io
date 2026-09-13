@@ -28,18 +28,25 @@ var t=s.getItem('bk-theme');if(t)document.documentElement.dataset.theme=t;var l=
 <style>
 /* ---------- Tokens: Lado Oscuro (default) / Lado Luz ---------- */
 :root{
-  --bg:oklch(13% 0.02 275);--bg-2:oklch(17% 0.025 275);--fg:oklch(96% 0.01 90);--muted:oklch(72% 0.02 275);
-  --saber:oklch(62% 0.25 25);--saber-soft:oklch(62% 0.25 25 / .35);--accent:oklch(82% 0.16 85);--line:oklch(30% 0.03 275);
-  --card:oklch(16% 0.025 275 / .78);--glass:oklch(20% 0.03 275 / .55);--focus:oklch(82% 0.16 85);
+  /* Paleta: 2 colores (sable + cian) y el resto neutros.
+     El cian se eligió sobre el ámbar por separación de tono, seguridad
+     ante daltonismo y para no chocar con la semántica rojo=error. */
+  --bg:oklch(13% 0.012 265);--bg-2:oklch(17% 0.014 265);--fg:oklch(96% 0.004 265);--muted:oklch(72% 0.012 265);
+  --saber:oklch(62% 0.25 25);--saber-soft:oklch(62% 0.25 25 / .35);
+  --accent:oklch(75% 0.12 220);--accent-soft:oklch(75% 0.12 220 / .3);
+  --line:oklch(30% 0.014 265);
+  --card:oklch(16% 0.014 265 / .78);--glass:oklch(20% 0.016 265 / .55);--focus:oklch(75% 0.12 220);
   --font:ui-sans-serif,system-ui,"Segoe UI",Inter,Roboto,sans-serif;--mono:ui-monospace,"Cascadia Code",Consolas,monospace;
   --display:"Orbitron",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
   --radius:14px;--max:1180px;--pad:clamp(16px,4vw,48px);--dock-h:64px;
   color-scheme:dark;
 }
 :root[data-theme="light"]{
-  --bg:oklch(97% 0.012 90);--bg-2:oklch(94% 0.015 90);--fg:oklch(18% 0.02 275);--muted:oklch(42% 0.02 275);
-  --saber:oklch(62% 0.2 145);--saber-soft:oklch(62% 0.2 145 / .3);--accent:oklch(52% 0.15 85);--line:oklch(84% 0.02 90);
-  --card:oklch(99% 0.005 90 / .82);--glass:oklch(96% 0.01 90 / .6);--focus:oklch(45% 0.18 145);color-scheme:light;
+  --bg:oklch(97% 0.005 90);--bg-2:oklch(94% 0.006 90);--fg:oklch(18% 0.008 265);--muted:oklch(42% 0.01 265);
+  --saber:oklch(58% 0.19 145);--saber-soft:oklch(58% 0.19 145 / .3);
+  --accent:oklch(49% 0.15 220);--accent-soft:oklch(49% 0.15 220 / .25);
+  --line:oklch(84% 0.008 90);
+  --card:oklch(99% 0.002 90 / .82);--glass:oklch(96% 0.004 90 / .6);--focus:oklch(45% 0.18 220);color-scheme:light;
 }
 /* ---------- Base ---------- */
 *,*::before,*::after{box-sizing:border-box}
@@ -170,8 +177,8 @@ section+section{border-top:1px solid var(--line)}
 .colog{margin:0;width:clamp(82px,11vw,112px);height:clamp(50px,6.6vw,66px);flex:none;border-radius:12px;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);box-shadow:0 3px 14px -6px oklch(0% 0 0 / .7)}
 .colog img{width:100%;height:100%;object-fit:contain;padding:8px 10px;box-sizing:border-box}
 .colog.on-light{background:oklch(98% 0.004 90)}
-.colog.on-dark{background:oklch(19% 0.022 265)}
-:root[data-theme="light"] .colog.on-dark{background:oklch(24% 0.025 265)}
+.colog.on-dark{background:oklch(19% 0.014 265)}
+:root[data-theme="light"] .colog.on-dark{background:oklch(24% 0.016 265)}
 /* logos que ya traen su propio fondo (iconos de app): llenan la caja */
 .colog.has-bg{background:transparent;border-color:transparent}
 .colog.has-bg img{padding:0;object-fit:cover;border-radius:11px}
@@ -198,7 +205,7 @@ section+section{border-top:1px solid var(--line)}
 .hilts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .hilt{--cat:var(--saber);position:relative;display:inline-flex;align-items:center;gap:10px;padding:11px 16px 12px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line);color:var(--fg);font:700 15px/1 var(--font);cursor:pointer;overflow:hidden;isolation:isolate;transition:border-color .25s,transform .25s,box-shadow .25s;-webkit-tap-highlight-color:transparent}
 .hilt>*{position:relative;z-index:1}
-.hilt .grip{width:13px;height:23px;border-radius:3px;flex:none;background:linear-gradient(oklch(72% 0.02 275),oklch(32% 0.02 275) 45%,oklch(62% 0.02 275) 62%,oklch(28% 0.02 275));box-shadow:inset 0 0 0 1px oklch(0% 0 0 / .35)}
+.hilt .grip{width:13px;height:23px;border-radius:3px;flex:none;background:linear-gradient(oklch(72% 0.012 265),oklch(32% 0.012 265) 45%,oklch(62% 0.012 265) 62%,oklch(28% 0.012 265));box-shadow:inset 0 0 0 1px oklch(0% 0 0 / .35)}
 .hilt .grip::before{content:"";position:absolute;left:3px;right:3px;top:-2px;height:3px;border-radius:2px;background:var(--cat);opacity:.5;box-shadow:0 0 6px var(--cat);transition:opacity .25s,box-shadow .25s}
 .hilt .blade{position:absolute;left:0;right:0;bottom:0;height:3px;z-index:2;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--cat),oklch(99% 0 0));box-shadow:0 0 10px var(--cat),0 0 26px var(--cat);transition:transform .34s cubic-bezier(.2,.9,.3,1.1);pointer-events:none}
 .hilt::after{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(130% 90% at 0% 100%,var(--cat),transparent 62%);opacity:0;transition:opacity .3s;pointer-events:none}
@@ -220,7 +227,7 @@ section+section{border-top:1px solid var(--line)}
 .holo{display:grid;gap:18px;margin-top:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
 .holo blockquote{margin:0;position:relative;overflow:hidden}
 .holo blockquote{overflow:hidden}
-.holo blockquote::before{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(50% 0.1 220 / .06) 2px 3px);animation:scan 6s linear infinite;will-change:transform}
+.holo blockquote::before{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(75% 0.12 220 / .07) 2px 3px);animation:scan 6s linear infinite;will-change:transform}
 @keyframes scan{to{transform:translateY(60px)}}
 .holo p{margin:0;font-size:clamp(16px,1.05vw + 9px,19px);font-style:italic}
 .holo footer{margin-top:14px;font:600 13px var(--mono);color:var(--muted)}
@@ -263,7 +270,7 @@ section+section{border-top:1px solid var(--line)}
 @media (max-width:560px){.dock a span{display:none}.dock a{padding:0 13px}.dock a.primary span{display:inline}}
 /* ---------- Sala de embarque ---------- */
 /* Siempre encuadrada: nunca debe aparecer scroll */
-#gate{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:clamp(8px,2vh,20px);background:radial-gradient(ellipse at 50% -10%,oklch(22% 0.06 275),oklch(9% 0.02 275) 55%,oklch(6% 0.01 275));overflow:hidden;transition:opacity .4s}
+#gate{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:clamp(8px,2vh,20px);background:radial-gradient(ellipse at 50% -10%,oklch(20% 0.016 265),oklch(9% 0.012 265) 55%,oklch(6% 0.008 265));overflow:hidden;transition:opacity .4s}
 #gate.out{opacity:0;pointer-events:none}
 html[data-intro="skip"] #gate{display:none}
 .gate-card{width:min(520px,100%);max-height:calc(100svh - clamp(16px,4vh,40px));display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,2.6vh,30px) clamp(16px,4vw,30px);box-shadow:0 40px 120px -40px oklch(0% 0 0 / .9)}
@@ -309,25 +316,25 @@ html[data-intro="skip"] #gate{display:none}
 @media (max-height:520px){.gate-note{display:none}}
 @media (max-width:430px){.power .txt em{display:none}.power .ico{width:30px;height:30px;font-size:15px}.gate-sub{font-size:12.5px}}
 /* ---------- Intro ---------- */
-#intro{position:fixed;inset:0;z-index:90;background:oklch(6% 0.01 275);display:grid;place-items:center;transition:opacity .6s}
+#intro{position:fixed;inset:0;z-index:90;background:oklch(6% 0.008 265);display:grid;place-items:center;transition:opacity .6s}
 #intro canvas{position:absolute;inset:0;width:100%;height:100%}
-#intro .fall{position:absolute;width:min(20svh,46vw);aspect-ratio:414/896;border-radius:14px;overflow:hidden;box-shadow:0 0 50px oklch(70% 0.16 220 / .5),0 0 130px oklch(70% 0.16 220 / .25);z-index:1}
+#intro .fall{position:absolute;width:min(20svh,46vw);aspect-ratio:414/896;border-radius:14px;overflow:hidden;box-shadow:0 0 50px oklch(70% 0.16 220 / .5),0 0 130px oklch(75% 0.12 220 / .25);z-index:1}
 #intro .fall img,#intro .fall video{width:100%;height:100%;object-fit:cover;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);opacity:.95}
 #intro>video{position:absolute;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none}
-#intro .fall::after{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(70% 0.14 220 / .14) 2px 4px);animation:holo-scan 3s linear infinite;will-change:transform}
+#intro .fall::after{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(75% 0.12 220 / .14) 2px 4px);animation:holo-scan 3s linear infinite;will-change:transform}
 @keyframes holo-scan{to{transform:translateY(40px)}}
 #intro .skipbtn{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:6}
 /* HUD de la intro: explica qué se está viendo */
-.ihud{position:absolute;z-index:5;pointer-events:none;font:600 12px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:oklch(88% 0.08 220);text-shadow:0 0 14px oklch(60% 0.16 230 / .9)}
+.ihud{position:absolute;z-index:5;pointer-events:none;font:600 12px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:oklch(86% 0.09 220);text-shadow:0 0 14px oklch(62% 0.14 220 / .85)}
 .ihud.tl{left:clamp(14px,4vw,44px);right:clamp(14px,4vw,44px);top:clamp(14px,4vw,40px);max-width:min(46ch,92vw)}
 .ihud.bl{left:clamp(14px,4vw,44px);right:clamp(14px,4vw,44px);bottom:clamp(72px,12vw,80px);max-width:min(46ch,92vw)}
 .ihud .big{display:block;font-family:var(--font);font-size:clamp(19px,3.4vw,30px);font-weight:800;letter-spacing:-.01em;text-transform:none;color:var(--fg);margin:6px 0 2px}
-.ihud .dim{color:oklch(72% 0.04 230)}
-.ihud .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid oklch(60% 0.12 230 / .6);border-radius:999px;padding:5px 11px;font-size:11px;letter-spacing:.16em;background:oklch(30% 0.06 240 / .35)}
-.ihud .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:oklch(80% 0.16 90);box-shadow:0 0 10px oklch(80% 0.16 90)}
+.ihud .dim{color:oklch(74% 0.02 265)}
+.ihud .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid oklch(62% 0.12 220 / .6);border-radius:999px;padding:5px 11px;font-size:11px;letter-spacing:.16em;background:oklch(28% 0.03 265 / .4)}
+.ihud .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:oklch(78% 0.12 220);box-shadow:0 0 10px oklch(78% 0.12 220)}
 .ihud[data-state="dead"] .tag{border-color:var(--saber);color:oklch(78% 0.18 25)}
 .ihud[data-state="dead"] .tag::before{background:var(--saber);box-shadow:0 0 10px var(--saber)}
-.ihud .line{height:1px;background:linear-gradient(90deg,oklch(70% 0.12 230 / .8),transparent);margin:10px 0 0}
+.ihud .line{height:1px;background:linear-gradient(90deg,oklch(72% 0.12 220 / .8),transparent);margin:10px 0 0}
 .ihud .fade{animation:ihudIn .5s both}
 @keyframes ihudIn{from{opacity:0;transform:translateY(8px)}}
 @media (prefers-reduced-motion:reduce){.ihud .fade{animation:none}}
@@ -339,10 +346,10 @@ html[data-intro="skip"] #intro{display:none}
 #intro .rider{position:absolute;left:0;top:0;will-change:transform}
 #intro .blade{position:absolute;left:0;top:-4px;height:8px;border-radius:5px;background:oklch(99% 0 0);box-shadow:0 0 10px var(--saber),0 0 34px var(--saber);transform:scaleX(0);transform-origin:0 50%;will-change:transform}
 #intro .halo{position:absolute;left:0;top:-46px;height:92px;border-radius:50%;background:radial-gradient(ellipse at center,var(--saber) 0%,oklch(62% 0.25 25 / .35) 38%,transparent 72%);opacity:.75;transform:scaleX(0);transform-origin:0 50%;will-change:transform}
-#intro .grip{position:absolute;left:-58px;top:-8px;width:58px;height:16px;border-radius:4px;background:linear-gradient(oklch(78% 0.02 275),oklch(28% 0.02 275) 55%,oklch(60% 0.02 275));box-shadow:0 2px 10px oklch(0% 0 0 / .7)}
+#intro .grip{position:absolute;left:-58px;top:-8px;width:58px;height:16px;border-radius:4px;background:linear-gradient(oklch(78% 0.012 265),oklch(28% 0.012 265) 55%,oklch(60% 0.012 265));box-shadow:0 2px 10px oklch(0% 0 0 / .7)}
 #intro .grip::after{content:"";position:absolute;right:5px;top:4px;width:6px;height:8px;border-radius:2px;background:var(--saber);box-shadow:0 0 10px var(--saber)}
 #intro .trail{position:absolute;top:-2px;height:4px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,transparent,var(--saber) 55%,oklch(99% 0 0));box-shadow:0 0 14px var(--saber),0 0 40px var(--saber);z-index:2}
-#intro .half{position:absolute;border-radius:14px;background-size:cover;background-position:center;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);box-shadow:0 0 24px oklch(70% 0.16 220 / .4);will-change:transform,opacity;z-index:1}
+#intro .half{position:absolute;border-radius:14px;background-size:cover;background-position:center;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);box-shadow:0 0 24px oklch(75% 0.12 220 / .4);will-change:transform,opacity;z-index:1}
 #intro .half.a{clip-path:polygon(0 0,132% 0,0 132%)}
 #intro .half.b{clip-path:polygon(132% 0,132% 132%,0 132%)}
 /* ---------- View transitions (tema / idioma) ---------- */
@@ -354,7 +361,7 @@ html.lang-switch::view-transition-new(root){clip-path:none;animation:vt-fade .35
 /* ---------- Saber cursor (easter egg) ---------- */
 html.saber-cursor,html.saber-cursor *{cursor:none!important}
 #saber{position:fixed;left:0;top:0;z-index:200;pointer-events:none;width:4px;height:120px;border-radius:3px;background:oklch(99% 0 0);box-shadow:0 0 8px var(--saber),0 0 22px var(--saber),0 0 48px var(--saber);transform-origin:50% 100%;display:none}
-#saber::after{content:"";position:absolute;left:-6px;top:100%;width:16px;height:34px;border-radius:3px;background:linear-gradient(oklch(60% 0.02 275),oklch(30% 0.02 275))}
+#saber::after{content:"";position:absolute;left:-6px;top:100%;width:16px;height:34px;border-radius:3px;background:linear-gradient(oklch(60% 0.012 265),oklch(30% 0.02 275))}
 html.saber-cursor #saber{display:block}
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
@@ -580,47 +587,47 @@ html.saber-cursor #saber{display:block}
       <h2 id="h-arsenal"><span lang="es" data-t="arsenal.01">Un sable por cada batalla</span><span lang="en" data-t="arsenal.01">A saber for every battle</span></h2>
       <p class="lede"><span lang="es" data-t="arsenal.02">Tócalos o pásales el cursor: cada empuñadura enciende su hoja.</span><span lang="en" data-t="arsenal.02">Tap them or hover: every hilt ignites its blade.</span></p>
       <div class="arsenal">
-        <div class="cat reveal" style="--cat:oklch(70% 0.17 250)"><h3>Core backend</h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>NestJS<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>TypeScript<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Node.js<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>tRPC<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Hasura<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Stripe API<span class="blade"></span></button></li>
+        <div class="cat reveal" style="--cat:var(--saber)"><h3>Core backend</h3><ul class="hilts">
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>NestJS<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>TypeScript<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Node.js<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>tRPC<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Hasura<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Stripe API<span class="blade"></span></button></li>
         </ul></div>
-        <div class="cat reveal" style="--cat:oklch(68% 0.22 310)"><h3><span lang="es" data-t="arsenal.03">Datos</span><span lang="en" data-t="arsenal.03">Data</span></h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PostgreSQL<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>SQL Server<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PL/SQL · SPs<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>KNEX<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Firebase<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Supabase<span class="blade"></span></button></li>
+        <div class="cat reveal" style="--cat:var(--accent)"><h3><span lang="es" data-t="arsenal.03">Datos</span><span lang="en" data-t="arsenal.03">Data</span></h3><ul class="hilts">
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>PostgreSQL<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>SQL Server<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>PL/SQL · SPs<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>KNEX<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Firebase<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Supabase<span class="blade"></span></button></li>
         </ul></div>
-        <div class="cat reveal" style="--cat:oklch(75% 0.19 150)"><h3>Frontend & mobile</h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Next.js<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React Native · Expo<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Angular · Ionic<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>HTML · CSS · Vanilla JS<span class="blade"></span></button></li>
+        <div class="cat reveal" style="--cat:var(--saber)"><h3>Frontend & mobile</h3><ul class="hilts">
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>React<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Next.js<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>React Native · Expo<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Angular · Ionic<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>HTML · CSS · Vanilla JS<span class="blade"></span></button></li>
         </ul></div>
-        <div class="cat reveal" style="--cat:oklch(72% 0.2 40)"><h3><span lang="es" data-t="arsenal.04">Otros frentes</span><span lang="en" data-t="arsenal.04">Other fronts</span></h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>.NET · C#<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Python · Odoo<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>PHP<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Godot<span class="blade"></span></button></li>
+        <div class="cat reveal" style="--cat:var(--accent)"><h3><span lang="es" data-t="arsenal.04">Otros frentes</span><span lang="en" data-t="arsenal.04">Other fronts</span></h3><ul class="hilts">
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>.NET · C#<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Python · Odoo<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>PHP<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Godot<span class="blade"></span></button></li>
         </ul></div>
-        <div class="cat reveal" style="--cat:oklch(82% 0.16 85)"><h3><span lang="es" data-t="arsenal.05">IA y agentes</span><span lang="en" data-t="arsenal.05">AI & agents</span></h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Claude Code<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Cursor<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Spec-driven dev<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>MCP · <span lang="es" data-t="arsenal.06">automatización</span><span lang="en" data-t="arsenal.06">automation</span><span class="blade"></span></button></li>
+        <div class="cat reveal" style="--cat:var(--saber)"><h3><span lang="es" data-t="arsenal.05">IA y agentes</span><span lang="en" data-t="arsenal.05">AI & agents</span></h3><ul class="hilts">
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Claude Code<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Cursor<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>Spec-driven dev<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--saber)"><span class="grip"></span>MCP · <span lang="es" data-t="arsenal.06">automatización</span><span lang="en" data-t="arsenal.06">automation</span><span class="blade"></span></button></li>
         </ul></div>
-        <div class="cat reveal" style="--cat:oklch(70% 0.02 275)"><h3>Infra</h3><ul class="hilts">
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Docker<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Git · GitHub<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Vercel<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Ubuntu · WSL<span class="blade"></span></button></li>
-          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Kubernetes<span class="blade"></span></button></li>
+        <div class="cat reveal" style="--cat:var(--accent)"><h3>Infra</h3><ul class="hilts">
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Docker<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Git · GitHub<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Vercel<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Ubuntu · WSL<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:var(--accent)"><span class="grip"></span>Kubernetes<span class="blade"></span></button></li>
         </ul></div>
       </div>
     </div>
@@ -1022,7 +1029,7 @@ function makeStars(THREE){
   const far=layer(1100,1.9,1400,1400),near=layer(520,3.6,1000,900);
   /* Nebulosas: sprites grandes aditivos que giran muy lento */
   const neb=[];
-  [['rgba(120,40,200,.5)',-620,-160,-780,560],['rgba(220,40,60,.42)',520,220,-900,680],['rgba(30,120,220,.36)',80,-340,-1150,820]].forEach(([col,x,y,z,s])=>{
+  [['rgba(120,132,160,.34)',-620,-160,-780,560],['rgba(226,64,72,.34)',520,220,-900,680],['rgba(56,166,226,.3)',80,-340,-1150,820]].forEach(([col,x,y,z,s])=>{
     const t=radialTex(THREE,[[0,col],[.45,col.replace(/[\d.]+\)$/,'.14)')],[1,'rgba(0,0,0,0)']],256);
     const m=new THREE.Mesh(new THREE.PlaneGeometry(s,s),new THREE.MeshBasicMaterial({map:t,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:.9}));
     m.position.set(x,y,z);scene.add(m);neb.push(m);
@@ -1043,6 +1050,7 @@ function makeStars(THREE){
   const steel=new THREE.MeshStandardMaterial({color:0x0c0f16,metalness:.25,roughness:.9});
   const steelDark=new THREE.MeshStandardMaterial({color:0x06080d,metalness:.2,roughness:.95});
   const lamps=[];
+  const saberHex=()=>toThreeColor(THREE,cssColor("--saber")).getHex();
   function lamp(col,op){
     const m=new THREE.Mesh(QUAD,new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false}));
     lamps.push({m,base:op,ph:Math.random()*6.28,sp:.5+Math.random()*2.2});return m;
@@ -1052,12 +1060,12 @@ function makeStars(THREE){
   /* techo: banda con nervios */
   const roof=new THREE.Mesh(UNIT,steelDark);beams.add(roof);
   for(let i=0;i<9;i++){const r=new THREE.Mesh(UNIT,steel);r.userData={rib:i};beams.add(r)}
-  for(let i=0;i<4;i++){const l=lamp(0xff4433,.45);l.userData={lampRow:i};beams.add(l)}
+  for(let i=0;i<4;i++){const l=lamp(saberHex(),.45);l.userData={lampRow:i};beams.add(l)}
   /* montantes del ventanal, inclinados hacia fuera */
   for(let s=-1;s<=1;s+=2)for(let i=0;i<3;i++){
     const g=new THREE.Group();
     g.add(new THREE.Mesh(UNIT,steel));
-    const edge=lamp(0x7fd4ff,.22);edge.position.z=.6;g.add(edge);
+    const edge=lamp(0x63c7ef,.22);edge.position.z=.6;g.add(edge);
     g.userData={side:s,i};mullions.add(g);
   }
   /* consolas inferiores en las esquinas */
@@ -1065,11 +1073,11 @@ function makeStars(THREE){
     const g=new THREE.Group();
     g.add(new THREE.Mesh(UNIT,steelDark));
     g.add(new THREE.Mesh(UNIT,steel));
-    for(let k=0;k<5;k++){const l=lamp(k%2?0xff5533:0xffbb44,.5);l.userData={k};g.add(l)}
+    for(let k=0;k<5;k++){const l=lamp(k%2?saberHex():0x63c7ef,.5);l.userData={k};g.add(l)}
     g.userData={side:s};consoles.add(g);
   }
-  const amb=new THREE.AmbientLight(0x1a2436,.55);scene.add(amb);
-  const winLight=new THREE.DirectionalLight(0x6f8fc4,.55);winLight.position.set(0,.2,1);scene.add(winLight);
+  const amb=new THREE.AmbientLight(0x20242e,.55);scene.add(amb);
+  const winLight=new THREE.DirectionalLight(0x9aa4b8,.55);winLight.position.set(0,.2,1);scene.add(winLight);
 
   function layoutBridge(){
     const hH=DEPTH*Math.tan(cam.fov*Math.PI/360),hW=hH*cam.aspect;
@@ -1103,10 +1111,10 @@ function makeStars(THREE){
   const ships=[];
   function makeShip(){
     const g=new THREE.Group();
-    const mat=new THREE.MeshStandardMaterial({color:0x8d94a6,metalness:.7,roughness:.45});
+    const mat=new THREE.MeshStandardMaterial({color:0x99a0ae,metalness:.7,roughness:.45});
     g.add(new THREE.Mesh(new THREE.ConeGeometry(3.4,16,3),mat));
     const w=new THREE.Mesh(new THREE.BoxGeometry(15,.7,4),mat);w.position.y=-3;g.add(w);
-    const e=new THREE.Mesh(new THREE.PlaneGeometry(9,2.4),new THREE.MeshBasicMaterial({color:0x77ccff,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false}));
+    const e=new THREE.Mesh(new THREE.PlaneGeometry(9,2.4),new THREE.MeshBasicMaterial({color:0x63c7ef,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false}));
     e.position.y=-9;g.add(e);
     g.rotation.z=Math.PI/2;scene.add(g);return{g,e,t:0,dur:0,from:new THREE.Vector3(),to:new THREE.Vector3(),live:false};
   }
@@ -1232,8 +1240,8 @@ async function runIntro(THREE,after){
   const visH=2*620*Math.tan(22.5*Math.PI/180),PH=visH*.56,PW=PH*414/896;
   const tex=new THREE.VideoTexture(video);tex.colorSpace=THREE.SRGBColorSpace;
   video.play().catch(()=>{});
-  const holoBlue=new THREE.Color(0x7fd4ff);
-  const panelMat=()=>new THREE.MeshStandardMaterial({map:tex,color:0x86c8ef,emissive:0x12364f,emissiveMap:tex,emissiveIntensity:.38,roughness:.6,metalness:.05,side:THREE.DoubleSide,transparent:true,opacity:0});
+  const holoBlue=new THREE.Color(0x63c7ef);
+  const panelMat=()=>new THREE.MeshStandardMaterial({map:tex,color:0x7cc3e6,emissive:0x123243,emissiveMap:tex,emissiveIntensity:.38,roughness:.6,metalness:.05,side:THREE.DoubleSide,transparent:true,opacity:0});
   const rig=new THREE.Group();scene.add(rig);
   const panel=new THREE.Mesh(new THREE.PlaneGeometry(PW,PH),panelMat());rig.add(panel);
   const bezel=new THREE.Mesh(new THREE.PlaneGeometry(PW+10,PH+10),new THREE.MeshBasicMaterial({color:0x0a1020,transparent:true,opacity:0}));bezel.position.z=-2;rig.add(bezel);
@@ -1241,20 +1249,20 @@ async function runIntro(THREE,after){
 
   /* Base del holograma: disco + cono de luz */
   const baseY=-PH/2-26;
-  const disc=new THREE.Mesh(new THREE.CircleGeometry(PW*.5,48),new THREE.MeshBasicMaterial({map:radialTex(THREE,[[0,'rgba(130,215,255,.8)'],[.5,'rgba(130,215,255,.2)'],[1,'rgba(130,215,255,0)']],256),transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));
+  const disc=new THREE.Mesh(new THREE.CircleGeometry(PW*.5,48),new THREE.MeshBasicMaterial({map:radialTex(THREE,[[0,'rgba(99,199,239,.8)'],[.5,'rgba(99,199,239,.2)'],[1,'rgba(99,199,239,0)']],256),transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));
   disc.rotation.x=-Math.PI/2.1;disc.position.set(0,baseY,0);rig.add(disc);
   const cone=new THREE.Mesh(new THREE.ConeGeometry(PW*.4,PH*1.02,24,1,true),new THREE.MeshBasicMaterial({color:holoBlue,transparent:true,opacity:0,side:THREE.DoubleSide,depthWrite:false,blending:THREE.AdditiveBlending}));
   cone.position.set(0,baseY+PH*.5,-14);cone.rotation.x=Math.PI;rig.add(cone);
   /* Scanlines del holograma */
   const scanC=document.createElement('canvas');scanC.width=4;scanC.height=8;const sx=scanC.getContext('2d');
-  sx.fillStyle='rgba(150,225,255,.5)';sx.fillRect(0,0,4,2);
+  sx.fillStyle='rgba(120,205,240,.5)';sx.fillRect(0,0,4,2);
   const scanTex=new THREE.CanvasTexture(scanC);scanTex.wrapS=scanTex.wrapT=THREE.RepeatWrapping;scanTex.repeat.set(1,PH/7);
   const scan=new THREE.Mesh(new THREE.PlaneGeometry(PW,PH),new THREE.MeshBasicMaterial({map:scanTex,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));
   scan.position.z=1.2;rig.add(scan);
 
   /* Luces */
-  scene.add(new THREE.AmbientLight(0x4a6a9a,.55));
-  const keyL=new THREE.DirectionalLight(0xbfd8ff,1.3);keyL.position.set(-1,.8,1.4);scene.add(keyL);
+  scene.add(new THREE.AmbientLight(0x4e5a70,.55));
+  const keyL=new THREE.DirectionalLight(0xd2dae8,1.3);keyL.position.set(-1,.8,1.4);scene.add(keyL);
   const saberL=new THREE.PointLight(saberCol,0,1400,1.6);scene.add(saberL);
   const flash=new THREE.PointLight(0xffffff,0,900,2);scene.add(flash);
 
@@ -1263,7 +1271,7 @@ async function runIntro(THREE,after){
   /* Hoja: núcleo liso + halo suave en billboard cruzado (mucho más limpio que cápsulas gruesas) */
   const core=new THREE.Mesh(new THREE.CapsuleGeometry(2.3,BL,10,28),new THREE.MeshBasicMaterial({color:0xffffff,toneMapped:false}));
   const gl1=new THREE.Mesh(new THREE.CapsuleGeometry(5.2,BL,10,28),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false,toneMapped:false}));
-  const haloTex=radialTex(THREE,[[0,'rgba(255,255,255,.85)'],[.22,'rgba(255,170,170,.45)'],[.55,'rgba(255,60,60,.14)'],[1,'rgba(255,0,0,0)']],256);
+  const haloTex=radialTex(THREE,[[0,'rgba(255,255,255,.85)'],[.22,'rgba(255,140,140,.45)'],[.55,'rgba(255,60,60,.14)'],[1,'rgba(255,0,0,0)']],256);
   const haloMat=new THREE.MeshBasicMaterial({map:haloTex,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false,toneMapped:false,color:saberCol});
   const halo1=new THREE.Mesh(new THREE.PlaneGeometry(64,BL+64),haloMat);
   const halo2=halo1.clone();halo2.rotation.y=Math.PI/2;
@@ -1284,7 +1292,7 @@ async function runIntro(THREE,after){
       pos[i*3]=dir.x*f*PH*1.4;pos[i*3+1]=dir.y*f*PH*1.4;pos[i*3+2]=6;
       vel.push({x:(Math.random()-.5)*190+dir.x*90,y:(Math.random()-.5)*190+dir.y*90,z:Math.random()*130});}
     const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));
-    const m=new THREE.PointsMaterial({size:5.5,map:starTex,color:new THREE.Color(1,.72,.35),transparent:true,opacity:1,depthWrite:false,blending:THREE.AdditiveBlending});
+    const m=new THREE.PointsMaterial({size:5.5,map:starTex,color:new THREE.Color(1,.88,.72),transparent:true,opacity:1,depthWrite:false,blending:THREE.AdditiveBlending});
     const p=new THREE.Points(g,m);scene.add(p);
     return{update(dt){const a=g.attributes.position.array;
       for(let i=0;i<n;i++){vel[i].y-=560*dt;a[i*3]+=vel[i].x*dt;a[i*3+1]+=vel[i].y*dt;a[i*3+2]+=vel[i].z*dt}
@@ -1420,8 +1428,8 @@ function makeHangar(THREE){
   const body=new THREE.MeshStandardMaterial({color:0xd7dae2,metalness:.55,roughness:.42});
   const body2=new THREE.MeshStandardMaterial({color:0xa9aebb,metalness:.6,roughness:.5});
   const dark=new THREE.MeshStandardMaterial({color:0x272b35,metalness:.75,roughness:.42});
-  const stripe=new THREE.MeshStandardMaterial({color:0xc0392b,metalness:.3,roughness:.55,emissive:0x3a0f0a,emissiveIntensity:.5});
-  const glassM=new THREE.MeshPhysicalMaterial({color:0x2a3a52,metalness:.2,roughness:.08,transmission:.65,thickness:.6,transparent:true,opacity:.85,clearcoat:1});
+  const stripe=new THREE.MeshStandardMaterial({color:0xb03a34,metalness:.3,roughness:.55,emissive:0x350f0c,emissiveIntensity:.5});
+  const glassM=new THREE.MeshPhysicalMaterial({color:0x2c3440,metalness:.2,roughness:.08,transmission:.65,thickness:.6,transparent:true,opacity:.85,clearcoat:1});
   const eng=[],lamps=[];
 
   /* Fuselaje: nariz larga + cuerpo + sección de cola */
@@ -1444,7 +1452,7 @@ function makeHangar(THREE){
   canopyFrame.position.set(0,.38,.75);canopyFrame.scale.set(.82,.86,1.5);ship.add(canopyFrame);
   const canopy=new THREE.Mesh(new THREE.SphereGeometry(.54,18,12,0,Math.PI*2,0,Math.PI/2.2),glassM);
   canopy.position.set(0,.4,.75);canopy.scale.set(.78,.82,1.42);ship.add(canopy);
-  const cockpitGlow=new THREE.Mesh(new THREE.SphereGeometry(.3,10,8),new THREE.MeshBasicMaterial({color:0x7fd4ff,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false}));
+  const cockpitGlow=new THREE.Mesh(new THREE.SphereGeometry(.3,10,8),new THREE.MeshBasicMaterial({color:0x63c7ef,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false}));
   cockpitGlow.position.set(0,.36,.8);ship.add(cockpitGlow);lamps.push({m:cockpitGlow,base:.5,sp:1.3});
 
   /* Cuatro alas en X con su góndola, motor y cañón */
@@ -1481,9 +1489,9 @@ function makeHangar(THREE){
   });
 
   /* Iluminación: clave + contra + relleno */
-  scene.add(new THREE.AmbientLight(0x6b7fa8,.55));
+  scene.add(new THREE.AmbientLight(0x6e7686,.55));
   const k=new THREE.DirectionalLight(0xffffff,2.1);k.position.set(4,6,5);scene.add(k);
-  const fill=new THREE.DirectionalLight(0x88a8ff,.7);fill.position.set(-5,-2,3);scene.add(fill);
+  const fill=new THREE.DirectionalLight(0xa8b2c6,.7);fill.position.set(-5,-2,3);scene.add(fill);
   const rimL=new THREE.PointLight(col(),30,30,2);rimL.position.set(-4,1,-6);scene.add(rimL);
   const engineL=new THREE.PointLight(col(),18,14,2);engineL.position.set(0,0,-3.6);scene.add(engineL);
   function size(){const r=host.getBoundingClientRect();if(!r.width)return;renderer.setSize(r.width,r.height,false);cam.aspect=r.width/r.height;cam.updateProjectionMatrix()}
