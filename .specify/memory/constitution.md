@@ -63,9 +63,17 @@ bajo throttling 4×, no un cuello de botella corregible sin amputar el diseño.
 Animaciones solo con `transform`, `opacity`, `clip-path` y filtros
 compuestos; toda animación infinita MUST ser compuesta (nunca
 `background-position` ni propiedades que repinten). Peso inicial (HTML + CSS
-+ JS crítico) ≤ 25 KB comprimido. Three.js, el postproceso y el video del
-sitio viejo MUST cargarse diferidos y solo en escritorio; en móvil la intro
-MUST resolverse con Web Animations API y un póster de ≤ 15 KB.
++ JS crítico) ≤ 25 KB comprimido.
+
+*Enmienda 2026-09-13:* el puente, el campo estelar y la nave del Hangar se
+dibujan en **todos** los dispositivos, incluido el teléfono, porque son la
+identidad del sitio y su ausencia se percibía como que el sitio estaba roto.
+En pantallas < 640 px MUST reducirse la densidad (mitad de estrellas, menos
+líneas de hiperespacio) y el `devicePixelRatio` a 1.1. Lo que sigue
+reservado a pantallas grandes es la **intro cinematográfica con
+postproceso** (bloom + textura de video), que en teléfono MUST resolverse
+con Web Animations API y un póster de ≤ 15 KB. Three.js MUST cargarse
+siempre diferido y después de la intro, nunca bloqueando el primer render.
 
 ### VI. Propiedad Intelectual Limpia
 MUST NOT usarse logos, personajes, tipografías oficiales, música ni audio de

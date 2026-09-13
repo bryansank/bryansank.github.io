@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap"></noscript>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap"></noscript>
 <link rel="canonical" href="https://bryansank.github.io/">
 <noscript><style>#gate,#intro,#stars,.dock{display:none!important}.reveal{opacity:1;transform:none}</style></noscript>
 <script>
@@ -37,7 +37,7 @@ var t=s.getItem('bk-theme');if(t)document.documentElement.dataset.theme=t;var l=
   --line:oklch(30% 0.014 265);
   --card:oklch(16% 0.014 265 / .78);--glass:oklch(20% 0.016 265 / .55);--focus:oklch(75% 0.12 220);
   --font:ui-sans-serif,system-ui,"Segoe UI",Inter,Roboto,sans-serif;--mono:ui-monospace,"Cascadia Code",Consolas,monospace;
-  --display:"Orbitron",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
+  --display:"Rajdhani",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
   --radius:14px;--max:1180px;--pad:clamp(16px,4vw,48px);--dock-h:64px;
   color-scheme:dark;
 }
@@ -73,7 +73,7 @@ html[lang="en"] [lang="es"]{display:none!important}
 .wrap{width:min(100% - 2*var(--pad),var(--max));margin-inline:auto}
 section{padding-block:clamp(56px,9vw,120px);position:relative;scroll-margin-top:72px}
 h1,h2,h3{line-height:1.14;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h2{font-size:clamp(22px,3.6vw,44px);font-weight:900;font-family:var(--display);letter-spacing:0;line-height:1.2}
+h2{font-size:clamp(22px,3.6vw,44px);font-weight:700;font-family:var(--display);letter-spacing:.005em;line-height:1.15}
 .kicker{font:600 clamp(10px,2.4vw,12px)/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;gap:10px;align-items:baseline;flex-wrap:nowrap}
 .kicker::before{content:"";width:clamp(16px,5vw,28px);height:2px;flex:none;background:var(--saber);box-shadow:0 0 12px var(--saber);transform:translateY(-4px)}
 .knum{color:var(--muted);font-weight:700;letter-spacing:.08em;flex:none}
@@ -87,7 +87,7 @@ section+section{border-top:1px solid var(--line)}
 .top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
 @media (min-width:768px) and (pointer:fine){.top{backdrop-filter:blur(14px) saturate(1.3);background:color-mix(in oklch,var(--bg) 72%,transparent)}}
 .top .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.06em;font-family:var(--display);font-size:15px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.03em;font-family:var(--display);font-size:16px}
 .brand .key{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--saber),var(--accent));color:oklch(12% 0 0);box-shadow:0 0 18px var(--saber-soft);flex:none}
 .brand .key svg{display:block}
 .nav{display:none;gap:4px;margin-inline:auto}
@@ -104,7 +104,7 @@ section+section{border-top:1px solid var(--line)}
 .pill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--glass);border-radius:999px;padding:8px 14px 8px 10px;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg)}
 .pill i{width:10px;height:10px;border-radius:50%;background:var(--saber);box-shadow:0 0 12px var(--saber);animation:pulse 1.8s ease-in-out infinite;will-change:transform,opacity}
 @keyframes pulse{50%{transform:scale(.7);opacity:.6}}
-.hero h1{font-family:var(--display);font-size:clamp(38px,8.6vw,116px);font-weight:900;letter-spacing:-.008em;margin-top:clamp(14px,2vw,24px);text-transform:uppercase;line-height:.99}
+.hero h1{font-family:var(--display);font-size:clamp(38px,8.6vw,116px);font-weight:700;letter-spacing:.002em;margin-top:clamp(14px,2vw,24px);text-transform:uppercase;line-height:.96}
 .hero h1 .w{display:block}
 .hero h1 .l{display:inline-block;animation:drop .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 45ms + .1s)}
 .hero h1 .w:first-child .l{text-shadow:0 3px 26px oklch(0% 0 0 / .6)}
@@ -117,7 +117,7 @@ section+section{border-top:1px solid var(--line)}
 .btn{--c:var(--saber);appearance:none;text-decoration:none;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:14px;font-weight:800;font-size:16px;border:1px solid var(--line);background:var(--glass);color:var(--fg);cursor:pointer;position:relative;transition:transform .2s,box-shadow .2s,border-color .2s;will-change:transform}
 .btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .btn:hover{border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 0 28px var(--saber-soft);transform:translateY(-2px)}
-.btn.primary{background:linear-gradient(135deg,var(--saber),color-mix(in oklch,var(--saber) 60%,var(--accent)));color:oklch(10% 0 0);border-color:transparent;box-shadow:0 8px 30px -8px var(--saber)}
+.btn.primary{background:linear-gradient(135deg,var(--saber),color-mix(in oklch,var(--saber) 74%,black));color:oklch(10% 0 0);border-color:transparent;box-shadow:0 8px 30px -8px var(--saber)}
 .btn.primary:hover{box-shadow:0 12px 40px -6px var(--saber)}
 .btn.ghost{background:transparent}
 .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;color:var(--muted);font:500 14px var(--mono)}
@@ -293,7 +293,10 @@ html[data-intro="skip"] #gate{display:none}
 .powers{list-style:none;margin:clamp(10px,1.8vh,16px) 0 0;padding:0;display:grid;gap:clamp(6px,1.1vh,9px);min-height:0;overflow:auto}
 .power{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:var(--glass);border:1px solid var(--line);border-radius:13px;padding:clamp(8px,1.4vh,12px) 12px;color:var(--fg);font:inherit;cursor:pointer;transition:border-color .2s}
 .power:hover{border-color:var(--saber)}
-.power .ico{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--bg-2);font-size:17px}
+.power .ico{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--bg-2)}
+.power .ico svg{width:19px;height:19px;fill:none;stroke:var(--fg);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.power[aria-checked="true"] .ico svg{stroke:var(--saber)}
+.power[disabled] .ico svg{stroke:var(--muted)}
 .power .txt{flex:1;min-width:0}
 .power .txt b{display:block;font-size:14.5px}
 .power .txt em{display:block;color:var(--muted);font-size:12.5px;line-height:1.35;font-style:normal;margin-top:2px}
@@ -309,17 +312,19 @@ html[data-intro="skip"] #gate{display:none}
 .gate-skip{margin:0;text-align:center;font-size:clamp(12.5px,1.7vh,14px);color:var(--muted)}
 .gate-note{margin:clamp(8px,1.5vh,14px) 0 0;font-size:clamp(10px,1.4vh,11.8px);color:var(--muted);text-align:center;line-height:1.4;flex:none}
 /* Pantallas bajas: se recortan los adornos antes que el contenido */
-@media (max-height:720px){.power .txt em{display:none}.power .ico{width:30px;height:30px;font-size:15px}}
+@media (max-height:720px){.power .txt em{display:none}.power .ico{width:30px;height:30px}.power .ico svg{width:16px;height:16px}}
 @media (max-height:600px){.gate-sub{display:none}.gate-card .kicker{margin-bottom:8px}}
 @media (max-height:520px){.gate-note{display:none}}
-@media (max-width:430px){.power .txt em{display:none}.power .ico{width:30px;height:30px;font-size:15px}.gate-sub{font-size:12.5px}}
+@media (max-width:430px){.power .txt em{display:none}.power .ico{width:30px;height:30px}.power .ico svg{width:16px;height:16px}.gate-sub{font-size:12.5px}}
 /* ---------- Intro ---------- */
 #intro{position:fixed;inset:0;z-index:90;background:oklch(6% 0.008 265);display:grid;place-items:center;transition:opacity .6s}
 #intro canvas{position:absolute;inset:0;width:100%;height:100%}
 #intro .fall{position:absolute;width:min(20svh,46vw);aspect-ratio:414/896;border-radius:14px;overflow:hidden;box-shadow:0 0 50px oklch(70% 0.16 220 / .5),0 0 130px oklch(75% 0.12 220 / .25);z-index:1}
-#intro .fall img,#intro .fall video{width:100%;height:100%;object-fit:cover;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);opacity:.95}
+#intro .fall img,#intro .fall video{width:100%;height:100%;object-fit:cover;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);opacity:.8;animation:holo-flicker 2.6s ease-in-out infinite}
+@keyframes holo-flicker{0%,100%{opacity:.8}42%{opacity:.68}46%{opacity:.84}70%{opacity:.74}73%{opacity:.15}76%{opacity:.78}}
+@media (prefers-reduced-motion:reduce){#intro .fall img,#intro .fall video{animation:none;opacity:.85}}
 #intro>video{position:absolute;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none}
-#intro .fall::after{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(75% 0.12 220 / .14) 2px 4px);animation:holo-scan 3s linear infinite;will-change:transform}
+#intro .fall::after{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(75% 0.12 220 / .28) 2px 4px);animation:holo-scan 2.2s linear infinite;will-change:transform}
 @keyframes holo-scan{to{transform:translateY(40px)}}
 #intro .skipbtn{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:6}
 /* HUD de la intro: explica qué se está viendo */
@@ -398,19 +403,19 @@ html.saber-cursor #saber{display:block}
     </div>
     <ul class="powers" id="powers">
       <li><button type="button" class="power" role="switch" aria-checked="true" data-p="sound">
-        <span class="ico" aria-hidden="true">🔊</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path d="M15 9.5a4 4 0 0 1 0 5M17.5 7a7.5 7.5 0 0 1 0 10"/></svg></span>
         <span class="txt"><b><span lang="es" data-t="general.05">Sonido del sable</span><span lang="en" data-t="general.05">Saber sound</span></b><em><span lang="es" data-t="general.06">Encendido, zumbido y salto al hiperespacio. Sintetizado, sin música.</span><span lang="en" data-t="general.06">Ignition, hum and hyperspace jump. Synthesized, no music.</span></em></span>
         <span class="sw" aria-hidden="true"></span></button></li>
       <li hidden><button type="button" class="power" role="switch" aria-checked="false" data-p="tilt">
-        <span class="ico" aria-hidden="true">📱</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.4"/><path d="M10.3 19.2h3.4" stroke-linecap="round"/><path d="M18.5 6.5a7 7 0 0 1 0 6M5.5 8.5a7 7 0 0 0 0 3" stroke-linecap="round"/></svg></span>
         <span class="txt"><b><span lang="es" data-t="general.07">Inclinar para mover las estrellas</span><span lang="en" data-t="general.07">Tilt to move the stars</span></b><em><span lang="es" data-t="general.08">Mueve tu dispositivo y el campo estelar te sigue.</span><span lang="en" data-t="general.08">Move your device and the starfield follows.</span></em></span>
         <span class="sw" aria-hidden="true"></span></button></li>
       <li hidden><button type="button" class="power" role="switch" aria-checked="true" data-p="haptics">
-        <span class="ico" aria-hidden="true">💫</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="18" rx="2.2"/><path d="M4.5 9v6M2.5 10.5v3M19.5 9v6M21.5 10.5v3" stroke-linecap="round"/></svg></span>
         <span class="txt"><b><span lang="es" data-t="general.09">Vibración al encender</span><span lang="en" data-t="general.09">Haptics on ignition</span></b><em><span lang="es" data-t="general.10">Un pulso corto cuando el sable cobra vida.</span><span lang="en" data-t="general.10">A short pulse when the saber comes alive.</span></em></span>
         <span class="sw" aria-hidden="true"></span></button></li>
       <li hidden><button type="button" class="power" role="switch" aria-checked="false" data-p="cinema">
-        <span class="ico" aria-hidden="true">🌑</span>
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V5a1 1 0 0 1 1-1h4M20 9V5a1 1 0 0 0-1-1h-4M4 15v4a1 1 0 0 0 1 1h4M20 15v4a1 1 0 0 1-1 1h-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="txt"><b><span lang="es" data-t="general.11">Modo cine</span><span lang="en" data-t="general.11">Cinema mode</span></b><em><span lang="es" data-t="general.12">Pantalla completa, sin barras del navegador.</span><span lang="en" data-t="general.12">Fullscreen, no browser chrome.</span></em></span>
         <span class="sw" aria-hidden="true"></span></button></li>
     </ul>
@@ -442,11 +447,11 @@ html.saber-cursor #saber{display:block}
     <a class="brand" href="#puente"><span class="key" aria-hidden="true"><svg viewBox="0 0 48 48" width="24" height="24"><path d="M24 6c-8.4 0-14.2 5.7-14.2 14.2v8.4C9.8 35.4 14.6 41 24 41s14.2-5.6 14.2-12.4v-8.4C38.2 11.7 32.4 6 24 6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M14.6 19.4h18.8l-2.6 6.8h-3.6L25.6 35h-3.2l-1.6-8.8h-3.6z" fill="currentColor"/></svg></span><span>Bryan Key</span></a>
     <nav class="nav" aria-label="Secciones">
       <a href="#bitacora"><span lang="es" data-t="general.18">Bitácora</span><span lang="en" data-t="general.18">Log</span></a>
-      <a href="#servicio"><span lang="es" data-t="general.19">Hoja de servicio</span><span lang="en" data-t="general.19">Service record</span></a>
-      <a href="#arsenal">Arsenal</a>
-      <a href="#hangar"><span lang="es" data-t="general.20">Hangar</span><span lang="en" data-t="general.20">Hangar</span></a>
       <a href="#transmisiones"><span lang="es" data-t="general.21">Transmisiones</span><span lang="en" data-t="general.21">Transmissions</span></a>
+      <a href="#servicio"><span lang="es" data-t="general.19">Hoja de servicio</span><span lang="en" data-t="general.19">Service record</span></a>
+      <a href="#hangar"><span lang="es" data-t="general.20">Hangar</span><span lang="en" data-t="general.20">Hangar</span></a>
       <a href="#canal"><span lang="es" data-t="general.22">Canal abierto</span><span lang="en" data-t="general.22">Open channel</span></a>
+      <a href="#arsenal">Arsenal</a>
     </nav>
     <div class="ctrls">
       <button class="ctl" id="langBtn" type="button" aria-label="EN: switch to English"><span lang="es" data-t="general.23">EN</span><span lang="en" data-t="general.23">ES</span></button>
@@ -508,9 +513,21 @@ html.saber-cursor #saber{display:block}
   </section>
 
   <!-- Hoja de servicio -->
+  <section id="transmisiones" aria-labelledby="h-trans">
+    <div class="wrap">
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="12" cy="12" r="2.2"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2M19.1 4.9a10 10 0 0 1 0 14.2"/></svg><span class="knum">03</span><span lang="es" data-t="transmisiones.01">Transmisiones aliadas</span><span lang="en" data-t="transmisiones.01">Allied transmissions</span></p>
+      <h2 id="h-trans"><span lang="es" data-t="transmisiones.02">Lo que dicen quienes volaron conmigo</span><span lang="en" data-t="transmisiones.02">What those who flew with me say</span></h2>
+      <div class="holo">
+        <blockquote class="card reveal"><p>“Bryan is an awesome developer. Working with him is a blast because he always brings such great vibes and a positive attitude. He's really into taking on new challenges and bounces back quickly when things get tough. Super adaptable and always ready to tackle problems head-on.”</p><footer><b>Luis Manuel Flores Camarena</b><span lang="es" data-t="transmisiones.03">Desarrollador · Lapzo</span><span lang="en" data-t="transmisiones.03">Developer · Lapzo</span></footer></blockquote>
+        <blockquote class="card reveal"><p><span lang="es" data-t="transmisiones.04">“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”</span><span lang="en" data-t="transmisiones.04">“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”</span></p><footer><b>Robert Hernández</b>Lapzo</footer></blockquote>
+      </div>
+      <p class="lede" style="margin-top:22px"><a href="https://www.linkedin.com/in/bryansank/details/recommendations/" target="_blank" rel="noopener"><span lang="es" data-t="transmisiones.05">7 recomendaciones en LinkedIn →</span><span lang="en" data-t="transmisiones.05">7 recommendations on LinkedIn →</span></a></p>
+    </div>
+  </section>
+
   <section id="servicio" aria-labelledby="h-servicio">
     <div class="wrap">
-      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 16.5 17 7.5"/><circle cx="12" cy="12" r="1.3"/></svg><span class="knum">03</span><span lang="es" data-t="servicio.01">Hoja de servicio · 8 paradas registradas</span><span lang="en" data-t="servicio.01">Service record · 8 logged stops</span></p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 16.5 17 7.5"/><circle cx="12" cy="12" r="1.3"/></svg><span class="knum">04</span><span lang="es" data-t="servicio.01">Hoja de servicio · 8 paradas registradas</span><span lang="en" data-t="servicio.01">Service record · 8 logged stops</span></p>
       <h2 id="h-servicio"><span lang="es" data-t="servicio.02">Ruta de hiperespacio 2018 → 2026</span><span lang="en" data-t="servicio.02">Hyperspace route 2018 → 2026</span></h2>
       <p class="lede"><span lang="es" data-t="servicio.03">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en" data-t="servicio.03">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
       <ol class="grid-exp">
@@ -566,10 +583,42 @@ html.saber-cursor #saber{display:block}
     </div>
   </section>
 
-  <!-- Arsenal -->
+  <section id="hangar" aria-labelledby="h-hangar">
+    <div class="wrap">
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path d="M12 3 14.4 9H21l-5 4 1.8 7L12 16.6 6.2 20 8 13l-5-4h6.6z"/></svg><span class="knum">05</span>Hangar</p>
+      <h2 id="h-hangar"><span lang="es" data-t="hangar.01">Proyecto personal en construcción</span><span lang="en" data-t="hangar.01">Personal project under construction</span></h2>
+      <div class="hangar">
+        <article class="card tilt grain reveal">
+          <span class="badge">Godot · <span lang="es" data-t="hangar.02">full IA</span><span lang="en" data-t="hangar.02">full AI</span> · open source</span>
+          <h3 style="margin-top:10px;font-size:clamp(24px,2vw + 12px,34px)">Tormenta Imperial</h3>
+          <p class="lede" style="margin-top:12px"><span lang="es" data-t="hangar.03">Un juego construido dirigiendo agentes de IA de principio a fin: diseño, código GDScript, assets y pipeline. Es mi laboratorio para probar la tesis del capitán de la nave en un dominio que no es el mío.</span><span lang="en" data-t="hangar.03">A game built by directing AI agents end to end: design, GDScript code, assets and pipeline. It is my lab to test the captain-of-the-ship thesis in a domain that isn't mine.</span></p>
+          <div class="chips"><span>Godot 4</span><span>GDScript</span><span>Claude Code</span><span>Spec Kit</span></div>
+          <p style="margin:18px 0 0"><a class="btn ghost" href="https://github.com/bryansank/tormenta-imperial" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><span lang="es" data-t="hangar.04">Ver en GitHub</span><span lang="en" data-t="hangar.04">View on GitHub</span></a></p>
+        </article>
+        <div class="ship reveal" aria-hidden="true">
+          <svg viewBox="0 0 320 200"><path d="M40 100h60l40-40h60l60 40-60 40h-60l-40-40z"/><path class="glow" d="M100 100h100"/><path d="M160 60v80M130 60l-20-30M190 60l20-30M130 140l-20 30M190 140l20 30"/><circle cx="160" cy="100" r="14"/><path class="glow" d="M260 100h50"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="canal" aria-labelledby="h-canal">
+    <div class="wrap">
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path d="M12 15v6"/><path d="M8 21h8"/><circle cx="12" cy="9" r="2.4"/><path d="M6.5 14.5a7 7 0 0 1 0-11M17.5 3.5a7 7 0 0 1 0 11"/></svg><span class="knum">06</span><span lang="es" data-t="canal.01">Canal abierto</span><span lang="en" data-t="canal.01">Open channel</span></p>
+      <h2 id="h-canal"><span lang="es" data-t="canal.02">Hablemos hoy. Respondo rápido.</span><span lang="en" data-t="canal.02">Let's talk today. I reply fast.</span></h2>
+      <p class="lede"><span lang="es" data-t="canal.03">Reclutador, CTO o fundador: elige el canal y en menos de 24 h tienes respuesta.</span><span lang="en" data-t="canal.03">Recruiter, CTO or founder: pick a channel and you'll hear back within 24 hours.</span></p>
+      <div class="channels">
+        <a class="card tilt chan reveal" href="https://www.linkedin.com/in/bryansank/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 8v.1M12 17v-6m0 2.5a2.5 2.5 0 0 1 5 0V17"/></svg><b>LinkedIn</b><span>/in/bryansank</span><em><span lang="es" data-t="canal.04">Hablar ahora</span><span lang="en" data-t="canal.04">Talk now</span> →</em></a>
+        <a class="card tilt chan reveal" href="mailto:bryansan055@gmail.com?subject=Oportunidad%20para%20Bryan%20Key"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><b>Email</b><span>bryansan055@gmail.com</span><em><span lang="es" data-t="canal.05">Escribir</span><span lang="en" data-t="canal.05">Write</span> →</em></a>
+        <a class="card tilt chan reveal" href="https://github.com/bryansank" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><b>GitHub</b><span>@bryansank</span><em><span lang="es" data-t="canal.06">Ver código</span><span lang="en" data-t="canal.06">See code</span> →</em></a>
+        <a class="card tilt chan reveal cv-link" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><b>CV 2026</b><span>PDF · <span lang="es" data-t="canal.07">español</span><span lang="en" data-t="canal.07">English</span></span><em><span lang="es" data-t="canal.08">Descargar</span><span lang="en" data-t="canal.08">Download</span> →</em></a>
+      </div>
+    </div>
+  </section>
+
   <section id="arsenal" aria-labelledby="h-arsenal">
     <div class="wrap">
-      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><rect x="10.5" y="14" width="3" height="7" rx="1"/><path d="M12 13V3"/><path d="M9.6 14.6h4.8"/></svg><span class="knum">04</span>Arsenal</p>
+      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><rect x="10.5" y="14" width="3" height="7" rx="1"/><path d="M12 13V3"/><path d="M9.6 14.6h4.8"/></svg><span class="knum">07</span>Arsenal</p>
       <h2 id="h-arsenal"><span lang="es" data-t="arsenal.01">Un sable por cada batalla</span><span lang="en" data-t="arsenal.01">A saber for every battle</span></h2>
       <p class="lede"><span lang="es" data-t="arsenal.02">30 tecnologías agrupadas por frente. Las que uso a diario están arriba de cada bloque.</span><span lang="en" data-t="arsenal.02">30 technologies grouped by front. The ones I use daily are at the top of each block.</span></p>
       <div class="stack-grid">
@@ -613,54 +662,6 @@ html.saber-cursor #saber{display:block}
       </div>
     </div>
   </section>
-
-  <!-- Hangar -->
-  <section id="hangar" aria-labelledby="h-hangar">
-    <div class="wrap">
-      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path d="M12 3 14.4 9H21l-5 4 1.8 7L12 16.6 6.2 20 8 13l-5-4h6.6z"/></svg><span class="knum">05</span>Hangar</p>
-      <h2 id="h-hangar"><span lang="es" data-t="hangar.01">Proyecto personal en construcción</span><span lang="en" data-t="hangar.01">Personal project under construction</span></h2>
-      <div class="hangar">
-        <article class="card tilt grain reveal">
-          <span class="badge">Godot · <span lang="es" data-t="hangar.02">full IA</span><span lang="en" data-t="hangar.02">full AI</span> · open source</span>
-          <h3 style="margin-top:10px;font-size:clamp(24px,2vw + 12px,34px)">Tormenta Imperial</h3>
-          <p class="lede" style="margin-top:12px"><span lang="es" data-t="hangar.03">Un juego construido dirigiendo agentes de IA de principio a fin: diseño, código GDScript, assets y pipeline. Es mi laboratorio para probar la tesis del capitán de la nave en un dominio que no es el mío.</span><span lang="en" data-t="hangar.03">A game built by directing AI agents end to end: design, GDScript code, assets and pipeline. It is my lab to test the captain-of-the-ship thesis in a domain that isn't mine.</span></p>
-          <div class="chips"><span>Godot 4</span><span>GDScript</span><span>Claude Code</span><span>Spec Kit</span></div>
-          <p style="margin:18px 0 0"><a class="btn ghost" href="https://github.com/bryansank/tormenta-imperial" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><span lang="es" data-t="hangar.04">Ver en GitHub</span><span lang="en" data-t="hangar.04">View on GitHub</span></a></p>
-        </article>
-        <div class="ship reveal" aria-hidden="true">
-          <svg viewBox="0 0 320 200"><path d="M40 100h60l40-40h60l60 40-60 40h-60l-40-40z"/><path class="glow" d="M100 100h100"/><path d="M160 60v80M130 60l-20-30M190 60l20-30M130 140l-20 30M190 140l20 30"/><circle cx="160" cy="100" r="14"/><path class="glow" d="M260 100h50"/></svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Canal abierto -->
-  <section id="canal" aria-labelledby="h-canal">
-    <div class="wrap">
-      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><path d="M12 15v6"/><path d="M8 21h8"/><circle cx="12" cy="9" r="2.4"/><path d="M6.5 14.5a7 7 0 0 1 0-11M17.5 3.5a7 7 0 0 1 0 11"/></svg><span class="knum">06</span><span lang="es" data-t="canal.01">Canal abierto</span><span lang="en" data-t="canal.01">Open channel</span></p>
-      <h2 id="h-canal"><span lang="es" data-t="canal.02">Hablemos hoy. Respondo rápido.</span><span lang="en" data-t="canal.02">Let's talk today. I reply fast.</span></h2>
-      <p class="lede"><span lang="es" data-t="canal.03">Reclutador, CTO o fundador: elige el canal y en menos de 24 h tienes respuesta.</span><span lang="en" data-t="canal.03">Recruiter, CTO or founder: pick a channel and you'll hear back within 24 hours.</span></p>
-      <div class="channels">
-        <a class="card tilt chan reveal" href="https://www.linkedin.com/in/bryansank/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 8v.1M12 17v-6m0 2.5a2.5 2.5 0 0 1 5 0V17"/></svg><b>LinkedIn</b><span>/in/bryansank</span><em><span lang="es" data-t="canal.04">Hablar ahora</span><span lang="en" data-t="canal.04">Talk now</span> →</em></a>
-        <a class="card tilt chan reveal" href="mailto:bryansan055@gmail.com?subject=Oportunidad%20para%20Bryan%20Key"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><b>Email</b><span>bryansan055@gmail.com</span><em><span lang="es" data-t="canal.05">Escribir</span><span lang="en" data-t="canal.05">Write</span> →</em></a>
-        <a class="card tilt chan reveal" href="https://github.com/bryansank" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><b>GitHub</b><span>@bryansank</span><em><span lang="es" data-t="canal.06">Ver código</span><span lang="en" data-t="canal.06">See code</span> →</em></a>
-        <a class="card tilt chan reveal cv-link" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><b>CV 2026</b><span>PDF · <span lang="es" data-t="canal.07">español</span><span lang="en" data-t="canal.07">English</span></span><em><span lang="es" data-t="canal.08">Descargar</span><span lang="en" data-t="canal.08">Download</span> →</em></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Transmisiones -->
-  <section id="transmisiones" aria-labelledby="h-trans">
-    <div class="wrap">
-      <p class="kicker"><svg class="kico" viewBox="0 0 24 24" aria-hidden="true" width="15" height="15"><circle cx="12" cy="12" r="2.2"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2M19.1 4.9a10 10 0 0 1 0 14.2"/></svg><span class="knum">07</span><span lang="es" data-t="transmisiones.01">Transmisiones aliadas</span><span lang="en" data-t="transmisiones.01">Allied transmissions</span></p>
-      <h2 id="h-trans"><span lang="es" data-t="transmisiones.02">Lo que dicen quienes volaron conmigo</span><span lang="en" data-t="transmisiones.02">What those who flew with me say</span></h2>
-      <div class="holo">
-        <blockquote class="card reveal"><p>“Bryan is an awesome developer. Working with him is a blast because he always brings such great vibes and a positive attitude. He's really into taking on new challenges and bounces back quickly when things get tough. Super adaptable and always ready to tackle problems head-on.”</p><footer><b>Luis Manuel Flores Camarena</b><span lang="es" data-t="transmisiones.03">Desarrollador · Lapzo</span><span lang="en" data-t="transmisiones.03">Developer · Lapzo</span></footer></blockquote>
-        <blockquote class="card reveal"><p><span lang="es" data-t="transmisiones.04">“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”</span><span lang="en" data-t="transmisiones.04">“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”</span></p><footer><b>Robert Hernández</b>Lapzo</footer></blockquote>
-      </div>
-      <p class="lede" style="margin-top:22px"><a href="https://www.linkedin.com/in/bryansank/details/recommendations/" target="_blank" rel="noopener"><span lang="es" data-t="transmisiones.05">7 recomendaciones en LinkedIn →</span><span lang="en" data-t="transmisiones.05">7 recommendations on LinkedIn →</span></a></p>
-    </div>
-  </section>
 </main>
 
 <footer class="foot">
@@ -676,11 +677,11 @@ html.saber-cursor #saber{display:block}
 <nav class="rail" id="rail" aria-label="Secciones">
   <a href="#puente"><span class="lbl"><span class="num">01</span> <span lang="es" data-t="transmisiones.09">Puente</span><span lang="en" data-t="transmisiones.09">Bridge</span></span><span class="dot"></span></a>
   <a href="#bitacora"><span class="lbl"><span class="num">02</span> <span lang="es" data-t="transmisiones.10">Bitácora</span><span lang="en" data-t="transmisiones.10">Log</span></span><span class="dot"></span></a>
-  <a href="#servicio"><span class="lbl"><span class="num">03</span> <span lang="es" data-t="transmisiones.11">Hoja de servicio</span><span lang="en" data-t="transmisiones.11">Service record</span></span><span class="dot"></span></a>
-  <a href="#arsenal"><span class="lbl"><span class="num">04</span> Arsenal</span><span class="dot"></span></a>
+  <a href="#transmisiones"><span class="lbl"><span class="num">03</span> <span lang="es" data-t="transmisiones.13">Transmisiones</span><span lang="en" data-t="transmisiones.13">Transmissions</span></span><span class="dot"></span></a>
+  <a href="#servicio"><span class="lbl"><span class="num">04</span> <span lang="es" data-t="transmisiones.11">Hoja de servicio</span><span lang="en" data-t="transmisiones.11">Service record</span></span><span class="dot"></span></a>
   <a href="#hangar"><span class="lbl"><span class="num">05</span> Hangar</span><span class="dot"></span></a>
   <a href="#canal"><span class="lbl"><span class="num">06</span> <span lang="es" data-t="transmisiones.12">Canal abierto</span><span lang="en" data-t="transmisiones.12">Open channel</span></span><span class="dot"></span></a>
-  <a href="#transmisiones"><span class="lbl"><span class="num">07</span> <span lang="es" data-t="transmisiones.13">Transmisiones</span><span lang="en" data-t="transmisiones.13">Transmissions</span></span><span class="dot"></span></a>
+  <a href="#arsenal"><span class="lbl"><span class="num">07</span> Arsenal</span><span class="dot"></span></a>
 </nav>
 
 <nav class="dock" id="dock" aria-label="Contacto rápido">
@@ -694,7 +695,7 @@ html.saber-cursor #saber{display:block}
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const html=document.documentElement,store={get:k=>{try{return localStorage.getItem(k)}catch{return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch{}}};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let stars=null;
+let stars=null,hangar=null;
 
 /* ---------- Kinetic hero ---------- */
 $$('[data-kinetic]').forEach(w=>{const t=w.textContent;w.textContent='';[...t].forEach((ch,i)=>{const s=document.createElement('span');s.className='l';s.style.setProperty('--i',i);s.textContent=ch;w.appendChild(s)})});
@@ -707,7 +708,7 @@ applyLang(html.lang==='en'?'en':'es');
 langBtn.addEventListener('click',()=>{const next=html.lang==='en'?'es':'en';const run=()=>applyLang(next);if(document.startViewTransition&&!reduced){html.classList.add('lang-switch');document.startViewTransition(run).finished.finally(()=>html.classList.remove('lang-switch'))}else run()});
 
 /* ---------- Tema: elegir lado ---------- */
-function paintTheme(){const light=html.dataset.theme==='light';themeBtn.setAttribute('aria-pressed',String(light));$('meta[name=theme-color]').content=light?'#f7f5ef':'#0f1020';stars?.recolor?.()}
+function paintTheme(){const light=html.dataset.theme==='light';themeBtn.setAttribute('aria-pressed',String(light));$('meta[name=theme-color]').content=light?'#f7f5ef':'#0f1020';stars?.recolor?.();hangar?.recolor?.()}
 paintTheme();
 themeBtn.addEventListener('click',e=>{const r=themeBtn.getBoundingClientRect();html.style.setProperty('--vt-x',(r.left+r.width/2)+'px');html.style.setProperty('--vt-y',(r.top+r.height/2)+'px');const next=html.dataset.theme==='light'?'dark':'light';const run=()=>{html.dataset.theme=next;store.set('bk-theme',next);paintTheme()};sfx.ignite();if(document.startViewTransition&&!reduced)document.startViewTransition(run);else run()});
 
@@ -727,7 +728,12 @@ const sfx={
     for(let i=0;i<d.length;i++){const k=i/d.length;d[i]=(Math.random()*2-1)*Math.sin(Math.PI*k)*.8}
     n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=1.4;f.frequency.setValueAtTime(320,t);f.frequency.exponentialRampToValueAtTime(980,t+.3);f.frequency.exponentialRampToValueAtTime(300,t+.55);
     g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.022,t+.08);g.gain.exponentialRampToValueAtTime(.0001,t+.5);
-    n.connect(f).connect(g).connect(c.destination);n.start(t)}
+    n.connect(f).connect(g).connect(c.destination);n.start(t)},
+  /* Confirmación de datos: dos tonos ascendentes, para acompañar texto identificatorio */
+  chime(){const c=this.ctx();if(!c)return;const t=c.currentTime;
+    [[720,0],[1080,.11]].forEach(([f0,delay])=>{const o=c.createOscillator(),g=c.createGain();o.type='sine';
+      o.frequency.setValueAtTime(f0,t+delay);g.gain.setValueAtTime(0,t+delay);g.gain.linearRampToValueAtTime(.05,t+delay+.02);
+      g.gain.exponentialRampToValueAtTime(.0001,t+delay+.32);o.connect(g).connect(c.destination);o.start(t+delay);o.stop(t+delay+.34)})}
 };
 function paintSound(){soundBtn.setAttribute('aria-pressed',String(soundOn));soundBtn.style.color=soundOn?'var(--saber)':''}
 paintSound();
@@ -777,7 +783,7 @@ $('#replayBtn')?.addEventListener('click',resetExperience);
   const prog=$('#prog'),rail=$('#rail');
   const links=$$('#rail a'),ids=links.map(a=>a.getAttribute('href').slice(1));
   const secs=ids.map(id=>document.getElementById(id)).filter(Boolean);
-  let ticking=false,current='';
+  let ticking=false,current='',crossCount=0;
   const onScroll=()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{
     const max=document.documentElement.scrollHeight-innerHeight;
     if(prog)prog.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%';
@@ -790,6 +796,8 @@ $('#replayBtn')?.addEventListener('click',resetExperience);
       const id=e.target.id;if(id===current)return;current=id;
       links.forEach(a=>a.getAttribute('href')==='#'+id?a.setAttribute('aria-current','step'):a.removeAttribute('aria-current'));
       sfx.whoosh();
+      /* el salto al hiperespacio (sonido de viaje) suena cada 2 secciones, no en cada una */
+      crossCount++;if(crossCount%2===0)sfx.warp();
     });
   },{rootMargin:'-45% 0px -45% 0px'});
   secs.forEach(s=>io.observe(s));
@@ -860,7 +868,7 @@ function enableTilt(){
   const coarse=matchMedia('(pointer: coarse)').matches;
   const why={
     tilt:(!canTilt||!coarse)?(EN()?'Phone or tablet only':'Solo en móvil o tablet'):'',
-    haptics:(!canVibrate||!coarse)?(EN()?'Phone only':'Solo en móvil'):'',
+    haptics:!canVibrate?(EN()?'iPhone does not support it':'El iPhone no lo permite'):(!coarse?(EN()?'Phone only':'Solo en móvil'):''),
     cinema:!canFS?(EN()?'Not available here':'No disponible aquí'):'',
     sound:''
   };
@@ -914,13 +922,34 @@ function endIntro(){if(!intro||intro.classList.contains('out'))return;intro.clas
 skipBtn?.addEventListener('click',endIntro);
 let introGuard=null,booted=false;
 
-/* La nave 3D se dibuja desde tablet hacia arriba; en teléfonos, intro en CSS */
+/* El puente, las estrellas y la nave del Hangar se dibujan en TODOS los
+   dispositivos (el teléfono también). Lo único reservado a pantallas
+   grandes es la intro cinematográfica con postproceso, que sí es cara. */
 const lite=innerWidth<640;
-const use3D=!reduced&&canUseGL&&innerWidth>320&&!lite;
+const canStars=!reduced&&canUseGL&&innerWidth>320;
+const use3D=canStars&&!lite;
 
+/* El hilo principal del teléfono es el recurso escaso: importar Three.js y
+   construir dos escenas de golpe cuesta segundos de bloqueo. Por eso el campo
+   de estrellas espera a que el navegador esté ocioso y la nave del Hangar no
+   se construye hasta que su sección se acerca a la pantalla. */
+const idle=fn=>window.requestIdleCallback?requestIdleCallback(fn,{timeout:2500}):setTimeout(fn,lite?900:120);
+let hangarBooted=false;
+function bootHangar(THREE){
+  if(hangarBooted)return;hangarBooted=true;hangar=makeHangar(THREE);
+}
 function bootStars(){
-  if(booted||!use3D)return;booted=true;
-  import('three').then(THREE=>{stars=makeStars(THREE);makeHangar(THREE)}).catch(()=>{});
+  if(booted||!canStars)return;booted=true;
+  idle(()=>import('three').then(THREE=>{
+    stars=makeStars(THREE);
+    const host=$('.ship');
+    if(!host)return;
+    if(!('IntersectionObserver'in window)){bootHangar(THREE);return}
+    const io=new IntersectionObserver(es=>{
+      if(es.some(e=>e.isIntersecting)){io.disconnect();bootHangar(THREE)}
+    },{rootMargin:'300px 0px'});
+    io.observe(host);
+  }).catch(()=>{}));
 }
 function startExperience(){
   if(html.dataset.intro==='skip'||!intro){bootStars();return}
@@ -929,7 +958,7 @@ function startExperience(){
     introGuard=setTimeout(()=>{endIntro();bootStars()},16000);
     import('three').then(THREE=>runIntro(THREE,()=>bootStars()))
       .catch(e=>{console.error('three',e);endIntro();bootStars()});
-  }else{introGuard=setTimeout(endIntro,4500);runCssIntro()}
+  }else{introGuard=setTimeout(endIntro,4500);runCssIntro();bootStars()}
 }
 if(html.dataset.intro==='skip'){intro?.remove();bootStars()}
 
@@ -939,6 +968,7 @@ function runCssIntro(){
   const en=html.lang==='en',hT=$('#ihud-top'),hB=$('#ihud-bot');
   if(hT)hT.innerHTML='<div class="fade"><span class="tag">'+(en?'Archive recovered':'Archivo recuperado')+'</span><span class="big">bryansank.github.io</span><span class="dim">'+(en?'Version 2022 · my previous site':'Versión 2022 · mi sitio anterior')+'</span><div class="line"></div></div>';
   if(hB)hB.innerHTML='<div class="fade"><span class="dim">'+(en?'Last signal: July 2022 · status: obsolete':'Última señal: julio 2022 · estado: obsoleto')+'</span></div>';
+  setTimeout(()=>sfx.chime(),120);
   const D=Math.hypot(innerWidth,innerHeight),from=-D*.8,to=D*.8,ANG=-42,BLADE=Math.min(innerHeight*.4,280);
   const sweep=document.createElement('div');sweep.className='sweep';sweep.style.transform='rotate('+ANG+'deg)';
   sweep.innerHTML='<span class="trail"></span><span class="rider"><span class="halo"></span><span class="grip"></span><span class="blade"></span></span>';
@@ -970,7 +1000,7 @@ function runCssIntro(){
     halo.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],ig);
     rider.animate([{transform:`translateX(${from}px)`},{transform:`translateX(${to}px)`}],{duration:SWEEP_MS,delay:SWEEP_AT,easing:'cubic-bezier(.35,.05,.2,1)',fill:'both'});
     trail.animate([{transform:'scaleX(0)',opacity:1},{transform:'scaleX(1)',opacity:1,offset:.75},{transform:'scaleX(1)',opacity:0}],{duration:SWEEP_MS+420,delay:SWEEP_AT,easing:'linear',fill:'both'});
-    setTimeout(()=>sfx.ignite(),IGNITE);
+    setTimeout(()=>{sfx.ignite();if(prefs.haptics&&navigator.vibrate)navigator.vibrate([16,36,26])},IGNITE);
     setTimeout(slice,SWEEP_AT+SWEEP_MS*.52);
     setTimeout(endIntro,SWEEP_AT+SWEEP_MS*.52+1500);
   };
@@ -995,7 +1025,8 @@ const ease=x=>1-Math.pow(1-x,3),easeIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,cl
 function makeStars(THREE){
   const canvas=$('#stars');
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false,powerPreference:'low-power'});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  /* en teléfono se baja resolución y densidad: la escena existe, pero cuesta menos */
+  renderer.setPixelRatio(Math.min(devicePixelRatio,lite?1.1:1.5));
   const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(70,1,1,1600);
   const star=radialTex(THREE,[[0,'rgba(255,255,255,1)'],[.3,'rgba(255,255,255,.85)'],[1,'rgba(255,255,255,0)']],64);
   const isLight=()=>html.dataset.theme==='light';
@@ -1007,7 +1038,7 @@ function makeStars(THREE){
     const pts=new THREE.Points(geo,mat);scene.add(pts);
     return{geo,mat,depth,base:size};
   }
-  const far=layer(1100,1.9,1400,1400),near=layer(520,3.6,1000,900);
+  const far=layer(lite?520:1100,1.9,1400,1400),near=layer(lite?260:520,3.6,1000,900);
   /* Nebulosas: sprites grandes aditivos que giran muy lento */
   const neb=[];
   [['rgba(120,132,160,.34)',-620,-160,-780,560],['rgba(226,64,72,.34)',520,220,-900,680],['rgba(56,166,226,.3)',80,-340,-1150,820]].forEach(([col,x,y,z,s])=>{
@@ -1016,7 +1047,7 @@ function makeStars(THREE){
     m.position.set(x,y,z);scene.add(m);neb.push(m);
   });
   /* Hiperespacio: líneas que se estiran con la velocidad de scroll */
-  const SN=420,sp=new Float32Array(SN*6),sgeo=new THREE.BufferGeometry();
+  const SN=lite?190:420,sp=new Float32Array(SN*6),sgeo=new THREE.BufferGeometry();
   for(let i=0;i<SN;i++){const x=(Math.random()-.5)*1100,y=(Math.random()-.5)*1100,z=-Math.random()*1100;
     sp[i*6]=x;sp[i*6+1]=y;sp[i*6+2]=z;sp[i*6+3]=x;sp[i*6+4]=y;sp[i*6+5]=z;}
   sgeo.setAttribute('position',new THREE.BufferAttribute(sp,3));
@@ -1131,9 +1162,10 @@ function makeStars(THREE){
   }
   paint();
 
-  let vel=0,lastY=scrollY,tx=0,ty=0,warped=false,visible=true,last=performance.now();
-  addEventListener('scroll',()=>{const dy=scrollY-lastY;lastY=scrollY;vel=Math.min(70,vel+Math.abs(dy)*.55);
-    if(vel>34&&!warped){warped=true;sfx.warp();setTimeout(()=>warped=false,1600)}},{passive:true});
+  /* la velocidad solo alimenta el efecto visual de las estrellas; el sonido de viaje
+     se dispara desde nav() cada 2 secciones, no en cada scroll rápido */
+  let vel=0,lastY=scrollY,tx=0,ty=0,visible=true,last=performance.now();
+  addEventListener('scroll',()=>{const dy=scrollY-lastY;lastY=scrollY;vel=Math.min(70,vel+Math.abs(dy)*.55)},{passive:true});
   addEventListener('pointermove',e=>{if(tilt.on)return;tx=(e.clientX/innerWidth-.5)*70;ty=-(e.clientY/innerHeight-.5)*46},{passive:true});
   function resize(){renderer.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();layoutBridge()}
   resize();addEventListener('resize',resize);
@@ -1222,7 +1254,8 @@ async function runIntro(THREE,after){
   const tex=new THREE.VideoTexture(video);tex.colorSpace=THREE.SRGBColorSpace;
   video.play().catch(()=>{});
   const holoBlue=new THREE.Color(0x63c7ef);
-  const panelMat=()=>new THREE.MeshStandardMaterial({map:tex,color:0x7cc3e6,emissive:0x123243,emissiveMap:tex,emissiveIntensity:.38,roughness:.6,metalness:.05,side:THREE.DoubleSide,transparent:true,opacity:0});
+  /* Menos "map" propio y más emisivo cian: se lee como proyección de luz, no como una pantalla real */
+  const panelMat=()=>new THREE.MeshStandardMaterial({map:tex,color:0x2c4a5c,emissive:0x1c5670,emissiveMap:tex,emissiveIntensity:.95,roughness:.6,metalness:.05,side:THREE.DoubleSide,transparent:true,opacity:0});
   const rig=new THREE.Group();scene.add(rig);
   const panel=new THREE.Mesh(new THREE.PlaneGeometry(PW,PH),panelMat());rig.add(panel);
   const bezel=new THREE.Mesh(new THREE.PlaneGeometry(PW+10,PH+10),new THREE.MeshBasicMaterial({color:0x0a1020,transparent:true,opacity:0}));bezel.position.z=-2;rig.add(bezel);
@@ -1240,6 +1273,11 @@ async function runIntro(THREE,after){
   const scanTex=new THREE.CanvasTexture(scanC);scanTex.wrapS=scanTex.wrapT=THREE.RepeatWrapping;scanTex.repeat.set(1,PH/7);
   const scan=new THREE.Mesh(new THREE.PlaneGeometry(PW,PH),new THREE.MeshBasicMaterial({map:scanTex,transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending}));
   scan.position.z=1.2;rig.add(scan);
+  /* Bandas horizontales: cortan el panel en franjas para que se lea como proyección, no como pantalla sólida */
+  const stripeTex=(()=>{const c=document.createElement('canvas');c.width=4;c.height=16;const x=c.getContext('2d');
+    x.fillStyle='#fff';x.fillRect(0,0,4,11);const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(1,PH/9);return t;})();
+  panel.material.alphaMap=stripeTex;panel.material.alphaTest=0;
+  let glitchT=0,nextGlitch=1.6+Math.random()*1.4,glitching=0;
 
   /* Luces */
   scene.add(new THREE.AmbientLight(0x4e5a70,.55));
@@ -1317,13 +1355,20 @@ async function runIntro(THREE,after){
     const t=(now-t0)/1000,dt=Math.min(.05,t-lastT);lastT=t;
     if(dbg)window.__intro={t:Math.round(t*100)/100,phase,shards:shards.length};
 
-    /* A) El holograma se materializa y se identifica */
+    /* A) El holograma se materializa y se identifica: translúcido, con parpadeo
+       constante y franjas — para que se lea como proyección de luz, no como
+       una pantalla física reproduciendo un video. */
     const fadeIn=clamp01(t/1.3);
-    panel.material.opacity=fadeIn*(t<1.3?(.55+.45*Math.abs(Math.sin(t*20))):1);
-    bezel.material.opacity=fadeIn*.9;rim.material.opacity=fadeIn*.8;
-    disc.material.opacity=fadeIn*.55;cone.material.opacity=fadeIn*.07;
-    scan.material.opacity=fadeIn*.16;scanTex.offset.y=(t*.12)%1;
-    if(phase===0&&t>=.45){phase=.5;
+    if(t>=nextGlitch&&glitching<=0){glitching=.06+Math.random()*.07;nextGlitch=t+1.3+Math.random()*1.8}
+    if(glitching>0)glitching=Math.max(0,glitching-dt);
+    const flicker=.88+.12*Math.sin(t*11)+.06*Math.sin(t*37.3);
+    const HOLO_MAX=.66;
+    panel.material.opacity=fadeIn*(t<1.3?(.4+.35*Math.abs(Math.sin(t*20))):HOLO_MAX*flicker*(glitching>0?.15:1));
+    bezel.material.opacity=fadeIn*.55;rim.material.opacity=fadeIn*(t<1.3?.8:(.65+.3*Math.sin(t*11)));
+    disc.material.opacity=fadeIn*.5;cone.material.opacity=fadeIn*.07;
+    scan.material.opacity=fadeIn*(t<1.3?.16:.34);scanTex.offset.y=(t*.4)%1;
+    if(glitching>0)rig.position.x=(Math.random()-.5)*10;else rig.position.x=0;
+    if(phase===0&&t>=.45){phase=.5;sfx.chime();
       hud(hudT,'<span class="tag">'+(EN()?'Archive recovered':'Archivo recuperado')+'</span><span class="big">bryansank.github.io</span><span class="dim">'+(EN()?'Version 2022 · my previous site':'Versión 2022 · mi sitio anterior')+'</span><div class="line"></div>','old');}
     if(phase===.5&&t>=2.1){phase=.6;
       hud(hudB,'<span class="dim">'+(EN()?'Last signal: July 2022 · status: obsolete':'Última señal: julio 2022 · estado: obsoleto')+'</span><br><span class="dim">'+(EN()?'Replacement protocol ready':'Protocolo de reemplazo listo')+'</span>');}
@@ -1342,13 +1387,17 @@ async function runIntro(THREE,after){
     /* C) Encendido */
     if(phase<1&&t>=5.5){phase=1;sfx.ignite();if(prefs.haptics&&navigator.vibrate)navigator.vibrate([16,36,26]);
       hud(hudT,'<span class="tag">'+(EN()?'Replacement protocol':'Protocolo de reemplazo')+'</span><span class="big">bryansank.github.io</span><span class="dim">'+(EN()?'Decommissioning the 2022 build…':'Dando de baja la versión 2022…')+'</span><div class="line"></div>','dead');}
-    if(t>=5.5&&t<6.25){const k=ease(clamp01((t-5.5)/.65));
-      blade.scale.y=Math.max(.001,k*1.02);saberL.intensity=k*8;
-      saberL.position.set(saber.position.x,saber.position.y+BL*.3,170);}
-    if(t>=6.25)saberL.intensity=8+Math.sin(t*34)*.8;
+    /* Los estados se calculan por acumulación, no dentro de ventanas cerradas:
+       en un equipo lento un frame puede durar segundos y saltarse la ventana
+       entera, dejando el sable apagado o el tajo sin ejecutarse. */
+    if(t>=5.5){const k=ease(clamp01((t-5.5)/.65));
+      blade.scale.y=Math.max(.001,k*1.02);
+      saberL.intensity=t<6.25?k*8:8+Math.sin(t*34)*.8;
+      if(t<6.25)saberL.position.set(saber.position.x,saber.position.y+BL*.3,170);}
 
     /* D) Primer tajo ↗ */
-    if(t>=6.5&&t<7.75){const k=easeIO(clamp01((t-6.5)/1.25));slash(A,k);
+    if(t>=6.5&&t<7.9){const k=easeIO(clamp01((t-6.5)/1.25));slash(A,k);}
+    if(t>=6.5){const k=easeIO(clamp01((t-6.5)/1.25));
       if(phase===1&&k>.45){phase=2;
         panel.visible=false;bezel.visible=false;rim.visible=false;scan.visible=false;
         addShard([BLc,BR,TR],120,40,30,.3,.5,-.5);
@@ -1356,7 +1405,8 @@ async function runIntro(THREE,after){
         bursts.push(burst(A,140));flash.position.set(0,0,90);flash.intensity=9;shake=7;}}
 
     /* E) Segundo tajo ↘ */
-    if(t>=8.0&&t<9.25){const k=easeIO(clamp01((t-8.0)/1.25));slash(B,k);
+    if(t>=8.0&&t<9.4){const k=easeIO(clamp01((t-8.0)/1.25));slash(B,k);}
+    if(t>=8.0){const k=easeIO(clamp01((t-8.0)/1.25));
       if(phase===2&&k>.45){phase=3;
         shards.forEach(s=>{rig.remove(s.mesh);s.mesh.geometry.dispose()});shards.length=0;
         addShard([TL,TR,C],40,190,60,-.9,.4,.3);
@@ -1400,8 +1450,8 @@ function makeHangar(THREE){
   const host=$('.ship');if(!host)return;
   const canvas=document.createElement('canvas');canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%';
   host.appendChild(canvas);const svg=host.querySelector('svg');if(svg)svg.style.opacity='0';
-  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:!lite});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,lite?1.25:1.5));
   const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,.1,300);cam.position.set(0,2.1,13);
   const col=()=>toThreeColor(THREE,cssColor('--saber'));
   const ship=new THREE.Group();scene.add(ship);

@@ -87,6 +87,10 @@
     "es": "Bitácora",
     "en": "Log"
   },
+  "general.21": {
+    "es": "Transmisiones",
+    "en": "Transmissions"
+  },
   "general.19": {
     "es": "Hoja de servicio",
     "en": "Service record"
@@ -94,10 +98,6 @@
   "general.20": {
     "es": "Hangar",
     "en": "Hangar"
-  },
-  "general.21": {
-    "es": "Transmisiones",
-    "en": "Transmissions"
   },
   "general.22": {
     "es": "Canal abierto",
@@ -150,6 +150,26 @@
   "bitacora.03": {
     "es": "\n          <p>Más de 8 años como ingeniero de software en todo el ciclo de vida del producto. Mi zona fuerte hoy es el backend: NestJS, TypeScript y SQL de alto rendimiento (PostgreSQL, SQL Server, stored procedures), sin soltar el frontend con React/Next.js ni el móvil con React Native.</p>\n          <p>He construido pasarelas de pago con Stripe, sistemas de concurrencia de datos para un LMS con más de 10 000 usuarios, ERPs extendidos con facturación fiscal y apps de campo con geolocalización — en food-service, educación, SaaS, minería y logística.</p>\n          <p>La IA ya es copiloto, a veces conductora. Yo soy el capitán de la nave: entiendo arquitecturas, problemas de escala y patrones, y sobre todo sé <b>comunicar</b>. Dirijo agentes (Claude Code, Cursor) para pensar mejor, no para programar más. Inglés B1. Actitud: adelante.</p>\n        ",
     "en": "\n          <p>8+ years as a software engineer across the full product lifecycle. My strongest zone today is backend: NestJS, TypeScript and high-performance SQL (PostgreSQL, SQL Server, stored procedures), without letting go of React/Next.js frontends or React Native mobile.</p>\n          <p>I have shipped Stripe payment gateways, data-concurrency systems for an LMS with 10,000+ users, ERPs extended with fiscal invoicing, and field apps with geolocation — in food service, education, SaaS, mining and logistics.</p>\n          <p>AI is already the co-pilot, sometimes the driver. I am the captain of the ship: I understand architectures, scaling problems and patterns, and above all I know how to <b>communicate</b>. I direct agents (Claude Code, Cursor) to think better, not to code more. English B1. Attitude: go ahead.</p>\n        "
+  },
+  "transmisiones.01": {
+    "es": "Transmisiones aliadas",
+    "en": "Allied transmissions"
+  },
+  "transmisiones.02": {
+    "es": "Lo que dicen quienes volaron conmigo",
+    "en": "What those who flew with me say"
+  },
+  "transmisiones.03": {
+    "es": "Desarrollador · Lapzo",
+    "en": "Developer · Lapzo"
+  },
+  "transmisiones.04": {
+    "es": "“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”",
+    "en": "“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”"
+  },
+  "transmisiones.05": {
+    "es": "7 recomendaciones en LinkedIn →",
+    "en": "7 recommendations on LinkedIn →"
   },
   "servicio.01": {
     "es": "Hoja de servicio · 8 paradas registradas",
@@ -259,30 +279,6 @@
     "es": "App web de paquetería con 5 módulos, tracking en tiempo real y backoffice de administración.",
     "en": "Parcel-logistics web app with 5 modules, real-time tracking and an admin back-office."
   },
-  "arsenal.01": {
-    "es": "Un sable por cada batalla",
-    "en": "A saber for every battle"
-  },
-  "arsenal.02": {
-    "es": "30 tecnologías agrupadas por frente. Las que uso a diario están arriba de cada bloque.",
-    "en": "30 technologies grouped by front. The ones I use daily are at the top of each block."
-  },
-  "arsenal.03": {
-    "es": "Datos",
-    "en": "Data"
-  },
-  "arsenal.04": {
-    "es": "Otros frentes",
-    "en": "Other fronts"
-  },
-  "arsenal.05": {
-    "es": "IA y agentes",
-    "en": "AI & agents"
-  },
-  "arsenal.06": {
-    "es": "automatización",
-    "en": "automation"
-  },
   "hangar.01": {
     "es": "Proyecto personal en construcción",
     "en": "Personal project under construction"
@@ -331,25 +327,29 @@
     "es": "Descargar",
     "en": "Download"
   },
-  "transmisiones.01": {
-    "es": "Transmisiones aliadas",
-    "en": "Allied transmissions"
+  "arsenal.01": {
+    "es": "Un sable por cada batalla",
+    "en": "A saber for every battle"
   },
-  "transmisiones.02": {
-    "es": "Lo que dicen quienes volaron conmigo",
-    "en": "What those who flew with me say"
+  "arsenal.02": {
+    "es": "30 tecnologías agrupadas por frente. Las que uso a diario están arriba de cada bloque.",
+    "en": "30 technologies grouped by front. The ones I use daily are at the top of each block."
   },
-  "transmisiones.03": {
-    "es": "Desarrollador · Lapzo",
-    "en": "Developer · Lapzo"
+  "arsenal.03": {
+    "es": "Datos",
+    "en": "Data"
   },
-  "transmisiones.04": {
-    "es": "“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”",
-    "en": "“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”"
+  "arsenal.04": {
+    "es": "Otros frentes",
+    "en": "Other fronts"
   },
-  "transmisiones.05": {
-    "es": "7 recomendaciones en LinkedIn →",
-    "en": "7 recommendations on LinkedIn →"
+  "arsenal.05": {
+    "es": "IA y agentes",
+    "en": "AI & agents"
+  },
+  "arsenal.06": {
+    "es": "automatización",
+    "en": "automation"
   },
   "transmisiones.06": {
     "es": "Hecho con ❤ y la Fuerza · Vanilla HTML/CSS/JS + Three.js · ",
@@ -375,6 +375,10 @@
     "es": "Bitácora",
     "en": "Log"
   },
+  "transmisiones.13": {
+    "es": "Transmisiones",
+    "en": "Transmissions"
+  },
   "transmisiones.11": {
     "es": "Hoja de servicio",
     "en": "Service record"
@@ -382,10 +386,6 @@
   "transmisiones.12": {
     "es": "Canal abierto",
     "en": "Open channel"
-  },
-  "transmisiones.13": {
-    "es": "Transmisiones",
-    "en": "Transmissions"
   },
   "transmisiones.14": {
     "es": "'+es+'",
