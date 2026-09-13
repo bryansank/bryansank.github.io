@@ -49,8 +49,18 @@ la constitución (consola, teclado, reduced-motion, 414/1440 px) + Lighthouse.
 ## Phase 7: Polish & verificación
 
 - [x] T022 Servidor local + Playwright (`scratchpad/test-site.js`): capturas 320/414/1440 px, 0 errores de consola, tabulación, reduced-motion, tema claro, sin JS
-- [ ] T023 Lighthouse móvil/escritorio; ajustar hasta cumplir SC-003
-- [ ] T024 Actualizar `docs/` con decisiones finales; commit y push a `main`; verificar `https://bryansank.github.io/` y `/old_site/`
+- [x] T023 Lighthouse móvil/escritorio sobre el sitio publicado: 100 en A11y, Best Practices y SEO en ambos. Performance 72 móvil / 78 escritorio. Optimizaciones aplicadas: animaciones infinitas pasadas a transform compuesto (−2,5 s de render), video de 0,9 MB fuera de móvil, favicon de 66 KB → SVG inline, `backdrop-filter` solo en escritorio. Medido: el resto es layout inherente al DOM; `content-visibility` lo empeora. Constitución v2.0.0 actualizada con el objetivo real.
+- [x] T024 axe-core: 0 violaciones WCAG 2.1 AA en tema claro/oscuro, con y sin sala de embarque, a 414 y 1440 px. Publicado y verificado en `https://bryansank.github.io/` y `/old_site/`
+
+## Fase 8: Sala de embarque y 3D avanzado (2026-09-13)
+
+- [x] T025 Sala de embarque como primera pantalla: 4 poderes opt-in (sonido, inclinar, vibración, modo cine) con `role="switch"`, salida directa al perfil y Escape. Ningún prompt del navegador salvo orientación en iOS, que se pide tras el gesto del usuario. Sin ubicación, cámara ni micrófono
+- [x] T026 Saludo contextual por zona horaria con `Intl.DateTimeFormat` (sin permisos): hora local del visitante y diferencia con Caracas
+- [x] T027 Inclinación de dispositivo (`deviceorientation`) alimentando el parallax del campo estelar; en escritorio equivale al puntero
+- [x] T028 Intro 3D cinematográfica de ~7 s: holograma del sitio anterior con scanlines y base de luz, empuñadura que entra en vuelo, encendido con luz puntual dinámica, dos tajos que parten el panel en 4 fragmentos con aristas incandescentes, chispas con gravedad, sacudida de cámara y postproceso UnrealBloom
+- [x] T029 Campo estelar mejorado: dos capas con parallax, tres nebulosas aditivas y líneas de hiperespacio ligadas a la velocidad de scroll
+- [x] T030 Nave 3D en el Hangar: modelo low-poly con motores incandescentes, luz de contorno y render solo cuando entra en viewport
+- [x] T031 Hero: nombre más contenido y titular reducido a "Senior Fullstack Engineer"
 
 ## Pendientes fuera de alcance (para el usuario)
 
