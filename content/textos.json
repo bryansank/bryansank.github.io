@@ -1,0 +1,378 @@
+{
+  "general.01": {
+    "es": "Saltar al contacto",
+    "en": "Skip to contact"
+  },
+  "general.02": {
+    "es": "Autorizaciones de vuelo",
+    "en": "Flight clearance"
+  },
+  "general.03": {
+    "es": "Antes de subir a bordo",
+    "en": "Before you board"
+  },
+  "general.04": {
+    "es": "Este sitio tiene algunos poderes opcionales. Enciende los que quieras — <b>todo el contenido funciona igual sin ninguno</b>, y nada sale de tu dispositivo.",
+    "en": "This site has a few optional powers. Turn on whichever you like — <b>everything works without them</b>, and nothing leaves your device."
+  },
+  "general.05": {
+    "es": "Sonido del sable",
+    "en": "Saber sound"
+  },
+  "general.06": {
+    "es": "Encendido, zumbido y salto al hiperespacio. Sintetizado, sin música.",
+    "en": "Ignition, hum and hyperspace jump. Synthesized, no music."
+  },
+  "general.07": {
+    "es": "Inclinar para mover las estrellas",
+    "en": "Tilt to move the stars"
+  },
+  "general.08": {
+    "es": "Mueve tu dispositivo y el campo estelar te sigue.",
+    "en": "Move your device and the starfield follows."
+  },
+  "general.09": {
+    "es": "Vibración al encender",
+    "en": "Haptics on ignition"
+  },
+  "general.10": {
+    "es": "Un pulso corto cuando el sable cobra vida.",
+    "en": "A short pulse when the saber comes alive."
+  },
+  "general.11": {
+    "es": "Modo cine",
+    "en": "Cinema mode"
+  },
+  "general.12": {
+    "es": "Pantalla completa, sin barras del navegador.",
+    "en": "Fullscreen, no browser chrome."
+  },
+  "general.13": {
+    "es": "Entrar al puente",
+    "en": "Enter the bridge"
+  },
+  "general.14": {
+    "es": "Ver el perfil directo, sin efectos →",
+    "en": "Go straight to the profile, no effects →"
+  },
+  "general.15": {
+    "es": "Sin ubicación, sin cámara, sin micrófono, sin cookies de terceros. Tus preferencias quedan solo en este navegador.",
+    "en": "No location, no camera, no microphone, no third-party cookies. Your preferences stay in this browser only."
+  },
+  "general.16": {
+    "es": "Cargando la nave anterior…",
+    "en": "Loading the previous ship…"
+  },
+  "general.17": {
+    "es": "Saltar intro",
+    "en": "Skip intro"
+  },
+  "general.18": {
+    "es": "Bitácora",
+    "en": "Log"
+  },
+  "general.19": {
+    "es": "Hoja de servicio",
+    "en": "Service record"
+  },
+  "general.20": {
+    "es": "Hangar",
+    "en": "Hangar"
+  },
+  "general.21": {
+    "es": "Transmisiones",
+    "en": "Transmissions"
+  },
+  "general.22": {
+    "es": "Canal abierto",
+    "en": "Open channel"
+  },
+  "general.23": {
+    "es": "EN",
+    "en": "ES"
+  },
+  "general.24": {
+    "es": "Transmisión entrante · Open to work · GMT-4",
+    "en": "Incoming transmission · Open to work · GMT-4"
+  },
+  "general.25": {
+    "es": "<b>Capitán de la nave:</b> un Senior Fullstack que dirige a la IA para construir, no solo para escribir código.",
+    "en": "<b>Captain of the ship:</b> a Senior Fullstack who directs AI to build, not just to write code."
+  },
+  "general.26": {
+    "es": "Descargar CV ya",
+    "en": "Download resume now"
+  },
+  "general.27": {
+    "es": "Hablar ahora · LinkedIn",
+    "en": "Talk now · LinkedIn"
+  },
+  "general.28": {
+    "es": "+8 años · 2018→2026",
+    "en": "8+ years · 2018→2026"
+  },
+  "general.29": {
+    "es": "Caracas, Venezuela · remoto/híbrido/presencial",
+    "en": "Caracas, Venezuela · remote/hybrid/on-site"
+  },
+  "general.30": {
+    "es": "+30 devs mentoreados",
+    "en": "30+ devs mentored"
+  },
+  "general.31": {
+    "es": "LMS con +10 000 usuarios",
+    "en": "LMS with 10,000+ users"
+  },
+  "bitacora.01": {
+    "es": "Registro de bitácora",
+    "en": "Captain's log"
+  },
+  "bitacora.02": {
+    "es": "Me cansé de hacer código. No de crear.",
+    "en": "I got tired of writing code. Not of creating."
+  },
+  "bitacora.03": {
+    "es": "\n          <p>Más de 8 años como ingeniero de software en todo el ciclo de vida del producto. Mi zona fuerte hoy es el backend: NestJS, TypeScript y SQL de alto rendimiento (PostgreSQL, SQL Server, stored procedures), sin soltar el frontend con React/Next.js ni el móvil con React Native.</p>\n          <p>He construido pasarelas de pago con Stripe, sistemas de concurrencia de datos para un LMS con más de 10 000 usuarios, ERPs extendidos con facturación fiscal y apps de campo con geolocalización — en food-service, educación, SaaS, minería y logística.</p>\n          <p>La IA ya es copiloto, a veces conductora. Yo soy el capitán de la nave: entiendo arquitecturas, problemas de escala y patrones, y sobre todo sé <b>comunicar</b>. Dirijo agentes (Claude Code, Cursor) para pensar mejor, no para programar más. Inglés B1. Actitud: adelante.</p>\n        ",
+    "en": "\n          <p>8+ years as a software engineer across the full product lifecycle. My strongest zone today is backend: NestJS, TypeScript and high-performance SQL (PostgreSQL, SQL Server, stored procedures), without letting go of React/Next.js frontends or React Native mobile.</p>\n          <p>I have shipped Stripe payment gateways, data-concurrency systems for an LMS with 10,000+ users, ERPs extended with fiscal invoicing, and field apps with geolocation — in food service, education, SaaS, mining and logistics.</p>\n          <p>AI is already the co-pilot, sometimes the driver. I am the captain of the ship: I understand architectures, scaling problems and patterns, and above all I know how to <b>communicate</b>. I direct agents (Claude Code, Cursor) to think better, not to code more. English B1. Attitude: go ahead.</p>\n        "
+  },
+  "servicio.01": {
+    "es": "Hoja de servicio · 8 paradas registradas",
+    "en": "Service record · 8 logged stops"
+  },
+  "servicio.02": {
+    "es": "Ruta de hiperespacio 2018 → 2026",
+    "en": "Hyperspace route 2018 → 2026"
+  },
+  "servicio.03": {
+    "es": "Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.",
+    "en": "Every stop is a real system: company, role, dates and the impact I left behind."
+  },
+  "servicio.04": {
+    "es": "Desarrollador de software",
+    "en": "Software Developer"
+  },
+  "servicio.05": {
+    "es": "abr 2025 – actualidad",
+    "en": "Apr 2025 – present"
+  },
+  "servicio.06": {
+    "es": "presencial",
+    "en": "on-site"
+  },
+  "servicio.07": {
+    "es": "<li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li>",
+    "en": "<li>Next.js + Supabase back-office on Vercel with administrative workflows for internal operations.</li><li>React Native (Expo) mobile app: customers, orders, payments and pricing with geolocation and Maps for field work.</li><li>Configurable dynamic questionnaires and maintenance of a 25-year-old React + .NET 4.5 + SQL Server legacy: critical bugs fixed in under 2 weeks.</li>"
+  },
+  "servicio.08": {
+    "es": "mar – may 2025 · contrato",
+    "en": "Mar – May 2025 · contract"
+  },
+  "servicio.09": {
+    "es": "remoto",
+    "en": "remote"
+  },
+  "servicio.10": {
+    "es": "<li>Mejoras escalables para el sector minero: organización de rutas de servidor, integración multi-idioma y monitoreo en tiempo real de cambios mecánicos y su rentabilidad.</li>",
+    "en": "<li>Scalable improvements for the mining sector: server route organization, multi-language integration and real-time monitoring of mechanical changes and their profitability.</li>"
+  },
+  "servicio.11": {
+    "es": "Descanso profesional",
+    "en": "Career break"
+  },
+  "servicio.12": {
+    "es": "oct 2024 – ene 2025",
+    "en": "Oct 2024 – Jan 2025"
+  },
+  "servicio.13": {
+    "es": "<li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li>",
+    "en": "<li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li>"
+  },
+  "servicio.14": {
+    "es": "oct 2022 – sep 2024",
+    "en": "Oct 2022 – Sep 2024"
+  },
+  "servicio.15": {
+    "es": "remoto",
+    "en": "remote"
+  },
+  "servicio.16": {
+    "es": "<li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li>",
+    "en": "<li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li>"
+  },
+  "servicio.17": {
+    "es": "jun 2022 – ago 2023 · autónomo",
+    "en": "Jun 2022 – Aug 2023 · freelance"
+  },
+  "servicio.18": {
+    "es": "<li>Mentoría 1:1 a <b>+30 desarrolladores</b> senior para pruebas técnicas y proyectos; roadmap con más del 60 % de colocación en los empleos deseados.</li>",
+    "en": "<li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li>"
+  },
+  "servicio.19": {
+    "es": "Historial anterior · 3 paradas (2018–2022)",
+    "en": "Earlier history · 3 stops (2018–2022)"
+  },
+  "servicio.20": {
+    "es": "Programador Web Junior → Senior",
+    "en": "Web Developer, Junior → Senior"
+  },
+  "servicio.21": {
+    "es": "may 2019 – sep 2022",
+    "en": "May 2019 – Sep 2022"
+  },
+  "servicio.22": {
+    "es": "<li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li>",
+    "en": "<li>Extended Odoo ERP with JavaScript and Python: fiscal invoicing (.chk with IGTF) for Aloha, removing third-party modules.</li><li>Nationwide restaurant price/exchange-rate app: <b>100% automated</b>, 0% manual handling.</li><li>Official website, hybrid help-desk monitoring, responsive SharePoint 2010 migration and XML→JSON reports.</li>"
+  },
+  "servicio.23": {
+    "es": "Analista Programador",
+    "en": "Programmer Analyst"
+  },
+  "servicio.24": {
+    "es": "sep – nov 2020 · contrato",
+    "en": "Sep – Nov 2020 · contract"
+  },
+  "servicio.25": {
+    "es": "<li>Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con ORMs y stored procedures en PostgreSQL (RxJS, Redux, SOAP): código más legible y escalable.</li>",
+    "en": "<li>Migrated a payment gateway from Sails.js to NestJS + TypeScript with ORMs and PostgreSQL stored procedures (RxJS, Redux, SOAP): more readable, scalable code.</li>"
+  },
+  "servicio.26": {
+    "es": "ene 2018 – ene 2020",
+    "en": "Jan 2018 – Jan 2020"
+  },
+  "servicio.27": {
+    "es": "remoto",
+    "en": "remote"
+  },
+  "servicio.28": {
+    "es": "<li>App web de paquetería con 5 módulos, tracking en tiempo real y backoffice; optimización de cargas.</li>",
+    "en": "<li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li>"
+  },
+  "arsenal.01": {
+    "es": "Un sable por cada batalla",
+    "en": "A saber for every battle"
+  },
+  "arsenal.02": {
+    "es": "Tócalos o pásales el cursor: cada empuñadura enciende su hoja.",
+    "en": "Tap them or hover: every hilt ignites its blade."
+  },
+  "arsenal.03": {
+    "es": "Datos",
+    "en": "Data"
+  },
+  "arsenal.04": {
+    "es": "Otros frentes",
+    "en": "Other fronts"
+  },
+  "arsenal.05": {
+    "es": "IA y agentes",
+    "en": "AI & agents"
+  },
+  "arsenal.06": {
+    "es": "automatización",
+    "en": "automation"
+  },
+  "hangar.01": {
+    "es": "Proyecto personal en construcción",
+    "en": "Personal project under construction"
+  },
+  "hangar.02": {
+    "es": "full IA",
+    "en": "full AI"
+  },
+  "hangar.03": {
+    "es": "Un juego construido dirigiendo agentes de IA de principio a fin: diseño, código GDScript, assets y pipeline. Es mi laboratorio para probar la tesis del capitán de la nave en un dominio que no es el mío.",
+    "en": "A game built by directing AI agents end to end: design, GDScript code, assets and pipeline. It is my lab to test the captain-of-the-ship thesis in a domain that isn't mine."
+  },
+  "hangar.04": {
+    "es": "Ver en GitHub",
+    "en": "View on GitHub"
+  },
+  "canal.01": {
+    "es": "Canal abierto",
+    "en": "Open channel"
+  },
+  "canal.02": {
+    "es": "Hablemos hoy. Respondo rápido.",
+    "en": "Let's talk today. I reply fast."
+  },
+  "canal.03": {
+    "es": "Reclutador, CTO o fundador: elige el canal y en menos de 24 h tienes respuesta.",
+    "en": "Recruiter, CTO or founder: pick a channel and you'll hear back within 24 hours."
+  },
+  "canal.04": {
+    "es": "Hablar ahora",
+    "en": "Talk now"
+  },
+  "canal.05": {
+    "es": "Escribir",
+    "en": "Write"
+  },
+  "canal.06": {
+    "es": "Ver código",
+    "en": "See code"
+  },
+  "canal.07": {
+    "es": "español",
+    "en": "English"
+  },
+  "canal.08": {
+    "es": "Descargar",
+    "en": "Download"
+  },
+  "transmisiones.01": {
+    "es": "Transmisiones aliadas",
+    "en": "Allied transmissions"
+  },
+  "transmisiones.02": {
+    "es": "Lo que dicen quienes volaron conmigo",
+    "en": "What those who flew with me say"
+  },
+  "transmisiones.03": {
+    "es": "Desarrollador · Lapzo",
+    "en": "Developer · Lapzo"
+  },
+  "transmisiones.04": {
+    "es": "“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”",
+    "en": "“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”"
+  },
+  "transmisiones.05": {
+    "es": "7 recomendaciones en LinkedIn →",
+    "en": "7 recommendations on LinkedIn →"
+  },
+  "transmisiones.06": {
+    "es": "Hecho con ❤ y la Fuerza · Vanilla HTML/CSS/JS + Three.js · ",
+    "en": "Made with ❤ and the Force · Vanilla HTML/CSS/JS + Three.js · "
+  },
+  "transmisiones.07": {
+    "es": "Ver la nave anterior (2022) →",
+    "en": "See the previous ship (2022) →"
+  },
+  "transmisiones.08": {
+    "es": "Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar",
+    "en": "Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber"
+  },
+  "transmisiones.09": {
+    "es": "Puente",
+    "en": "Bridge"
+  },
+  "transmisiones.10": {
+    "es": "Bitácora",
+    "en": "Log"
+  },
+  "transmisiones.11": {
+    "es": "Hoja de servicio",
+    "en": "Service record"
+  },
+  "transmisiones.12": {
+    "es": "Canal abierto",
+    "en": "Open channel"
+  },
+  "transmisiones.13": {
+    "es": "Transmisiones",
+    "en": "Transmissions"
+  },
+  "transmisiones.14": {
+    "es": "'+es+'",
+    "en": "'+en+'"
+  }
+}
