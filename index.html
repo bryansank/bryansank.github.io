@@ -1,46 +1,684 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bryan Key — En construcción</title>
-    <link rel="icon" type="image/x-icon" href="./old_site/favicon.ico" />
-    <style>
-      :root { color-scheme: dark; }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #0b0b0f;
-        color: #f2f2f2;
-        font-family: -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
-        text-align: center;
-        padding: 24px;
-        box-sizing: border-box;
-      }
-      main { max-width: 480px; }
-      h1 { font-size: 1.6rem; margin-bottom: 0.5rem; }
-      p { color: #b7b7c2; line-height: 1.5; }
-      a.old-site {
-        display: inline-block;
-        margin-top: 1.5rem;
-        padding: 0.7rem 1.4rem;
-        border: 1px solid #f2f2f2;
-        border-radius: 999px;
-        color: #f2f2f2;
-        text-decoration: none;
-        font-size: 0.95rem;
-      }
-      a.old-site:hover { background: #f2f2f2; color: #0b0b0f; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>🚧 En construcción</h1>
-      <p>Estoy reconstruyendo este sitio desde cero. Mientras tanto, puedes ver la versión anterior de mi portafolio aquí:</p>
-      <a class="old-site" href="./old_site/">Ver sitio anterior →</a>
-    </main>
-  </body>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bryan Key — Senior Fullstack Engineer · Capitán de la nave</title>
+<meta name="description" content="Bryan Key Hernández: Senior Fullstack Engineer (NestJS, TypeScript, SQL, React) con +8 años que dirige a la IA para construir. Open to work. Descarga el CV o escríbeme ya.">
+<meta name="theme-color" content="#0f1020">
+<meta property="og:title" content="Bryan Key — Capitán de la nave">
+<meta property="og:description" content="Senior Fullstack Engineer que dirige a la IA para construir, no solo para escribir código. Open to work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bryansank.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f1020'/%3E%3Crect x='14.6' y='4' width='2.8' height='17' rx='1.4' fill='%23ff3b30'/%3E%3Crect x='13.4' y='21' width='5.2' height='8' rx='1.6' fill='%23b9bcc9'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="./favicon.ico">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="canonical" href="https://bryansank.github.io/">
+<noscript><style>#intro,#stars,.dock{display:none!important}.reveal{opacity:1;transform:none}</style></noscript>
+<script>
+(function(){try{var s=localStorage;var t=s.getItem('bk-theme');if(t)document.documentElement.dataset.theme=t;var l=s.getItem('bk-lang')||((navigator.language||'es').slice(0,2)==='en'?'en':'es');document.documentElement.lang=l;var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(rm||s.getItem('bk-intro')==='1'||innerWidth<321)document.documentElement.dataset.intro='skip';}catch(e){}})();
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js"}}</script>
+<style>
+/* ---------- Tokens: Lado Oscuro (default) / Lado Luz ---------- */
+:root{
+  --bg:oklch(13% 0.02 275);--bg-2:oklch(17% 0.025 275);--fg:oklch(96% 0.01 90);--muted:oklch(72% 0.02 275);
+  --saber:oklch(62% 0.25 25);--saber-soft:oklch(62% 0.25 25 / .35);--accent:oklch(82% 0.16 85);--line:oklch(30% 0.03 275);
+  --card:oklch(16% 0.025 275 / .78);--glass:oklch(20% 0.03 275 / .55);--focus:oklch(82% 0.16 85);
+  --font:ui-sans-serif,system-ui,"Segoe UI",Inter,Roboto,sans-serif;--mono:ui-monospace,"Cascadia Code",Consolas,monospace;
+  --radius:14px;--max:1180px;--pad:clamp(16px,4vw,48px);--dock-h:64px;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:oklch(97% 0.012 90);--bg-2:oklch(94% 0.015 90);--fg:oklch(18% 0.02 275);--muted:oklch(42% 0.02 275);
+  --saber:oklch(62% 0.2 145);--saber-soft:oklch(62% 0.2 145 / .3);--accent:oklch(52% 0.15 85);--line:oklch(84% 0.02 90);
+  --card:oklch(99% 0.005 90 / .82);--glass:oklch(96% 0.01 90 / .6);--focus:oklch(45% 0.18 145);color-scheme:light;
+}
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 clamp(15px,1.05vw + 10px,18px)/1.55 var(--font);min-height:100svh;overflow-x:hidden;padding-bottom:calc(var(--dock-h) + env(safe-area-inset-bottom))}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1px 1px at 12% 18%,oklch(95% 0 0 / .8),transparent 60%),radial-gradient(1px 1px at 78% 32%,oklch(95% 0 0 / .7),transparent 60%),
+  radial-gradient(1.5px 1.5px at 40% 72%,oklch(95% 0 0 / .6),transparent 60%),radial-gradient(1px 1px at 88% 82%,oklch(95% 0 0 / .8),transparent 60%),
+  radial-gradient(1px 1px at 60% 10%,oklch(95% 0 0 / .5),transparent 60%),radial-gradient(1.5px 1.5px at 25% 50%,oklch(95% 0 0 / .6),transparent 60%),
+  radial-gradient(1px 1px at 95% 55%,oklch(95% 0 0 / .7),transparent 60%),radial-gradient(1px 1px at 5% 90%,oklch(95% 0 0 / .6),transparent 60%),
+  radial-gradient(ellipse at 70% -10%,var(--saber-soft),transparent 55%),var(--bg);opacity:.9}
+:root[data-theme="light"] body::before{opacity:.35}
+#stars{position:fixed;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s}
+#stars.on{opacity:1}
+img,svg,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:8px;top:-60px;z-index:100;background:var(--accent);color:var(--bg);padding:10px 14px;border-radius:8px;font-weight:700}
+.skip:focus{top:8px}
+/* i18n: pure CSS switch */
+html[lang="es"] [lang="en"]{display:none!important}
+html[lang="en"] [lang="es"]{display:none!important}
+.wrap{width:min(100% - 2*var(--pad),var(--max));margin-inline:auto}
+section{padding-block:clamp(56px,9vw,120px);position:relative}
+h1,h2,h3{line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(28px,4.5vw,52px);font-weight:800}
+.kicker{font:600 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;gap:10px;align-items:center}
+.kicker::before{content:"";width:28px;height:2px;background:var(--saber);box-shadow:0 0 12px var(--saber)}
+.lede{color:var(--muted);max-width:62ch;margin:14px 0 0;font-size:clamp(16px,1.1vw + 10px,20px)}
+/* ---------- Top bar ---------- */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in oklch,var(--bg) 94%,transparent);border-bottom:1px solid var(--line)}
+@media (min-width:768px) and (pointer:fine){.top{backdrop-filter:blur(14px) saturate(1.3);background:color-mix(in oklch,var(--bg) 70%,transparent)}}
+.top .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:.04em}
+.brand .key{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--saber),var(--accent));color:oklch(12% 0 0);font:900 15px var(--mono);box-shadow:0 0 18px var(--saber-soft)}
+.nav{display:none;gap:4px;margin-inline:auto}
+.nav a{text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px;font-weight:600}
+.nav a:hover{color:var(--fg);background:var(--glass)}
+@media (min-width:900px){.nav{display:flex}}
+.ctrls{display:flex;gap:6px;margin-left:auto}
+.ctl{appearance:none;border:1px solid var(--line);background:var(--glass);color:var(--fg);border-radius:10px;height:38px;min-width:38px;padding:0 10px;font:700 13px var(--mono);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:transform .15s,border-color .15s}
+.ctl:hover{transform:translateY(-1px);border-color:var(--saber)}
+.ctl[aria-pressed="true"]{border-color:var(--saber);box-shadow:0 0 0 1px var(--saber),0 0 16px var(--saber-soft)}
+.ctl svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* ---------- Hero ---------- */
+.hero{min-height:calc(100svh - 60px);display:grid;align-content:center;padding-block:clamp(40px,6vw,80px)}
+.pill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--glass);border-radius:999px;padding:8px 14px 8px 10px;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg)}
+.pill i{width:10px;height:10px;border-radius:50%;background:var(--saber);box-shadow:0 0 12px var(--saber);animation:pulse 1.8s ease-in-out infinite;will-change:transform,opacity}
+@keyframes pulse{50%{transform:scale(.7);opacity:.6}}
+.hero h1{font-size:clamp(46px,11vw,150px);font-weight:900;letter-spacing:-.04em;margin-top:22px;text-transform:uppercase;line-height:.92}
+.hero h1 .w{display:block}
+.hero h1 .l{display:inline-block;animation:drop .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 45ms + .1s)}
+.hero h1 .w:last-child .l{color:var(--saber);-webkit-text-stroke:1.5px var(--fg);text-shadow:0 0 28px var(--saber-soft)}
+@keyframes drop{from{opacity:0;transform:translateY(.6em) rotateX(-40deg);filter:blur(6px)}}
+.hero .role{font:600 clamp(16px,1.6vw + 8px,26px)/1.3 var(--font);color:var(--muted);margin-top:18px;max-width:34ch}
+.hero .role b{color:var(--fg)}
+.hero .usp{margin-top:18px;font-size:clamp(17px,1.2vw + 10px,22px);max-width:56ch;border-left:3px solid var(--saber);padding-left:16px;color:var(--fg)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{--c:var(--saber);appearance:none;text-decoration:none;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:14px;font-weight:800;font-size:16px;border:1px solid var(--line);background:var(--glass);color:var(--fg);cursor:pointer;position:relative;transition:transform .2s,box-shadow .2s,border-color .2s;will-change:transform}
+.btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn:hover{border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 0 28px var(--saber-soft);transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(135deg,var(--saber),color-mix(in oklch,var(--saber) 60%,var(--accent)));color:oklch(10% 0 0);border-color:transparent;box-shadow:0 8px 30px -8px var(--saber)}
+.btn.primary:hover{box-shadow:0 12px 40px -6px var(--saber)}
+.btn.ghost{background:transparent}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;color:var(--muted);font:500 14px var(--mono)}
+.meta span::before{content:"◆ ";color:var(--accent)}
+.scroll-cue{position:absolute;right:var(--pad);bottom:24px;width:34px;height:54px;border:2px solid var(--line);border-radius:20px;display:none}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:8px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--saber);box-shadow:0 0 10px var(--saber);animation:cue 1.6s ease-in-out infinite}
+@keyframes cue{60%{transform:translateY(26px);opacity:0}100%{opacity:0}}
+@media (min-width:900px){.scroll-cue{display:block}}
+/* ---------- Reveal (scroll-driven, fallback IO) ---------- */
+.reveal{opacity:0;transform:translateY(28px)}
+@supports (animation-timeline: view()){
+  .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 5% entry 45%}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+.reveal.in{opacity:1;transform:none;transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+/* ---------- Bitácora: crawl ---------- */
+.crawl-stage{perspective:520px;perspective-origin:50% 100%;margin-top:28px}
+.crawl{transform-origin:50% 100%;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,36px);backdrop-filter:blur(10px)}
+.crawl p{margin:0 0 1em;font-size:clamp(16px,1.15vw + 9px,21px);color:var(--fg)}
+.crawl p:last-child{margin:0}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .crawl{animation:crawl linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+    @keyframes crawl{from{transform:rotateX(26deg) translateY(120px) scale(.92)}to{transform:none}}
+  }
+}
+/* ---------- Hoja de servicio: mapa galáctico ---------- */
+.route{list-style:none;margin:36px 0 0;padding:0;position:relative}
+.route::before{content:"";position:absolute;left:19px;top:0;bottom:0;width:2px;background:linear-gradient(var(--saber),var(--accent),var(--saber));box-shadow:0 0 14px var(--saber-soft)}
+@media (min-width:900px){.route::before{left:50%;margin-left:-1px}}
+.stop{position:relative;padding-left:56px;margin-bottom:26px}
+.stop::before{content:"";position:absolute;left:11px;top:22px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--saber);box-shadow:0 0 0 6px var(--bg),0 0 18px var(--saber)}
+.stop.now::before{background:var(--saber);animation:pulse 1.6s infinite}
+@media (min-width:900px){
+  .stop{width:50%;padding-left:0;padding-right:56px}
+  .stop:nth-child(even){margin-left:50%;padding-right:0;padding-left:56px}
+  .stop::before{left:auto;right:-9px}
+  .stop:nth-child(even)::before{right:auto;left:-9px}
+}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,2.4vw,28px);backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.tilt:hover,.tilt:focus-within{border-color:var(--saber);box-shadow:0 20px 60px -30px var(--saber),0 0 0 1px var(--saber-soft)}
+.card header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.card h3{font-size:clamp(19px,1.4vw + 10px,24px);font-weight:800}
+.card .co{color:var(--accent);font-weight:700}
+.card time,.card .loc{display:block;font:600 12.5px var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+.card ul{margin:14px 0 0;padding-left:18px;color:var(--fg)}
+.card li{margin:0 0 7px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{font:600 12px var(--mono);border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted);background:var(--glass)}
+/* ---------- Arsenal: empuñaduras ---------- */
+.arsenal{display:grid;gap:26px;margin-top:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.cat h3{font:700 13px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;gap:8px;align-items:center}
+.cat h3::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--cat);box-shadow:0 0 10px var(--cat)}
+.hilts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.hilt{--cat:var(--saber);position:relative;display:inline-flex;align-items:center;gap:10px;padding:10px 14px 10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-weight:700;font-size:15px;cursor:default;overflow:visible;transition:border-color .25s,transform .25s}
+.hilt .grip{width:14px;height:22px;border-radius:3px;background:linear-gradient(oklch(60% 0.02 275),oklch(35% 0.02 275) 40%,oklch(65% 0.02 275) 60%,oklch(30% 0.02 275));position:relative;flex:none}
+.hilt .grip::before{content:"";position:absolute;left:3px;right:3px;top:-3px;height:3px;background:var(--cat);border-radius:2px}
+.hilt .blade{position:absolute;left:19px;bottom:calc(100% - 4px);width:4px;height:0;border-radius:3px;background:oklch(99% 0 0);box-shadow:0 0 6px var(--cat),0 0 16px var(--cat),0 0 32px var(--cat);transition:height .25s cubic-bezier(.2,.9,.3,1.2);pointer-events:none}
+.hilt:hover,.hilt:focus-visible{border-color:var(--cat);transform:translateY(-2px);outline-color:var(--cat)}
+.hilt:hover .blade,.hilt:focus-visible .blade{height:46px}
+/* ---------- Hangar ---------- */
+.hangar{margin-top:36px;display:grid;gap:22px;grid-template-columns:1fr}
+@media (min-width:900px){.hangar{grid-template-columns:1.2fr .8fr}}
+.grain{position:relative;overflow:hidden}
+.grain::after{content:"";position:absolute;inset:-50%;pointer-events:none;opacity:.14;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.badge{display:inline-flex;gap:8px;align-items:center;font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.ship{aspect-ratio:16/10;border-radius:var(--radius);border:1px solid var(--line);background:radial-gradient(ellipse at 30% 30%,var(--saber-soft),transparent 55%),linear-gradient(160deg,var(--bg-2),var(--bg));display:grid;place-items:center;position:relative;overflow:hidden}
+.ship svg{width:70%;height:auto;filter:drop-shadow(0 0 18px var(--saber-soft))}
+.ship svg *{fill:none;stroke:var(--fg);stroke-width:1.6;stroke-linejoin:round}
+.ship svg .glow{stroke:var(--saber);stroke-width:2.4;filter:drop-shadow(0 0 8px var(--saber))}
+/* ---------- Transmisiones ---------- */
+.holo{display:grid;gap:18px;margin-top:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.holo blockquote{margin:0;position:relative;overflow:hidden}
+.holo blockquote{overflow:hidden}
+.holo blockquote::before{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(50% 0.1 220 / .06) 2px 3px);animation:scan 6s linear infinite;will-change:transform}
+@keyframes scan{to{transform:translateY(60px)}}
+.holo p{margin:0;font-size:clamp(16px,1.05vw + 9px,19px);font-style:italic}
+.holo footer{margin-top:14px;font:600 13px var(--mono);color:var(--muted)}
+.holo footer b{color:var(--accent);display:block;font-family:var(--font);font-size:15px}
+/* ---------- Canal abierto ---------- */
+.channels{display:grid;gap:14px;margin-top:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.chan{text-decoration:none;display:flex;flex-direction:column;gap:10px;padding:22px;min-height:150px}
+.chan svg{width:28px;height:28px;fill:none;stroke:var(--saber);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px var(--saber-soft))}
+.chan b{font-size:18px}
+.chan span{color:var(--muted);font-size:14px}
+.chan em{margin-top:auto;font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-style:normal}
+/* ---------- Footer ---------- */
+.foot{border-top:1px solid var(--line);padding:40px 0 30px;color:var(--muted);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between}
+.foot a{color:var(--fg)}
+.foot .socials{display:flex;gap:14px}
+/* ---------- Dock (contacto fijo) ---------- */
+.dock{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:50;display:flex;gap:6px;padding:6px;border-radius:18px;background:color-mix(in oklch,var(--bg) 95%,transparent);border:1px solid var(--line);box-shadow:0 20px 60px -20px oklch(0% 0 0 / .8);transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;max-width:calc(100vw - 16px)}
+@media (min-width:768px) and (pointer:fine){.dock{backdrop-filter:blur(16px) saturate(1.4);background:color-mix(in oklch,var(--bg) 78%,transparent)}}
+.dock.hide{transform:translate(-50%,120%);opacity:0;pointer-events:none}
+.dock a{text-decoration:none;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 14px;border-radius:12px;font-weight:800;font-size:14px;color:var(--fg);white-space:nowrap}
+.dock a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.dock a.primary{background:var(--saber);color:oklch(10% 0 0)}
+.dock a:not(.primary):hover{background:var(--glass)}
+@media (max-width:560px){.dock a span{display:none}.dock a{padding:0 13px}.dock a.primary span{display:inline}}
+/* ---------- Intro ---------- */
+#intro{position:fixed;inset:0;z-index:90;background:oklch(6% 0.01 275);display:grid;place-items:center;transition:opacity .6s}
+#intro canvas{position:absolute;inset:0;width:100%;height:100%}
+#intro .fall{position:absolute;width:min(20svh,46vw);aspect-ratio:414/896;border-radius:14px;overflow:hidden;box-shadow:0 0 50px oklch(70% 0.16 220 / .5),0 0 130px oklch(70% 0.16 220 / .25);z-index:1}
+#intro .fall img,#intro .fall video{width:100%;height:100%;object-fit:cover;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);opacity:.95}
+#intro>video{position:absolute;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none}
+#intro .fall::after{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(70% 0.14 220 / .14) 2px 4px);animation:holo-scan 3s linear infinite;will-change:transform}
+@keyframes holo-scan{to{transform:translateY(40px)}}
+#intro .skipbtn{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:2}
+#intro .hint{position:absolute;left:0;right:0;bottom:calc(96px + env(safe-area-inset-bottom));text-align:center;font:600 12px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+#intro.out{opacity:0;pointer-events:none}
+html[data-intro="skip"] #intro{display:none}
+/* Intro CSS (móvil / sin Three.js) — la secuencia la dirige la Web Animations API */
+#intro .sweep{position:absolute;left:50%;top:50%;width:0;height:0;z-index:3;pointer-events:none}
+#intro .rider{position:absolute;left:0;top:0;will-change:transform}
+#intro .blade{position:absolute;left:0;top:-4px;height:8px;border-radius:5px;background:oklch(99% 0 0);box-shadow:0 0 10px var(--saber),0 0 34px var(--saber);transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+#intro .halo{position:absolute;left:0;top:-46px;height:92px;border-radius:50%;background:radial-gradient(ellipse at center,var(--saber) 0%,oklch(62% 0.25 25 / .35) 38%,transparent 72%);opacity:.75;transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+#intro .grip{position:absolute;left:-58px;top:-8px;width:58px;height:16px;border-radius:4px;background:linear-gradient(oklch(78% 0.02 275),oklch(28% 0.02 275) 55%,oklch(60% 0.02 275));box-shadow:0 2px 10px oklch(0% 0 0 / .7)}
+#intro .grip::after{content:"";position:absolute;right:5px;top:4px;width:6px;height:8px;border-radius:2px;background:var(--saber);box-shadow:0 0 10px var(--saber)}
+#intro .trail{position:absolute;top:-2px;height:4px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,transparent,var(--saber) 55%,oklch(99% 0 0));box-shadow:0 0 14px var(--saber),0 0 40px var(--saber);z-index:2}
+#intro .half{position:absolute;border-radius:14px;background-size:cover;background-position:center;filter:grayscale(1) invert(1) sepia(1) hue-rotate(150deg) saturate(4.5) brightness(.85) contrast(1.25);box-shadow:0 0 24px oklch(70% 0.16 220 / .4);will-change:transform,opacity;z-index:1}
+#intro .half.a{clip-path:polygon(0 0,132% 0,0 132%)}
+#intro .half.b{clip-path:polygon(132% 0,132% 132%,0 132%)}
+/* ---------- View transitions (tema / idioma) ---------- */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-new(root){clip-path:circle(0 at var(--vt-x,50%) var(--vt-y,50%));animation:vt-in .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes vt-in{to{clip-path:circle(150% at var(--vt-x,50%) var(--vt-y,50%))}}
+html.lang-switch::view-transition-new(root){clip-path:none;animation:vt-fade .35s ease}
+@keyframes vt-fade{from{opacity:0}}
+/* ---------- Saber cursor (easter egg) ---------- */
+html.saber-cursor,html.saber-cursor *{cursor:none!important}
+#saber{position:fixed;left:0;top:0;z-index:200;pointer-events:none;width:4px;height:120px;border-radius:3px;background:oklch(99% 0 0);box-shadow:0 0 8px var(--saber),0 0 22px var(--saber),0 0 48px var(--saber);transform-origin:50% 100%;display:none}
+#saber::after{content:"";position:absolute;left:-6px;top:100%;width:16px;height:34px;border-radius:3px;background:linear-gradient(oklch(60% 0.02 275),oklch(30% 0.02 275))}
+html.saber-cursor #saber{display:block}
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}.crawl{transform:none;opacity:1}.hero h1 .l{animation:none}
+}
+/* ---------- Extremos: reloj / 4K ---------- */
+@media (max-width:320px){
+  :root{--pad:12px;--dock-h:0px}body{font-size:14px}.hero h1{font-size:40px}.dock,.scroll-cue,#stars,.ctrls .lbl{display:none}
+  .route::before,.stop::before{display:none}.stop{padding-left:0}.card{padding:14px}.hilt .blade{display:none}
+}
+@media (min-width:2200px){:root{--max:1400px}body{font-size:20px}}
+@media print{.dock,.top,#intro,#stars,.scroll-cue{display:none!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<a class="skip" href="#canal"><span lang="es">Saltar al contacto</span><span lang="en">Skip to contact</span></a>
+
+<!-- Intro: el sable rebana el sitio anterior -->
+<div id="intro" role="dialog" aria-modal="true" aria-label="Intro">
+  <div class="fall" id="fall" aria-hidden="true">
+    <img id="oldshot" src="./assets/media/old-site-poster.jpg" alt="" decoding="async">
+  </div>
+  <video id="oldvid" muted playsinline preload="none" src="./assets/media/old-site.webm" aria-hidden="true" tabindex="-1"></video>
+  <p class="hint" aria-hidden="true"><span lang="es">Cargando la nave anterior…</span><span lang="en">Loading the previous ship…</span></p>
+  <button class="btn ghost skipbtn" id="skip" type="button"><span lang="es">Saltar intro</span><span lang="en">Skip intro</span> ⏭</button>
+</div>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+<div id="saber" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#puente"><span class="key" aria-hidden="true">BK</span><span>Bryan Key</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#bitacora"><span lang="es">Bitácora</span><span lang="en">Log</span></a>
+      <a href="#servicio"><span lang="es">Hoja de servicio</span><span lang="en">Service record</span></a>
+      <a href="#arsenal">Arsenal</a>
+      <a href="#hangar"><span lang="es">Hangar</span><span lang="en">Hangar</span></a>
+      <a href="#transmisiones"><span lang="es">Transmisiones</span><span lang="en">Transmissions</span></a>
+      <a href="#canal"><span lang="es">Canal abierto</span><span lang="en">Open channel</span></a>
+    </nav>
+    <div class="ctrls">
+      <button class="ctl" id="langBtn" type="button" aria-label="EN: switch to English"><span lang="es">EN</span><span lang="en">ES</span></button>
+      <button class="ctl" id="themeBtn" type="button" aria-pressed="false" aria-label="Lado: cambiar entre Lado Oscuro y Lado Luz">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+        <span class="lbl" lang="es">Lado</span><span class="lbl" lang="en">Side</span>
+      </button>
+      <button class="ctl" id="soundBtn" type="button" aria-pressed="false" aria-label="Sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 3V7L7 10H4z"/><path class="wave" d="M15 9.5a4 4 0 0 1 0 5M17.5 7a7.5 7.5 0 0 1 0 10"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Puente de mando -->
+  <section class="hero" id="puente" aria-labelledby="h1">
+    <div class="wrap">
+      <span class="pill"><i aria-hidden="true"></i><span lang="es">Transmisión entrante · Open to work · GMT-4</span><span lang="en">Incoming transmission · Open to work · GMT-4</span></span>
+      <h1 id="h1"><span class="w" data-kinetic>Bryan</span><span class="w" data-kinetic>Key</span></h1>
+      <p class="role"><b>Senior Fullstack Engineer</b> · NestJS · TypeScript · SQL · React · <span lang="es">IA aplicada</span><span lang="en">Applied AI</span></p>
+      <p class="usp"><span lang="es"><b>Capitán de la nave:</b> un Senior Fullstack que dirige a la IA para construir, no solo para escribir código.</span><span lang="en"><b>Captain of the ship:</b> a Senior Fullstack who directs AI to build, not just to write code.</span></p>
+      <div class="cta">
+        <a class="btn primary magnetic" id="cvBtn" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span lang="es">Descargar CV ya</span><span lang="en">Download resume now</span></a>
+        <a class="btn magnetic" href="https://wa.me/584242014704?text=Hola%20Bryan%2C%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"/></svg><span lang="es">Hablar ahora · WhatsApp</span><span lang="en">Talk now · WhatsApp</span></a>
+        <a class="btn ghost magnetic" href="mailto:bryansan055@gmail.com?subject=Oportunidad%20para%20Bryan%20Key&body=Hola%20Bryan%2C"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+        <a class="btn ghost magnetic" href="https://www.linkedin.com/in/bryansank/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 8v.1M12 17v-6m0 2.5a2.5 2.5 0 0 1 5 0V17"/></svg>LinkedIn</a>
+      </div>
+      <div class="meta">
+        <span><span lang="es">+8 años · 2018→2026</span><span lang="en">8+ years · 2018→2026</span></span>
+        <span><span lang="es">Caracas, Venezuela · remoto/híbrido/presencial</span><span lang="en">Caracas, Venezuela · remote/hybrid/on-site</span></span>
+        <span><span lang="es">+30 devs mentoreados</span><span lang="en">30+ devs mentored</span></span>
+        <span><span lang="es">LMS con +10 000 usuarios</span><span lang="en">LMS with 10,000+ users</span></span>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <!-- Bitácora -->
+  <section id="bitacora" aria-labelledby="h-bitacora">
+    <div class="wrap">
+      <p class="kicker"><span lang="es">Registro de bitácora</span><span lang="en">Captain's log</span></p>
+      <h2 id="h-bitacora"><span lang="es">Me cansé de hacer código. No de crear.</span><span lang="en">I got tired of writing code. Not of creating.</span></h2>
+      <div class="crawl-stage"><div class="crawl">
+        <div lang="es">
+          <p>Más de 8 años como ingeniero de software en todo el ciclo de vida del producto. Mi zona fuerte hoy es el backend: NestJS, TypeScript y SQL de alto rendimiento (PostgreSQL, SQL Server, stored procedures), sin soltar el frontend con React/Next.js ni el móvil con React Native.</p>
+          <p>He construido pasarelas de pago con Stripe, sistemas de concurrencia de datos para un LMS con más de 10 000 usuarios, ERPs extendidos con facturación fiscal y apps de campo con geolocalización — en food-service, educación, SaaS, minería y logística.</p>
+          <p>La IA ya es copiloto, a veces conductora. Yo soy el capitán de la nave: entiendo arquitecturas, problemas de escala y patrones, y sobre todo sé <b>comunicar</b>. Dirijo agentes (Claude Code, Cursor) para pensar mejor, no para programar más. Inglés B1. Actitud: adelante.</p>
+        </div>
+        <div lang="en">
+          <p>8+ years as a software engineer across the full product lifecycle. My strongest zone today is backend: NestJS, TypeScript and high-performance SQL (PostgreSQL, SQL Server, stored procedures), without letting go of React/Next.js frontends or React Native mobile.</p>
+          <p>I have shipped Stripe payment gateways, data-concurrency systems for an LMS with 10,000+ users, ERPs extended with fiscal invoicing, and field apps with geolocation — in food service, education, SaaS, mining and logistics.</p>
+          <p>AI is already the co-pilot, sometimes the driver. I am the captain of the ship: I understand architectures, scaling problems and patterns, and above all I know how to <b>communicate</b>. I direct agents (Claude Code, Cursor) to think better, not to code more. English B1. Attitude: go ahead.</p>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- Hoja de servicio -->
+  <section id="servicio" aria-labelledby="h-servicio">
+    <div class="wrap">
+      <p class="kicker"><span lang="es">Hoja de servicio · 9 sistemas visitados</span><span lang="en">Service record · 9 systems visited</span></p>
+      <h2 id="h-servicio"><span lang="es">Ruta de hiperespacio 2018 → 2026</span><span lang="en">Hyperspace route 2018 → 2026</span></h2>
+      <p class="lede"><span lang="es">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
+      <ol class="route">
+        <li class="stop now reveal"><article class="card tilt">
+          <header><h3><span lang="es">Desarrollador de software</span><span lang="en">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></header>
+          <time datetime="2025-04"><span lang="es">abr 2025 – actualidad</span><span lang="en">Apr 2025 – present</span></time><span class="loc">Caracas · <span lang="es">presencial</span><span lang="en">on-site</span></span>
+          <ul lang="es"><li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li></ul>
+          <ul lang="en"><li>Next.js + Supabase back-office on Vercel with administrative workflows for internal operations.</li><li>React Native (Expo) mobile app: customers, orders, payments and pricing with geolocation and Maps for field work.</li><li>Configurable dynamic questionnaires and maintenance of a 25-year-old React + .NET 4.5 + SQL Server legacy: critical bugs fixed in under 2 weeks.</li></ul>
+          <div class="chips"><span>Next.js</span><span>Supabase</span><span>React Native</span><span>Expo</span><span>.NET</span><span>SQL Server</span><span>Vercel</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3>Senior Software Engineer</h3><span class="co">QPlus Software Solutions</span></header>
+          <time datetime="2025-03"><span lang="es">mar – may 2025 · contrato</span><span lang="en">Mar – May 2025 · contract</span></time><span class="loc">Córdoba, AR · <span lang="es">remoto</span><span lang="en">remote</span></span>
+          <ul lang="es"><li>Mejoras escalables para el sector minero: organización de rutas de servidor, integración multi-idioma y monitoreo en tiempo real de cambios mecánicos y su rentabilidad.</li></ul>
+          <ul lang="en"><li>Scalable improvements for the mining sector: server route organization, multi-language integration and real-time monitoring of mechanical changes and their profitability.</li></ul>
+          <div class="chips"><span>C#</span><span>.NET Framework</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3><span lang="es">Descanso profesional</span><span lang="en">Career break</span></h3><span class="co">LibreTickets.com</span></header>
+          <time datetime="2024-10"><span lang="es">oct 2024 – ene 2025</span><span lang="en">Oct 2024 – Jan 2025</span></time><span class="loc">Córdoba, AR</span>
+          <ul lang="es"><li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li></ul>
+          <ul lang="en"><li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li></ul>
+          <div class="chips"><span>Next.js</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></header>
+          <time datetime="2022-10"><span lang="es">oct 2022 – sep 2024</span><span lang="en">Oct 2022 – Sep 2024</span></time><span class="loc">CDMX · <span lang="es">remoto</span><span lang="en">remote</span></span>
+          <ul lang="es"><li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li></ul>
+          <ul lang="en"><li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li></ul>
+          <div class="chips"><span>NestJS</span><span>TypeScript</span><span>React</span><span>PostgreSQL</span><span>KNEX</span><span>Hasura</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3>Tech Mentor</h3><span class="co">Talently</span></header>
+          <time datetime="2022-06"><span lang="es">jun 2022 – ago 2023 · autónomo</span><span lang="en">Jun 2022 – Aug 2023 · freelance</span></time><span class="loc">Argentina</span>
+          <ul lang="es"><li>Mentoría 1:1 a <b>+30 desarrolladores</b> senior para pruebas técnicas y proyectos; roadmap con más del 60 % de colocación en los empleos deseados.</li></ul>
+          <ul lang="en"><li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li></ul>
+          <div class="chips"><span>JavaScript</span><span>React</span><span>Redux</span><span>TDD</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3><span lang="es">Programador Web Junior → Senior</span><span lang="en">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></header>
+          <time datetime="2019-05"><span lang="es">may 2019 – sep 2022</span><span lang="en">May 2019 – Sep 2022</span></time><span class="loc">Caracas</span>
+          <ul lang="es"><li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li></ul>
+          <ul lang="en"><li>Extended Odoo ERP with JavaScript and Python: fiscal invoicing (.chk with IGTF) for Aloha, removing third-party modules.</li><li>Nationwide restaurant price/exchange-rate app: <b>100% automated</b>, 0% manual handling.</li><li>Official website, hybrid help-desk monitoring, responsive SharePoint 2010 migration and XML→JSON reports.</li></ul>
+          <div class="chips"><span>TypeScript</span><span>React</span><span>Angular</span><span>Ionic</span><span>Firebase</span><span>Python</span><span>Odoo</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3><span lang="es">Analista Programador</span><span lang="en">Programmer Analyst</span></h3><span class="co">Andromeda Ventures</span></header>
+          <time datetime="2020-09"><span lang="es">sep – nov 2020 · contrato</span><span lang="en">Sep – Nov 2020 · contract</span></time><span class="loc">Caracas</span>
+          <ul lang="es"><li>Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con ORMs y stored procedures en PostgreSQL (RxJS, Redux, SOAP): código más legible y escalable.</li></ul>
+          <ul lang="en"><li>Migrated a payment gateway from Sails.js to NestJS + TypeScript with ORMs and PostgreSQL stored procedures (RxJS, Redux, SOAP): more readable, scalable code.</li></ul>
+          <div class="chips"><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span></div>
+        </article></li>
+        <li class="stop reveal"><article class="card tilt">
+          <header><h3>Full-stack Developer</h3><span class="co">Inversiones KED Perú</span></header>
+          <time datetime="2018-01"><span lang="es">ene 2018 – ene 2020</span><span lang="en">Jan 2018 – Jan 2020</span></time><span class="loc">Perú · <span lang="es">remoto</span><span lang="en">remote</span></span>
+          <ul lang="es"><li>App web de paquetería con 5 módulos, tracking en tiempo real y backoffice; optimización de cargas.</li></ul>
+          <ul lang="en"><li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li></ul>
+          <div class="chips"><span>PHP</span><span>JavaScript</span><span>SQL</span></div>
+        </article></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Arsenal -->
+  <section id="arsenal" aria-labelledby="h-arsenal">
+    <div class="wrap">
+      <p class="kicker">Arsenal</p>
+      <h2 id="h-arsenal"><span lang="es">Un sable por cada batalla</span><span lang="en">A saber for every battle</span></h2>
+      <p class="lede"><span lang="es">Pasa el cursor o el foco: cada empuñadura enciende su hoja.</span><span lang="en">Hover or focus: every hilt ignites its blade.</span></p>
+      <div class="arsenal">
+        <div class="cat reveal" style="--cat:oklch(70% 0.17 250)"><h3>Core backend</h3><ul class="hilts">
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>NestJS<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>TypeScript<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Node.js<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>tRPC<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Hasura<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Stripe API<span class="blade"></span></li>
+        </ul></div>
+        <div class="cat reveal" style="--cat:oklch(68% 0.22 310)"><h3><span lang="es">Datos</span><span lang="en">Data</span></h3><ul class="hilts">
+          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PostgreSQL<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>SQL Server<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PL/SQL · SPs<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>KNEX<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Firebase<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Supabase<span class="blade"></span></li>
+        </ul></div>
+        <div class="cat reveal" style="--cat:oklch(75% 0.19 150)"><h3>Frontend & mobile</h3><ul class="hilts">
+          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Next.js<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React Native · Expo<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Angular · Ionic<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>HTML · CSS · Vanilla JS<span class="blade"></span></li>
+        </ul></div>
+        <div class="cat reveal" style="--cat:oklch(72% 0.2 40)"><h3><span lang="es">Otros frentes</span><span lang="en">Other fronts</span></h3><ul class="hilts">
+          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>.NET · C#<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Python · Odoo<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>PHP<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Godot<span class="blade"></span></li>
+        </ul></div>
+        <div class="cat reveal" style="--cat:oklch(82% 0.16 85)"><h3><span lang="es">IA y agentes</span><span lang="en">AI & agents</span></h3><ul class="hilts">
+          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Claude Code<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Cursor<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Spec-driven dev<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>MCP · <span lang="es">automatización</span><span lang="en">automation</span><span class="blade"></span></li>
+        </ul></div>
+        <div class="cat reveal" style="--cat:oklch(70% 0.02 275)"><h3>Infra</h3><ul class="hilts">
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Docker<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Git · GitHub<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Vercel<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Ubuntu · WSL<span class="blade"></span></li>
+          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Kubernetes<span class="blade"></span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hangar -->
+  <section id="hangar" aria-labelledby="h-hangar">
+    <div class="wrap">
+      <p class="kicker">Hangar</p>
+      <h2 id="h-hangar"><span lang="es">Proyecto personal en construcción</span><span lang="en">Personal project under construction</span></h2>
+      <div class="hangar">
+        <article class="card tilt grain reveal">
+          <span class="badge">Godot · <span lang="es">full IA</span><span lang="en">full AI</span> · open source</span>
+          <h3 style="margin-top:10px;font-size:clamp(24px,2vw + 12px,34px)">Tormenta Imperial</h3>
+          <p class="lede" style="margin-top:12px"><span lang="es">Un juego construido dirigiendo agentes de IA de principio a fin: diseño, código GDScript, assets y pipeline. Es mi laboratorio para probar la tesis del capitán de la nave en un dominio que no es el mío.</span><span lang="en">A game built by directing AI agents end to end: design, GDScript code, assets and pipeline. It is my lab to test the captain-of-the-ship thesis in a domain that isn't mine.</span></p>
+          <div class="chips"><span>Godot 4</span><span>GDScript</span><span>Claude Code</span><span>Spec Kit</span></div>
+          <p style="margin:18px 0 0"><a class="btn ghost" href="https://github.com/bryansank/tormenta-imperial" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><span lang="es">Ver en GitHub</span><span lang="en">View on GitHub</span></a></p>
+        </article>
+        <div class="ship reveal" aria-hidden="true">
+          <svg viewBox="0 0 320 200"><path d="M40 100h60l40-40h60l60 40-60 40h-60l-40-40z"/><path class="glow" d="M100 100h100"/><path d="M160 60v80M130 60l-20-30M190 60l20-30M130 140l-20 30M190 140l20 30"/><circle cx="160" cy="100" r="14"/><path class="glow" d="M260 100h50"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transmisiones -->
+  <section id="transmisiones" aria-labelledby="h-trans">
+    <div class="wrap">
+      <p class="kicker"><span lang="es">Transmisiones aliadas</span><span lang="en">Allied transmissions</span></p>
+      <h2 id="h-trans"><span lang="es">Lo que dicen quienes volaron conmigo</span><span lang="en">What those who flew with me say</span></h2>
+      <div class="holo">
+        <blockquote class="card reveal"><p>“Bryan is an awesome developer. Working with him is a blast because he always brings such great vibes and a positive attitude. He's really into taking on new challenges and bounces back quickly when things get tough. Super adaptable and always ready to tackle problems head-on.”</p><footer><b>Luis Manuel Flores Camarena</b><span lang="es">Desarrollador · Lapzo</span><span lang="en">Developer · Lapzo</span></footer></blockquote>
+        <blockquote class="card reveal"><p><span lang="es">“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”</span><span lang="en">“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”</span></p><footer><b>Robert Hernández</b>Lapzo</footer></blockquote>
+      </div>
+      <p class="lede" style="margin-top:22px"><a href="https://www.linkedin.com/in/bryansank/details/recommendations/" target="_blank" rel="noopener"><span lang="es">7 recomendaciones en LinkedIn →</span><span lang="en">7 recommendations on LinkedIn →</span></a></p>
+    </div>
+  </section>
+
+  <!-- Canal abierto -->
+  <section id="canal" aria-labelledby="h-canal">
+    <div class="wrap">
+      <p class="kicker"><span lang="es">Canal abierto</span><span lang="en">Open channel</span></p>
+      <h2 id="h-canal"><span lang="es">Hablemos hoy. Respondo rápido.</span><span lang="en">Let's talk today. I reply fast.</span></h2>
+      <p class="lede"><span lang="es">Reclutador, CTO o fundador: elige el canal y en menos de 24 h tienes respuesta.</span><span lang="en">Recruiter, CTO or founder: pick a channel and you'll hear back within 24 hours.</span></p>
+      <div class="channels">
+        <a class="card tilt chan reveal" href="https://wa.me/584242014704?text=Hola%20Bryan%2C%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"/></svg><b>WhatsApp</b><span>+58 424-201-4704</span><em><span lang="es">Hablar ahora</span><span lang="en">Talk now</span> →</em></a>
+        <a class="card tilt chan reveal" href="mailto:bryansan055@gmail.com?subject=Oportunidad%20para%20Bryan%20Key"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><b>Email</b><span>bryansan055@gmail.com</span><em><span lang="es">Escribir</span><span lang="en">Write</span> →</em></a>
+        <a class="card tilt chan reveal" href="https://www.linkedin.com/in/bryansank/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 8v.1M12 17v-6m0 2.5a2.5 2.5 0 0 1 5 0V17"/></svg><b>LinkedIn</b><span>/in/bryansank</span><em><span lang="es">Conectar</span><span lang="en">Connect</span> →</em></a>
+        <a class="card tilt chan reveal" href="https://github.com/bryansank" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><b>GitHub</b><span>@bryansank</span><em><span lang="es">Ver código</span><span lang="en">See code</span> →</em></a>
+        <a class="card tilt chan reveal cv-link" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><b>CV 2026</b><span>PDF · <span lang="es">español</span><span lang="en">English</span></span><em><span lang="es">Descargar</span><span lang="en">Download</span> →</em></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><span lang="es">Hecho con ❤ y la Fuerza · Vanilla HTML/CSS/JS + Three.js · </span><span lang="en">Made with ❤ and the Force · Vanilla HTML/CSS/JS + Three.js · </span>© 2026 Bryan Key</p>
+    <div class="socials"><a href="https://twitter.com/bryansank" target="_blank" rel="noopener">X/Twitter</a><a href="https://www.instagram.com/bryansank/" target="_blank" rel="noopener">Instagram</a><a href="https://github.com/bryansank" target="_blank" rel="noopener">GitHub</a></div>
+    <p><a href="./old_site/"><span lang="es">Ver la nave anterior (2022) →</span><span lang="en">See the previous ship (2022) →</span></a> · <span lang="es">Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar</span><span lang="en">Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber</span></p>
+  </div>
+</footer>
+
+<nav class="dock" id="dock" aria-label="Contacto rápido">
+  <a class="primary cv-link" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span>CV</span></a>
+  <a href="https://wa.me/584242014704?text=Hola%20Bryan%2C%20vi%20tu%20portafolio%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12z"/></svg><span>WhatsApp</span></a>
+  <a href="mailto:bryansan055@gmail.com?subject=Oportunidad%20para%20Bryan%20Key" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+  <a href="https://www.linkedin.com/in/bryansank/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 8v.1M12 17v-6m0 2.5a2.5 2.5 0 0 1 5 0V17"/></svg><span>LinkedIn</span></a>
+</nav>
+
+<script type="module">
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const html=document.documentElement,store={get:k=>{try{return localStorage.getItem(k)}catch{return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch{}}};
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let stars=null;
+
+/* ---------- Kinetic hero ---------- */
+$$('[data-kinetic]').forEach(w=>{const t=w.textContent;w.textContent='';[...t].forEach((ch,i)=>{const s=document.createElement('span');s.className='l';s.style.setProperty('--i',i);s.textContent=ch;w.appendChild(s)})});
+
+/* ---------- i18n ---------- */
+const langBtn=$('#langBtn'),themeBtn=$('#themeBtn'),soundBtn=$('#soundBtn');
+function applyLang(l){html.lang=l;store.set('bk-lang',l);$$('.cv-link,#cvBtn').forEach(a=>a.href=a.dataset[l]);document.title=l==='en'?'Bryan Key — Senior Fullstack Engineer · Captain of the ship':'Bryan Key — Senior Fullstack Engineer · Capitán de la nave';themeBtn.setAttribute('aria-label',l==='en'?'Side: switch between Dark Side and Light Side':'Lado: cambiar entre Lado Oscuro y Lado Luz');soundBtn.setAttribute('aria-label',l==='en'?'Sound':'Sonido');langBtn.setAttribute('aria-label',l==='en'?'ES: cambiar a español':'EN: switch to English')}
+applyLang(html.lang==='en'?'en':'es');
+langBtn.addEventListener('click',()=>{const next=html.lang==='en'?'es':'en';const run=()=>applyLang(next);if(document.startViewTransition&&!reduced){html.classList.add('lang-switch');document.startViewTransition(run).finished.finally(()=>html.classList.remove('lang-switch'))}else run()});
+
+/* ---------- Tema: elegir lado ---------- */
+function paintTheme(){const light=html.dataset.theme==='light';themeBtn.setAttribute('aria-pressed',String(light));$('meta[name=theme-color]').content=light?'#f7f5ef':'#0f1020';stars?.recolor?.()}
+paintTheme();
+themeBtn.addEventListener('click',e=>{const r=themeBtn.getBoundingClientRect();html.style.setProperty('--vt-x',(r.left+r.width/2)+'px');html.style.setProperty('--vt-y',(r.top+r.height/2)+'px');const next=html.dataset.theme==='light'?'dark':'light';const run=()=>{html.dataset.theme=next;store.set('bk-theme',next);paintTheme()};sfx.ignite();if(document.startViewTransition&&!reduced)document.startViewTransition(run);else run()});
+
+/* ---------- Sonido sintetizado (opt-in) ---------- */
+let ac=null,soundOn=store.get('bk-sound')==='1';
+const sfx={
+  ctx(){if(!soundOn)return null;ac??=new (window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac},
+  ignite(){const c=this.ctx();if(!c)return;const t=c.currentTime,o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();o.type='sawtooth';o.frequency.setValueAtTime(60,t);o.frequency.exponentialRampToValueAtTime(220,t+.25);o.frequency.exponentialRampToValueAtTime(95,t+.7);f.type='lowpass';f.frequency.setValueAtTime(400,t);f.frequency.exponentialRampToValueAtTime(2400,t+.2);f.frequency.exponentialRampToValueAtTime(600,t+.7);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.35,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.8);o.connect(f).connect(g).connect(c.destination);o.start(t);o.stop(t+.85)},
+  hum(){const c=this.ctx();if(!c)return;const t=c.currentTime,o=c.createOscillator(),l=c.createOscillator(),lg=c.createGain(),g=c.createGain();o.type='triangle';o.frequency.value=88;l.frequency.value=6;lg.gain.value=4;l.connect(lg).connect(o.frequency);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.12,t+.05);g.gain.linearRampToValueAtTime(0,t+.35);o.connect(g).connect(c.destination);o.start(t);l.start(t);o.stop(t+.4);l.stop(t+.4)},
+  warp(){const c=this.ctx();if(!c)return;const t=c.currentTime,n=c.createBufferSource(),b=c.createBuffer(1,c.sampleRate*1.2,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=2;f.frequency.setValueAtTime(200,t);f.frequency.exponentialRampToValueAtTime(3000,t+1);g.gain.value=.18;n.connect(f).connect(g).connect(c.destination);n.start(t)}
+};
+function paintSound(){soundBtn.setAttribute('aria-pressed',String(soundOn));soundBtn.style.color=soundOn?'var(--saber)':''}
+paintSound();
+soundBtn.addEventListener('click',()=>{soundOn=!soundOn;store.set('bk-sound',soundOn?'1':'0');paintSound();if(soundOn)sfx.ignite()});
+$$('.hilt').forEach(h=>{h.addEventListener('pointerenter',()=>sfx.hum());h.addEventListener('focus',()=>sfx.hum())});
+
+/* ---------- Reveals fallback + tilt + magnetic ---------- */
+if(!CSS.supports('animation-timeline: view()')||reduced){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});$$('.reveal').forEach(el=>io.observe(el))}
+if(!reduced&&matchMedia('(pointer:fine)').matches){
+  $$('.tilt').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateX(${-y*7}deg) rotateY(${x*9}deg) translateZ(6px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+  $$('.magnetic').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
+}
+
+/* ---------- Dock: oculto mientras el hero (con CTA) está a la vista ---------- */
+const dock=$('#dock');new IntersectionObserver(([e])=>dock.classList.toggle('hide',e.isIntersecting&&e.intersectionRatio>.35),{threshold:[0,.35,.6]}).observe($('.cta'));
+
+/* ---------- Easter egg: cursor sable ---------- */
+const saber=$('#saber');let saberOn=false;
+addEventListener('keydown',e=>{if(e.shiftKey&&e.key.toLowerCase()==='s'&&!reduced){saberOn=!saberOn;html.classList.toggle('saber-cursor',saberOn);if(saberOn)sfx.ignite()}});
+addEventListener('pointermove',e=>{if(!saberOn)return;saber.style.transform=`translate(${e.clientX-2}px,${e.clientY-120}px) rotate(${(e.movementX||0)*.6}deg)`},{passive:true});
+
+/* ---------- Three.js: estrellas + intro (lazy, con fallback) ---------- */
+const canUseGL=(()=>{try{const c=document.createElement('canvas');return !!(c.getContext('webgl2')||c.getContext('webgl'))}catch{return false}})();
+const intro=$('#intro'),skipBtn=$('#skip');
+function endIntro(){if(!intro||intro.classList.contains('out'))return;intro.classList.add('out');store.set('bk-intro','1');setTimeout(()=>intro.remove(),700);$('#cvBtn')?.focus({preventScroll:true})}
+skipBtn?.addEventListener('click',endIntro);
+let introGuard=null;
+if(html.dataset.intro==='skip')intro?.remove();else introGuard=setTimeout(endIntro,1800);
+
+const lite=matchMedia('(max-width: 767px), (pointer: coarse)').matches;
+const introPending=()=>html.dataset.intro!=='skip'&&intro&&!intro.classList.contains('out');
+if(!reduced&&innerWidth>320&&lite&&introPending())runCssIntro();
+if(!reduced&&canUseGL&&innerWidth>320&&!lite){
+  addEventListener('load',()=>import('three').then(THREE=>{if(introPending())runIntro(THREE,()=>{stars=makeStars(THREE)});else stars=makeStars(THREE)}).catch(e=>{console.error('three',e);endIntro()}),{once:true});
+}
+
+function runCssIntro(){
+  clearTimeout(introGuard);
+  const fall=$('#fall'),shot=$('#oldshot'),hint=$('#intro .hint');if(hint)hint.style.display='none';
+  const D=Math.hypot(innerWidth,innerHeight),from=-D*.8,to=D*.8,ANG=-42,BLADE=Math.min(innerHeight*.4,280);
+  const sweep=document.createElement('div');sweep.className='sweep';sweep.style.transform='rotate('+ANG+'deg)';
+  sweep.innerHTML='<span class="trail"></span><span class="rider"><span class="halo"></span><span class="grip"></span><span class="blade"></span></span>';
+  intro.appendChild(sweep);
+  const trail=sweep.querySelector('.trail'),rider=sweep.querySelector('.rider'),blade=sweep.querySelector('.blade'),halo=sweep.querySelector('.halo');
+  blade.style.width=BLADE+'px';halo.style.width=BLADE+'px';
+  Object.assign(trail.style,{left:from+'px',width:(to-from)+'px'});
+
+  const slice=()=>{
+    const r=fall.getBoundingClientRect(),ir=intro.getBoundingClientRect();
+    const opts={duration:1100,easing:'cubic-bezier(.45,0,.85,.6)',fill:'forwards'};
+    for(const k of['a','b']){
+      const d=document.createElement('div');d.className='half '+k;
+      Object.assign(d.style,{left:(r.left-ir.left)+'px',top:(r.top-ir.top)+'px',width:r.width+'px',height:r.height+'px'});
+      d.style.backgroundImage='url(./assets/media/old-site-poster.jpg)';
+      intro.appendChild(d);
+      const off=k==='a'?{x:-innerWidth*.32,y:-innerHeight*.16,r:-18}:{x:innerWidth*.26,y:innerHeight*.62,r:20};
+      d.animate([{transform:'none',opacity:1},{transform:`translate(${off.x*.3}px,${off.y*.3}px) rotate(${off.r*.3}deg)`,opacity:1,offset:.5},{transform:`translate(${off.x}px,${off.y}px) rotate(${off.r}deg)`,opacity:.12}],opts);
+    }
+    fall.style.visibility='hidden';
+  };
+
+  const go=()=>{
+    const IGNITE=140,SWEEP_AT=420,SWEEP_MS=680;
+    const ig={duration:200,delay:IGNITE,easing:'cubic-bezier(.2,.9,.3,1.3)',fill:'both'};
+    blade.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],ig);
+    halo.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],ig);
+    rider.animate([{transform:`translateX(${from}px)`},{transform:`translateX(${to}px)`}],{duration:SWEEP_MS,delay:SWEEP_AT,easing:'cubic-bezier(.35,.05,.2,1)',fill:'both'});
+    trail.animate([{transform:'scaleX(0)',opacity:1},{transform:'scaleX(1)',opacity:1,offset:.75},{transform:'scaleX(1)',opacity:0}],{duration:SWEEP_MS+420,delay:SWEEP_AT,easing:'linear',fill:'both'});
+    setTimeout(()=>sfx.ignite(),IGNITE);
+    setTimeout(slice,SWEEP_AT+SWEEP_MS*.52);
+    setTimeout(endIntro,SWEEP_AT+SWEEP_MS*.52+660);
+  };
+  if(shot&&shot.complete)go();else{let done=false;const once=()=>{if(!done){done=true;go()}};shot&&shot.addEventListener('load',once,{once:true});setTimeout(once,450)}
+}
+
+function cssColor(v){return getComputedStyle(html).getPropertyValue(v).trim()}
+const cc=document.createElement('canvas');cc.width=cc.height=1;const cctx=cc.getContext('2d',{willReadFrequently:true});
+function toThreeColor(THREE,css){cctx.clearRect(0,0,1,1);cctx.fillStyle=css;cctx.fillRect(0,0,1,1);const d=cctx.getImageData(0,0,1,1).data;return new THREE.Color(d[0]/255,d[1]/255,d[2]/255)}
+
+function makeStars(THREE){
+  const canvas=$('#stars');const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(70,1,1,1200);cam.position.z=0;
+  const N=1800,pos=new Float32Array(N*3),geo=new THREE.BufferGeometry();for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*900;pos[i*3+1]=(Math.random()-.5)*900;pos[i*3+2]=-Math.random()*1000}
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const sc=document.createElement('canvas');sc.width=sc.height=64;const g2=sc.getContext('2d'),grd=g2.createRadialGradient(32,32,0,32,32,32);grd.addColorStop(0,'rgba(255,255,255,1)');grd.addColorStop(.35,'rgba(255,255,255,.8)');grd.addColorStop(1,'rgba(255,255,255,0)');g2.fillStyle=grd;g2.fillRect(0,0,64,64);
+  const sprite=new THREE.CanvasTexture(sc);
+  const light=html.dataset.theme==='light';
+  const mat=new THREE.PointsMaterial({size:2.6,sizeAttenuation:true,map:sprite,transparent:true,opacity:light?.5:.95,depthWrite:false,blending:light?THREE.NormalBlending:THREE.AdditiveBlending,color:toThreeColor(THREE,cssColor(light?'--muted':'--fg'))});
+  const pts=new THREE.Points(geo,mat);scene.add(pts);
+  const glow=new THREE.PointLight(toThreeColor(THREE,cssColor('--saber')),0,0);scene.add(glow);
+  let speed=.6,vel=0,lastY=scrollY,tx=0,ty=0,warped=false;
+  addEventListener('scroll',()=>{const dy=scrollY-lastY;lastY=scrollY;vel=Math.min(60,Math.abs(dy)*.9);if(vel>28&&!warped){warped=true;sfx.warp();setTimeout(()=>warped=false,1400)}},{passive:true});
+  addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*60;ty=-(e.clientY/innerHeight-.5)*40},{passive:true});
+  function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}resize();addEventListener('resize',resize);
+  let visible=true;document.addEventListener('visibilitychange',()=>visible=!document.hidden);
+  (function loop(){requestAnimationFrame(loop);if(!visible)return;vel*=.92;const s=speed+vel;mat.size=1.8+vel*.12;const a=geo.attributes.position.array;for(let i=2;i<a.length;i+=3){a[i]+=s;if(a[i]>0)a[i]=-1000}geo.attributes.position.needsUpdate=true;cam.position.x+=(tx-cam.position.x)*.04;cam.position.y+=(ty-cam.position.y)*.04;cam.lookAt(0,0,-500);renderer.render(scene,cam)})();
+  canvas.classList.add('on');
+  return{recolor(){const l=html.dataset.theme==='light';mat.color=toThreeColor(THREE,cssColor(l?'--muted':'--fg'));mat.opacity=l?.5:.95;mat.blending=l?THREE.NormalBlending:THREE.AdditiveBlending;mat.needsUpdate=true}};
+}
+
+function runIntro(THREE,after){
+  clearTimeout(introGuard);setTimeout(endIntro,3600);let afterDone=false;const fire=()=>{if(!afterDone){afterDone=true;after&&after()}};setTimeout(fire,3700);
+  const fall=$('#fall'),video=$('#oldvid');fall.style.visibility='hidden';$('#intro .hint').style.display='none';
+  const canvas=document.createElement('canvas');intro.insertBefore(canvas,intro.firstChild);
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.localClippingEnabled=true;
+  let W=innerWidth,H=innerHeight;renderer.setSize(W,H,false);
+  const scene=new THREE.Scene(),cam=new THREE.OrthographicCamera(-W/2,W/2,H/2,-H/2,.1,2000);cam.position.z=600;
+  const ph=Math.min(H*.7,W*.8*896/414),pw=ph*414/896;
+  const tex=new THREE.VideoTexture(video);tex.colorSpace=THREE.SRGBColorSpace;
+  const saberCol=toThreeColor(THREE,cssColor('--saber'));
+  const mkMat=planes=>new THREE.MeshStandardMaterial({map:tex,emissive:new THREE.Color(0x9fb4d8),emissiveMap:tex,emissiveIntensity:.7,roughness:.4,metalness:.05,side:THREE.DoubleSide,clippingPlanes:planes,transparent:true});
+  const d=new THREE.Vector3(pw,ph,0).normalize(),n=new THREE.Vector3(-d.y,d.x,0);
+  const pA=new THREE.Plane(n.clone(),0),pB=new THREE.Plane(n.clone().negate(),0);
+  const g=new THREE.PlaneGeometry(pw,ph,1,1);
+  const half1=new THREE.Mesh(g,mkMat([pA])),half2=new THREE.Mesh(g,mkMat([pB]));scene.add(half1,half2);
+  const frame=new THREE.Mesh(new THREE.PlaneGeometry(pw+18,ph+18),new THREE.MeshBasicMaterial({color:0x0b0c18}));frame.position.z=-1;scene.add(frame);
+  scene.add(new THREE.AmbientLight(0xffffff,.25));
+  const light=new THREE.PointLight(saberCol,0,900,1.2);light.position.set(0,0,140);scene.add(light);
+  const bladeLen=ph*.55,core=new THREE.Mesh(new THREE.CapsuleGeometry(3,bladeLen,4,8),new THREE.MeshBasicMaterial({color:0xffffff}));
+  const glow=new THREE.Mesh(new THREE.CapsuleGeometry(11,bladeLen,4,12),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.55,blending:THREE.AdditiveBlending,depthWrite:false}));
+  const glow2=new THREE.Mesh(new THREE.CapsuleGeometry(28,bladeLen,4,12),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.18,blending:THREE.AdditiveBlending,depthWrite:false}));
+  const hilt=new THREE.Mesh(new THREE.CylinderGeometry(7,8,70,12),new THREE.MeshStandardMaterial({color:0x8b8fa3,metalness:.9,roughness:.3}));hilt.position.y=-bladeLen/2-40;
+  const saber=new THREE.Group();saber.add(core,glow,glow2,hilt);saber.position.z=120;saber.rotation.z=Math.atan2(d.y,d.x)-Math.PI/2+Math.PI/2*.55;saber.scale.y=0.001;scene.add(saber);
+  const cut=new THREE.Mesh(new THREE.PlaneGeometry(1,9),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false}));cut.rotation.z=Math.atan2(d.y,d.x);cut.position.z=2;cut.visible=false;scene.add(cut);
+  const start=new THREE.Vector3(-pw*.75,-ph*.75,0),end=new THREE.Vector3(pw*.75,ph*.75,0),len=start.distanceTo(end);
+  const t0=performance.now();let cutDone=false,ended=false;const vel1={x:260,y:140,r:-1.1},vel2={x:-180,y:-340,r:.9};let ignited=false;
+  video.play().catch(()=>{});
+  const ease=x=>1-Math.pow(1-x,3);
+  function frameLoop(now){if(ended)return;const t=(now-t0)/1000;
+    if(t<.4){half1.material.opacity=half2.material.opacity=Math.min(1,t/.4)}
+    if(t>=.45&&!ignited){ignited=true;sfx.ignite()}
+    if(t>=.45&&t<.75){const k=ease((t-.45)/.3);saber.scale.y=Math.max(.001,k);saber.position.copy(start);light.intensity=k*3.5;light.position.set(start.x,start.y,140)}
+    if(t>=.75&&t<1.45){const k=ease((t-.75)/.7);saber.position.lerpVectors(start,end,k);light.position.set(saber.position.x,saber.position.y,140);light.intensity=3.5+Math.sin(t*40)*.4;cut.visible=true;cut.scale.x=Math.max(1,len*k*.8);cut.position.set((start.x+saber.position.x)/2,(start.y+saber.position.y)/2,2)}
+    if(t>=1.45&&!cutDone){cutDone=true;frame.visible=false}
+    if(t>=1.45){half1.position.x+=vel1.x*.016;half1.position.y+=vel1.y*.016;half1.rotation.z+=vel1.r*.016;vel1.y-=1000*.016;half2.position.x+=vel2.x*.016;half2.position.y+=vel2.y*.016;half2.rotation.z+=vel2.r*.016;vel2.y-=1000*.016;half1.rotation.x+=.4*.016;half2.rotation.x-=.5*.016;saber.position.addScaledVector(d,6);light.intensity*=.97;cut.material.opacity*=.96}
+    if(t>=2.3&&t<2.85){const k=(t-2.3)/.55;canvas.style.opacity=String(1-k)}
+    if(t>=2.8){ended=true;endIntro();setTimeout(()=>{renderer.dispose();tex.dispose();g.dispose();fire()},800);return}
+    renderer.render(scene,cam);requestAnimationFrame(frameLoop)}
+  requestAnimationFrame(frameLoop);
+  addEventListener('resize',()=>{W=innerWidth;H=innerHeight;renderer.setSize(W,H,false);cam.left=-W/2;cam.right=W/2;cam.top=H/2;cam.bottom=-H/2;cam.updateProjectionMatrix()},{once:true});
+}
+</script>
+</body>
 </html>
