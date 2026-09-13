@@ -10,9 +10,13 @@
 <meta property="og:description" content="Senior Fullstack Engineer que dirige a la IA para construir, no solo para escribir código. Open to work.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bryansank.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f1020'/%3E%3Crect x='14.6' y='4' width='2.8' height='17' rx='1.4' fill='%23ff3b30'/%3E%3Crect x='13.4' y='21' width='5.2' height='8' rx='1.6' fill='%23b9bcc9'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="./assets/media/favicon-64.png">
+<link rel="apple-touch-icon" href="./assets/media/favicon-180.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap"></noscript>
 <link rel="canonical" href="https://bryansank.github.io/">
 <noscript><style>#gate,#intro,#stars,.dock{display:none!important}.reveal{opacity:1;transform:none}</style></noscript>
 <script>
@@ -26,6 +30,7 @@
   --saber:oklch(62% 0.25 25);--saber-soft:oklch(62% 0.25 25 / .35);--accent:oklch(82% 0.16 85);--line:oklch(30% 0.03 275);
   --card:oklch(16% 0.025 275 / .78);--glass:oklch(20% 0.03 275 / .55);--focus:oklch(82% 0.16 85);
   --font:ui-sans-serif,system-ui,"Segoe UI",Inter,Roboto,sans-serif;--mono:ui-monospace,"Cascadia Code",Consolas,monospace;
+  --display:"Orbitron",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
   --radius:14px;--max:1180px;--pad:clamp(16px,4vw,48px);--dock-h:64px;
   color-scheme:dark;
 }
@@ -57,17 +62,29 @@ a{color:inherit}
 html[lang="es"] [lang="en"]{display:none!important}
 html[lang="en"] [lang="es"]{display:none!important}
 .wrap{width:min(100% - 2*var(--pad),var(--max));margin-inline:auto}
-section{padding-block:clamp(56px,9vw,120px);position:relative}
-h1,h2,h3{line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h2{font-size:clamp(28px,4.5vw,52px);font-weight:800}
-.kicker{font:600 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;gap:10px;align-items:center}
-.kicker::before{content:"";width:28px;height:2px;background:var(--saber);box-shadow:0 0 12px var(--saber)}
+section{padding-block:clamp(56px,9vw,120px);position:relative;scroll-margin-top:72px}
+h1,h2,h3{line-height:1.14;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(22px,3.6vw,44px);font-weight:900;font-family:var(--display);letter-spacing:0;line-height:1.2}
+.kicker{font:600 clamp(10px,2.4vw,12px)/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;gap:10px;align-items:baseline;flex-wrap:nowrap}
+.kicker::before{content:"";width:clamp(16px,5vw,28px);height:2px;flex:none;background:var(--saber);box-shadow:0 0 12px var(--saber);transform:translateY(-4px)}
+.knum{color:var(--muted);font-weight:700;letter-spacing:.08em;flex:none}
+/* Ritmo editorial: cada sección separada por una línea, no por cajas */
+section+section{border-top:1px solid var(--line)}
+/* Historial comprimido */
+.more{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);transition:color .2s,border-color .2s}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary:hover,.more>summary:focus-visible{color:var(--fg);border-color:var(--saber)}
+.more>summary::after{content:"▾";font-size:14px;transition:transform .25s}
+.more[open]>summary::after{transform:rotate(180deg)}
+.more[open]>summary{margin-bottom:18px}
+.more .route{margin-top:0}
 .lede{color:var(--muted);max-width:62ch;margin:14px 0 0;font-size:clamp(16px,1.1vw + 10px,20px)}
 /* ---------- Top bar ---------- */
-.top{position:sticky;top:0;z-index:40;background:color-mix(in oklch,var(--bg) 94%,transparent);border-bottom:1px solid var(--line)}
-@media (min-width:768px) and (pointer:fine){.top{backdrop-filter:blur(14px) saturate(1.3);background:color-mix(in oklch,var(--bg) 70%,transparent)}}
+.top{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+@media (min-width:768px) and (pointer:fine){.top{backdrop-filter:blur(14px) saturate(1.3);background:color-mix(in oklch,var(--bg) 72%,transparent)}}
 .top .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:.04em}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.06em;font-family:var(--display);font-size:15px}
 .brand .key{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--saber),var(--accent));color:oklch(12% 0 0);font:900 15px var(--mono);box-shadow:0 0 18px var(--saber-soft)}
 .nav{display:none;gap:4px;margin-inline:auto}
 .nav a{text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px;font-weight:600}
@@ -83,10 +100,10 @@ h2{font-size:clamp(28px,4.5vw,52px);font-weight:800}
 .pill{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--glass);border-radius:999px;padding:8px 14px 8px 10px;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg)}
 .pill i{width:10px;height:10px;border-radius:50%;background:var(--saber);box-shadow:0 0 12px var(--saber);animation:pulse 1.8s ease-in-out infinite;will-change:transform,opacity}
 @keyframes pulse{50%{transform:scale(.7);opacity:.6}}
-.hero h1{font-size:clamp(40px,8.2vw,104px);font-weight:900;letter-spacing:-.04em;margin-top:20px;text-transform:uppercase;line-height:.94}
+.hero h1{font-family:var(--display);font-size:clamp(30px,6.4vw,84px);font-weight:900;letter-spacing:.01em;margin-top:20px;text-transform:uppercase;line-height:1.1}
 .hero h1 .w{display:block}
 .hero h1 .l{display:inline-block;animation:drop .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 45ms + .1s)}
-.hero h1 .w:last-child .l{color:var(--saber);-webkit-text-stroke:1.5px var(--fg);text-shadow:0 0 28px var(--saber-soft)}
+.hero h1 .w:last-child .l{color:var(--saber);-webkit-text-stroke:1px var(--fg);text-shadow:0 0 30px var(--saber-soft),0 0 60px var(--saber-soft)}
 @keyframes drop{from{opacity:0;transform:translateY(.6em) rotateX(-40deg);filter:blur(6px)}}
 .hero .role{font:600 clamp(15px,1.1vw + 8px,22px)/1.3 var(--font);color:var(--muted);margin-top:16px;max-width:34ch;letter-spacing:.01em}
 .hero .role b{color:var(--fg)}
@@ -150,12 +167,16 @@ h2{font-size:clamp(28px,4.5vw,52px);font-weight:800}
 .cat h3{font:700 13px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;gap:8px;align-items:center}
 .cat h3::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--cat);box-shadow:0 0 10px var(--cat)}
 .hilts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.hilt{--cat:var(--saber);position:relative;display:inline-flex;align-items:center;gap:10px;padding:10px 14px 10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-weight:700;font-size:15px;cursor:default;overflow:visible;transition:border-color .25s,transform .25s}
-.hilt .grip{width:14px;height:22px;border-radius:3px;background:linear-gradient(oklch(60% 0.02 275),oklch(35% 0.02 275) 40%,oklch(65% 0.02 275) 60%,oklch(30% 0.02 275));position:relative;flex:none}
-.hilt .grip::before{content:"";position:absolute;left:3px;right:3px;top:-3px;height:3px;background:var(--cat);border-radius:2px}
-.hilt .blade{position:absolute;left:19px;bottom:calc(100% - 4px);width:4px;height:0;border-radius:3px;background:oklch(99% 0 0);box-shadow:0 0 6px var(--cat),0 0 16px var(--cat),0 0 32px var(--cat);transition:height .25s cubic-bezier(.2,.9,.3,1.2);pointer-events:none}
-.hilt:hover,.hilt:focus-visible{border-color:var(--cat);transform:translateY(-2px);outline-color:var(--cat)}
-.hilt:hover .blade,.hilt:focus-visible .blade{height:46px}
+.hilt{--cat:var(--saber);position:relative;display:inline-flex;align-items:center;gap:10px;padding:11px 16px 12px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line);color:var(--fg);font:700 15px/1 var(--font);cursor:pointer;overflow:hidden;isolation:isolate;transition:border-color .25s,transform .25s,box-shadow .25s;-webkit-tap-highlight-color:transparent}
+.hilt>*{position:relative;z-index:1}
+.hilt .grip{width:13px;height:23px;border-radius:3px;flex:none;background:linear-gradient(oklch(72% 0.02 275),oklch(32% 0.02 275) 45%,oklch(62% 0.02 275) 62%,oklch(28% 0.02 275));box-shadow:inset 0 0 0 1px oklch(0% 0 0 / .35)}
+.hilt .grip::before{content:"";position:absolute;left:3px;right:3px;top:-2px;height:3px;border-radius:2px;background:var(--cat);opacity:.5;box-shadow:0 0 6px var(--cat);transition:opacity .25s,box-shadow .25s}
+.hilt .blade{position:absolute;left:0;right:0;bottom:0;height:3px;z-index:2;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--cat),oklch(99% 0 0));box-shadow:0 0 10px var(--cat),0 0 26px var(--cat);transition:transform .34s cubic-bezier(.2,.9,.3,1.1);pointer-events:none}
+.hilt::after{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(130% 90% at 0% 100%,var(--cat),transparent 62%);opacity:0;transition:opacity .3s;pointer-events:none}
+.hilt:hover,.hilt:focus-visible,.hilt.lit{border-color:var(--cat);transform:translateY(-2px);outline-color:var(--cat);box-shadow:0 8px 26px -14px var(--cat)}
+.hilt:hover .blade,.hilt:focus-visible .blade,.hilt.lit .blade{transform:scaleX(1)}
+.hilt:hover::after,.hilt:focus-visible::after,.hilt.lit::after{opacity:.15}
+.hilt:hover .grip::before,.hilt:focus-visible .grip::before,.hilt.lit .grip::before{opacity:1;box-shadow:0 0 12px var(--cat)}
 /* ---------- Hangar ---------- */
 .hangar{margin-top:36px;display:grid;gap:22px;grid-template-columns:1fr}
 @media (min-width:900px){.hangar{grid-template-columns:1.2fr .8fr}}
@@ -187,6 +208,19 @@ h2{font-size:clamp(28px,4.5vw,52px);font-weight:800}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between}
 .foot a{color:var(--fg)}
 .foot .socials{display:flex;gap:14px}
+/* ---------- Barra de progreso y raíl de navegación ---------- */
+.progress{position:fixed;left:0;top:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--saber),var(--accent));box-shadow:0 0 12px var(--saber);transition:width .1s linear;pointer-events:none}
+.rail{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:45;display:none;flex-direction:column;gap:13px}
+@media (min-width:1120px){.rail{display:flex}}
+.rail a{display:flex;align-items:center;gap:10px;justify-content:flex-end;text-decoration:none;color:var(--muted);font:700 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.rail .num{opacity:.55;font-size:9.5px}
+.rail .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;flex:none;transition:transform .25s,background .25s,box-shadow .25s}
+.rail .lbl{opacity:0;transform:translateX(8px);transition:opacity .25s,transform .25s;white-space:nowrap}
+.rail a:hover,.rail a:focus-visible{color:var(--fg)}
+.rail a:hover .lbl,.rail a:focus-visible .lbl,.rail a[aria-current="step"] .lbl{opacity:1;transform:none}
+.rail a[aria-current="step"]{color:var(--fg)}
+.rail a[aria-current="step"] .dot{background:var(--saber);border-color:var(--saber);box-shadow:0 0 14px var(--saber);transform:scale(1.3)}
+@media (prefers-reduced-motion:reduce){.rail .lbl{opacity:1;transform:none}.progress{transition:none}}
 /* ---------- Dock (contacto fijo) ---------- */
 .dock{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:50;display:flex;gap:6px;padding:6px;border-radius:18px;background:color-mix(in oklch,var(--bg) 95%,transparent);border:1px solid var(--line);box-shadow:0 20px 60px -20px oklch(0% 0 0 / .8);transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;max-width:calc(100vw - 16px)}
 @media (min-width:768px) and (pointer:fine){.dock{backdrop-filter:blur(16px) saturate(1.4);background:color-mix(in oklch,var(--bg) 78%,transparent)}}
@@ -227,7 +261,21 @@ html[data-intro="skip"] #gate{display:none}
 #intro>video{position:absolute;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none}
 #intro .fall::after{content:"";position:absolute;left:0;right:0;top:-100%;height:300%;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,oklch(70% 0.14 220 / .14) 2px 4px);animation:holo-scan 3s linear infinite;will-change:transform}
 @keyframes holo-scan{to{transform:translateY(40px)}}
-#intro .skipbtn{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:2}
+#intro .skipbtn{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:6}
+/* HUD de la intro: explica qué se está viendo */
+.ihud{position:absolute;z-index:5;pointer-events:none;font:600 12px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:oklch(88% 0.08 220);text-shadow:0 0 14px oklch(60% 0.16 230 / .9)}
+.ihud.tl{left:clamp(14px,4vw,44px);right:clamp(14px,4vw,44px);top:clamp(14px,4vw,40px);max-width:min(46ch,92vw)}
+.ihud.bl{left:clamp(14px,4vw,44px);right:clamp(14px,4vw,44px);bottom:clamp(72px,12vw,80px);max-width:min(46ch,92vw)}
+.ihud .big{display:block;font-family:var(--font);font-size:clamp(19px,3.4vw,30px);font-weight:800;letter-spacing:-.01em;text-transform:none;color:var(--fg);margin:6px 0 2px}
+.ihud .dim{color:oklch(72% 0.04 230)}
+.ihud .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid oklch(60% 0.12 230 / .6);border-radius:999px;padding:5px 11px;font-size:11px;letter-spacing:.16em;background:oklch(30% 0.06 240 / .35)}
+.ihud .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:oklch(80% 0.16 90);box-shadow:0 0 10px oklch(80% 0.16 90)}
+.ihud[data-state="dead"] .tag{border-color:var(--saber);color:oklch(78% 0.18 25)}
+.ihud[data-state="dead"] .tag::before{background:var(--saber);box-shadow:0 0 10px var(--saber)}
+.ihud .line{height:1px;background:linear-gradient(90deg,oklch(70% 0.12 230 / .8),transparent);margin:10px 0 0}
+.ihud .fade{animation:ihudIn .5s both}
+@keyframes ihudIn{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.ihud .fade{animation:none}}
 #intro .hint{position:absolute;left:0;right:0;bottom:calc(96px + env(safe-area-inset-bottom));text-align:center;font:600 12px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 #intro.out{opacity:0;pointer-events:none}
 html[data-intro="skip"] #intro{display:none}
@@ -309,6 +357,8 @@ html.saber-cursor #saber{display:block}
   </div>
   <video id="oldvid" muted playsinline preload="none" src="./assets/media/old-site.webm" aria-hidden="true" tabindex="-1"></video>
   <p class="hint" aria-hidden="true"><span lang="es">Cargando la nave anterior…</span><span lang="en">Loading the previous ship…</span></p>
+  <div class="ihud tl" id="ihud-top" aria-hidden="true"></div>
+  <div class="ihud bl" id="ihud-bot" aria-hidden="true"></div>
   <button class="btn ghost skipbtn" id="skip" type="button"><span lang="es">Saltar intro</span><span lang="en">Skip intro</span> ⏭</button>
 </div>
 
@@ -365,7 +415,7 @@ html.saber-cursor #saber{display:block}
   <!-- Bitácora -->
   <section id="bitacora" aria-labelledby="h-bitacora">
     <div class="wrap">
-      <p class="kicker"><span lang="es">Registro de bitácora</span><span lang="en">Captain's log</span></p>
+      <p class="kicker"><span class="knum">02</span><span lang="es">Registro de bitácora</span><span lang="en">Captain's log</span></p>
       <h2 id="h-bitacora"><span lang="es">Me cansé de hacer código. No de crear.</span><span lang="en">I got tired of writing code. Not of creating.</span></h2>
       <div class="crawl-stage"><div class="crawl">
         <div lang="es">
@@ -385,11 +435,10 @@ html.saber-cursor #saber{display:block}
   <!-- Hoja de servicio -->
   <section id="servicio" aria-labelledby="h-servicio">
     <div class="wrap">
-      <p class="kicker"><span lang="es">Hoja de servicio · 9 sistemas visitados</span><span lang="en">Service record · 9 systems visited</span></p>
+      <p class="kicker"><span class="knum">03</span><span lang="es">Hoja de servicio · 8 paradas registradas</span><span lang="en">Service record · 8 logged stops</span></p>
       <h2 id="h-servicio"><span lang="es">Ruta de hiperespacio 2018 → 2026</span><span lang="en">Hyperspace route 2018 → 2026</span></h2>
       <p class="lede"><span lang="es">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
-      <ol class="route">
-        <li class="stop now reveal"><article class="card tilt">
+      <ol class="route"><li class="stop now reveal"><article class="card tilt">
           <header><h3><span lang="es">Desarrollador de software</span><span lang="en">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></header>
           <time datetime="2025-04"><span lang="es">abr 2025 – actualidad</span><span lang="en">Apr 2025 – present</span></time><span class="loc">Caracas · <span lang="es">presencial</span><span lang="en">on-site</span></span>
           <ul lang="es"><li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li></ul>
@@ -424,7 +473,11 @@ html.saber-cursor #saber{display:block}
           <ul lang="en"><li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li></ul>
           <div class="chips"><span>JavaScript</span><span>React</span><span>Redux</span><span>TDD</span></div>
         </article></li>
-        <li class="stop reveal"><article class="card tilt">
+        </ol>
+      <details class="more">
+        <summary><span lang="es">Historial anterior · 3 paradas (2018–2022)</span><span lang="en">Earlier history · 3 stops (2018–2022)</span></summary>
+        <ol class="route" start="6">
+<li class="stop reveal"><article class="card tilt">
           <header><h3><span lang="es">Programador Web Junior → Senior</span><span lang="en">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></header>
           <time datetime="2019-05"><span lang="es">may 2019 – sep 2022</span><span lang="en">May 2019 – Sep 2022</span></time><span class="loc">Caracas</span>
           <ul lang="es"><li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li></ul>
@@ -445,58 +498,59 @@ html.saber-cursor #saber{display:block}
           <ul lang="en"><li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li></ul>
           <div class="chips"><span>PHP</span><span>JavaScript</span><span>SQL</span></div>
         </article></li>
-      </ol>
+              </ol>
+      </details>
     </div>
   </section>
 
   <!-- Arsenal -->
   <section id="arsenal" aria-labelledby="h-arsenal">
     <div class="wrap">
-      <p class="kicker">Arsenal</p>
+      <p class="kicker"><span class="knum">04</span>Arsenal</p>
       <h2 id="h-arsenal"><span lang="es">Un sable por cada batalla</span><span lang="en">A saber for every battle</span></h2>
-      <p class="lede"><span lang="es">Pasa el cursor o el foco: cada empuñadura enciende su hoja.</span><span lang="en">Hover or focus: every hilt ignites its blade.</span></p>
+      <p class="lede"><span lang="es">Tócalos o pásales el cursor: cada empuñadura enciende su hoja.</span><span lang="en">Tap them or hover: every hilt ignites its blade.</span></p>
       <div class="arsenal">
         <div class="cat reveal" style="--cat:oklch(70% 0.17 250)"><h3>Core backend</h3><ul class="hilts">
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>NestJS<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>TypeScript<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Node.js<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>tRPC<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Hasura<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Stripe API<span class="blade"></span></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>NestJS<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>TypeScript<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Node.js<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>tRPC<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Hasura<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.17 250)"><span class="grip"></span>Stripe API<span class="blade"></span></button></li>
         </ul></div>
         <div class="cat reveal" style="--cat:oklch(68% 0.22 310)"><h3><span lang="es">Datos</span><span lang="en">Data</span></h3><ul class="hilts">
-          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PostgreSQL<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>SQL Server<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PL/SQL · SPs<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>KNEX<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Firebase<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Supabase<span class="blade"></span></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PostgreSQL<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>SQL Server<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>PL/SQL · SPs<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>KNEX<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Firebase<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(68% 0.22 310)"><span class="grip"></span>Supabase<span class="blade"></span></button></li>
         </ul></div>
         <div class="cat reveal" style="--cat:oklch(75% 0.19 150)"><h3>Frontend & mobile</h3><ul class="hilts">
-          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Next.js<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React Native · Expo<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Angular · Ionic<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>HTML · CSS · Vanilla JS<span class="blade"></span></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Next.js<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>React Native · Expo<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>Angular · Ionic<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(75% 0.19 150)"><span class="grip"></span>HTML · CSS · Vanilla JS<span class="blade"></span></button></li>
         </ul></div>
         <div class="cat reveal" style="--cat:oklch(72% 0.2 40)"><h3><span lang="es">Otros frentes</span><span lang="en">Other fronts</span></h3><ul class="hilts">
-          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>.NET · C#<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Python · Odoo<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>PHP<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Godot<span class="blade"></span></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>.NET · C#<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Python · Odoo<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>PHP<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(72% 0.2 40)"><span class="grip"></span>Godot<span class="blade"></span></button></li>
         </ul></div>
         <div class="cat reveal" style="--cat:oklch(82% 0.16 85)"><h3><span lang="es">IA y agentes</span><span lang="en">AI & agents</span></h3><ul class="hilts">
-          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Claude Code<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Cursor<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Spec-driven dev<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>MCP · <span lang="es">automatización</span><span lang="en">automation</span><span class="blade"></span></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Claude Code<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Cursor<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>Spec-driven dev<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(82% 0.16 85)"><span class="grip"></span>MCP · <span lang="es">automatización</span><span lang="en">automation</span><span class="blade"></span></button></li>
         </ul></div>
         <div class="cat reveal" style="--cat:oklch(70% 0.02 275)"><h3>Infra</h3><ul class="hilts">
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Docker<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Git · GitHub<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Vercel<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Ubuntu · WSL<span class="blade"></span></li>
-          <li class="hilt" tabindex="0" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Kubernetes<span class="blade"></span></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Docker<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Git · GitHub<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Vercel<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Ubuntu · WSL<span class="blade"></span></button></li>
+          <li><button type="button" class="hilt" style="--cat:oklch(70% 0.02 275)"><span class="grip"></span>Kubernetes<span class="blade"></span></button></li>
         </ul></div>
       </div>
     </div>
@@ -505,7 +559,7 @@ html.saber-cursor #saber{display:block}
   <!-- Hangar -->
   <section id="hangar" aria-labelledby="h-hangar">
     <div class="wrap">
-      <p class="kicker">Hangar</p>
+      <p class="kicker"><span class="knum">05</span>Hangar</p>
       <h2 id="h-hangar"><span lang="es">Proyecto personal en construcción</span><span lang="en">Personal project under construction</span></h2>
       <div class="hangar">
         <article class="card tilt grain reveal">
@@ -522,23 +576,10 @@ html.saber-cursor #saber{display:block}
     </div>
   </section>
 
-  <!-- Transmisiones -->
-  <section id="transmisiones" aria-labelledby="h-trans">
-    <div class="wrap">
-      <p class="kicker"><span lang="es">Transmisiones aliadas</span><span lang="en">Allied transmissions</span></p>
-      <h2 id="h-trans"><span lang="es">Lo que dicen quienes volaron conmigo</span><span lang="en">What those who flew with me say</span></h2>
-      <div class="holo">
-        <blockquote class="card reveal"><p>“Bryan is an awesome developer. Working with him is a blast because he always brings such great vibes and a positive attitude. He's really into taking on new challenges and bounces back quickly when things get tough. Super adaptable and always ready to tackle problems head-on.”</p><footer><b>Luis Manuel Flores Camarena</b><span lang="es">Desarrollador · Lapzo</span><span lang="en">Developer · Lapzo</span></footer></blockquote>
-        <blockquote class="card reveal"><p><span lang="es">“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”</span><span lang="en">“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”</span></p><footer><b>Robert Hernández</b>Lapzo</footer></blockquote>
-      </div>
-      <p class="lede" style="margin-top:22px"><a href="https://www.linkedin.com/in/bryansank/details/recommendations/" target="_blank" rel="noopener"><span lang="es">7 recomendaciones en LinkedIn →</span><span lang="en">7 recommendations on LinkedIn →</span></a></p>
-    </div>
-  </section>
-
   <!-- Canal abierto -->
   <section id="canal" aria-labelledby="h-canal">
     <div class="wrap">
-      <p class="kicker"><span lang="es">Canal abierto</span><span lang="en">Open channel</span></p>
+      <p class="kicker"><span class="knum">06</span><span lang="es">Canal abierto</span><span lang="en">Open channel</span></p>
       <h2 id="h-canal"><span lang="es">Hablemos hoy. Respondo rápido.</span><span lang="en">Let's talk today. I reply fast.</span></h2>
       <p class="lede"><span lang="es">Reclutador, CTO o fundador: elige el canal y en menos de 24 h tienes respuesta.</span><span lang="en">Recruiter, CTO or founder: pick a channel and you'll hear back within 24 hours.</span></p>
       <div class="channels">
@@ -547,6 +588,19 @@ html.saber-cursor #saber{display:block}
         <a class="card tilt chan reveal" href="https://github.com/bryansank" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.6 3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><b>GitHub</b><span>@bryansank</span><em><span lang="es">Ver código</span><span lang="en">See code</span> →</em></a>
         <a class="card tilt chan reveal cv-link" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><b>CV 2026</b><span>PDF · <span lang="es">español</span><span lang="en">English</span></span><em><span lang="es">Descargar</span><span lang="en">Download</span> →</em></a>
       </div>
+    </div>
+  </section>
+
+  <!-- Transmisiones -->
+  <section id="transmisiones" aria-labelledby="h-trans">
+    <div class="wrap">
+      <p class="kicker"><span class="knum">07</span><span lang="es">Transmisiones aliadas</span><span lang="en">Allied transmissions</span></p>
+      <h2 id="h-trans"><span lang="es">Lo que dicen quienes volaron conmigo</span><span lang="en">What those who flew with me say</span></h2>
+      <div class="holo">
+        <blockquote class="card reveal"><p>“Bryan is an awesome developer. Working with him is a blast because he always brings such great vibes and a positive attitude. He's really into taking on new challenges and bounces back quickly when things get tough. Super adaptable and always ready to tackle problems head-on.”</p><footer><b>Luis Manuel Flores Camarena</b><span lang="es">Desarrollador · Lapzo</span><span lang="en">Developer · Lapzo</span></footer></blockquote>
+        <blockquote class="card reveal"><p><span lang="es">“Tuve el placer de trabajar con Bryan durante mi tiempo en Lapzo. No solo destaca por su gran dominio técnico, sino también por su habilidad para resolver problemas complejos de manera eficiente y creativa.”</span><span lang="en">“I had the pleasure of working with Bryan during my time at Lapzo. He stands out not only for his strong technical mastery but also for his ability to solve complex problems efficiently and creatively.”</span></p><footer><b>Robert Hernández</b>Lapzo</footer></blockquote>
+      </div>
+      <p class="lede" style="margin-top:22px"><a href="https://www.linkedin.com/in/bryansank/details/recommendations/" target="_blank" rel="noopener"><span lang="es">7 recomendaciones en LinkedIn →</span><span lang="en">7 recommendations on LinkedIn →</span></a></p>
     </div>
   </section>
 </main>
@@ -558,6 +612,18 @@ html.saber-cursor #saber{display:block}
     <p><a href="./old_site/"><span lang="es">Ver la nave anterior (2022) →</span><span lang="en">See the previous ship (2022) →</span></a> · <span lang="es">Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar</span><span lang="en">Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber</span></p>
   </div>
 </footer>
+
+<div class="progress" id="prog" aria-hidden="true"></div>
+
+<nav class="rail" id="rail" aria-label="Secciones">
+  <a href="#puente"><span class="lbl"><span class="num">01</span> <span lang="es">Puente</span><span lang="en">Bridge</span></span><span class="dot"></span></a>
+  <a href="#bitacora"><span class="lbl"><span class="num">02</span> <span lang="es">Bitácora</span><span lang="en">Log</span></span><span class="dot"></span></a>
+  <a href="#servicio"><span class="lbl"><span class="num">03</span> <span lang="es">Hoja de servicio</span><span lang="en">Service record</span></span><span class="dot"></span></a>
+  <a href="#arsenal"><span class="lbl"><span class="num">04</span> Arsenal</span><span class="dot"></span></a>
+  <a href="#hangar"><span class="lbl"><span class="num">05</span> Hangar</span><span class="dot"></span></a>
+  <a href="#canal"><span class="lbl"><span class="num">06</span> <span lang="es">Canal abierto</span><span lang="en">Open channel</span></span><span class="dot"></span></a>
+  <a href="#transmisiones"><span class="lbl"><span class="num">07</span> <span lang="es">Transmisiones</span><span lang="en">Transmissions</span></span><span class="dot"></span></a>
+</nav>
 
 <nav class="dock" id="dock" aria-label="Contacto rápido">
   <a class="primary cv-link" href="./assets/files/CV-Bryan-Key-2026-ES.pdf" download data-es="./assets/files/CV-Bryan-Key-2026-ES.pdf" data-en="./assets/files/CV-Bryan-Key-2026-EN.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v3h16v-3"/></svg><span>CV</span></a>
@@ -592,12 +658,37 @@ const sfx={
   ctx(){if(!soundOn)return null;ac??=new (window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac},
   ignite(){const c=this.ctx();if(!c)return;const t=c.currentTime,o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();o.type='sawtooth';o.frequency.setValueAtTime(60,t);o.frequency.exponentialRampToValueAtTime(220,t+.25);o.frequency.exponentialRampToValueAtTime(95,t+.7);f.type='lowpass';f.frequency.setValueAtTime(400,t);f.frequency.exponentialRampToValueAtTime(2400,t+.2);f.frequency.exponentialRampToValueAtTime(600,t+.7);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.35,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.8);o.connect(f).connect(g).connect(c.destination);o.start(t);o.stop(t+.85)},
   hum(){const c=this.ctx();if(!c)return;const t=c.currentTime,o=c.createOscillator(),l=c.createOscillator(),lg=c.createGain(),g=c.createGain();o.type='triangle';o.frequency.value=88;l.frequency.value=6;lg.gain.value=4;l.connect(lg).connect(o.frequency);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.12,t+.05);g.gain.linearRampToValueAtTime(0,t+.35);o.connect(g).connect(c.destination);o.start(t);l.start(t);o.stop(t+.4);l.stop(t+.4)},
-  warp(){const c=this.ctx();if(!c)return;const t=c.currentTime,n=c.createBufferSource(),b=c.createBuffer(1,c.sampleRate*1.2,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=2;f.frequency.setValueAtTime(200,t);f.frequency.exponentialRampToValueAtTime(3000,t+1);g.gain.value=.18;n.connect(f).connect(g).connect(c.destination);n.start(t)}
+  warp(){const c=this.ctx();if(!c)return;const t=c.currentTime,n=c.createBufferSource(),b=c.createBuffer(1,c.sampleRate*1.2,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=2;f.frequency.setValueAtTime(200,t);f.frequency.exponentialRampToValueAtTime(3000,t+1);g.gain.value=.18;n.connect(f).connect(g).connect(c.destination);n.start(t)},
+  /* Consola: bip corto al pasar por encima */
+  blip(f=880,v=.05,d=.07){const c=this.ctx();if(!c)return;const t=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type='square';o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(c.destination);o.start(t);o.stop(t+d+.02)},
+  /* Confirmación al pulsar */
+  tick(){const c=this.ctx();if(!c)return;const t=c.currentTime,o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain();o.type='square';o2.type='square';o.frequency.setValueAtTime(660,t);o.frequency.setValueAtTime(1240,t+.05);o2.frequency.setValueAtTime(330,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.08,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+.16);o.connect(g);o2.connect(g);g.connect(c.destination);o.start(t);o2.start(t);o.stop(t+.18);o2.stop(t+.18)},
+  /* Cambio de sección: puerta neumática */
+  whoosh(){const c=this.ctx();if(!c)return;const t=c.currentTime,n=c.createBufferSource(),b=c.createBuffer(1,c.sampleRate*.55,c.sampleRate),d=b.getChannelData(0);
+    for(let i=0;i<d.length;i++){const k=i/d.length;d[i]=(Math.random()*2-1)*Math.sin(Math.PI*k)*.8}
+    n.buffer=b;const f=c.createBiquadFilter(),g=c.createGain();f.type='bandpass';f.Q.value=1.1;f.frequency.setValueAtTime(420,t);f.frequency.exponentialRampToValueAtTime(1500,t+.3);f.frequency.exponentialRampToValueAtTime(380,t+.55);g.gain.value=.075;n.connect(f).connect(g).connect(c.destination);n.start(t)}
 };
 function paintSound(){soundBtn.setAttribute('aria-pressed',String(soundOn));soundBtn.style.color=soundOn?'var(--saber)':''}
 paintSound();
 soundBtn.addEventListener('click',()=>{soundOn=!soundOn;store.set('bk-sound',soundOn?'1':'0');paintSound();if(soundOn)sfx.ignite()});
-$$('.hilt').forEach(h=>{h.addEventListener('pointerenter',()=>sfx.hum());h.addEventListener('focus',()=>sfx.hum())});
+/* ---------- Reactividad y sonido en todo el sitio ---------- */
+$$('.hilt').forEach(h=>{
+  const light=()=>{h.classList.add('lit');clearTimeout(h._t);h._t=setTimeout(()=>h.classList.remove('lit'),1500)};
+  h.addEventListener('pointerenter',()=>sfx.hum());
+  h.addEventListener('focus',()=>sfx.hum());
+  h.addEventListener('click',()=>{light();sfx.ignite();if(prefs.haptics&&navigator.vibrate)navigator.vibrate(14)});
+  h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();light();sfx.ignite()}});
+});
+/* bip al pasar por cualquier control, tick al pulsar */
+const hoverSel='.btn,.ctl,.dock a,.chan,.rail a,.nav a,.brand,.power,.card.tilt,.foot a';
+let lastBlip=0;
+document.addEventListener('pointerover',e=>{
+  const el=e.target.closest(hoverSel);if(!el||el===e.relatedTarget)return;
+  const now=performance.now();if(now-lastBlip<70)return;lastBlip=now;
+  sfx.blip(el.matches('.btn.primary,.dock a.primary')?1180:el.matches('.rail a')?1480:820,.045,.06);
+},{passive:true});
+document.addEventListener('focusin',e=>{if(e.target.closest(hoverSel))sfx.blip(980,.04,.05)});
+document.addEventListener('click',e=>{if(e.target.closest('a,button,[role="button"]'))sfx.tick()},{passive:true});
 
 /* ---------- Reveals fallback + tilt + magnetic ---------- */
 if(!CSS.supports('animation-timeline: view()')||reduced){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});$$('.reveal').forEach(el=>io.observe(el))}
@@ -606,8 +697,41 @@ if(!reduced&&matchMedia('(pointer:fine)').matches){
   $$('.magnetic').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 }
 
-/* ---------- Dock: oculto mientras el hero (con CTA) está a la vista ---------- */
-const dock=$('#dock');new IntersectionObserver(([e])=>dock.classList.toggle('hide',e.isIntersecting&&e.intersectionRatio>.35),{threshold:[0,.35,.6]}).observe($('.cta'));
+/* ---------- Raíl de navegación, progreso y aviso de sección ---------- */
+(function nav(){
+  const prog=$('#prog'),rail=$('#rail');
+  const links=$$('#rail a'),ids=links.map(a=>a.getAttribute('href').slice(1));
+  const secs=ids.map(id=>document.getElementById(id)).filter(Boolean);
+  let ticking=false,current='';
+  const onScroll=()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{
+    const max=document.documentElement.scrollHeight-innerHeight;
+    if(prog)prog.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%';
+    ticking=false;});};
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if(!secs.length)return;
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const id=e.target.id;if(id===current)return;current=id;
+      links.forEach(a=>a.getAttribute('href')==='#'+id?a.setAttribute('aria-current','step'):a.removeAttribute('aria-current'));
+      sfx.whoosh();
+    });
+  },{rootMargin:'-45% 0px -45% 0px'});
+  secs.forEach(s=>io.observe(s));
+})();
+
+/* ---------- Dock: se aparta mientras lees, vuelve al subir ---------- */
+const dock=$('#dock');
+let heroCta=true,dirHide=false,lastScroll=scrollY;
+const syncDock=()=>dock.classList.toggle('hide',heroCta||dirHide);
+new IntersectionObserver(([e])=>{heroCta=e.isIntersecting&&e.intersectionRatio>.35;syncDock()},{threshold:[0,.35,.6]}).observe($('.cta'));
+addEventListener('scroll',()=>{
+  const y=scrollY,dy=y-lastScroll;
+  if(Math.abs(dy)>6){
+    const atEnd=y+innerHeight>document.documentElement.scrollHeight-160;
+    dirHide=dy>0&&!atEnd;lastScroll=y;syncDock();
+  }
+},{passive:true});
 
 /* ---------- Easter egg: cursor sable ---------- */
 const saber=$('#saber');let saberOn=false;
@@ -625,9 +749,9 @@ addEventListener('pointermove',e=>{if(!saberOn)return;saber.style.transform=`tra
     const offMin=t=>{const d=new Date(now.toLocaleString('en-US',{timeZone:t}));const u=new Date(now.toLocaleString('en-US',{timeZone:'UTC'}));return Math.round((d-u)/60000)};
     const diff=Math.round((offMin('America/Caracas')-offMin(tz))/60);
     const same=Math.abs(diff)<1;
-    const es=same?`Son las ${hhmm} y estamos en el mismo huso horario`
+    const es=same?`Son las ${hhmm} · estamos en la misma zona horaria`
       :`Son las ${hhmm} en ${city} · Caracas va ${Math.abs(diff)} h ${diff<0?'adelante':'detrás'}`;
-    const en=same?`It's ${hhmm} and we're in the same timezone`
+    const en=same?`It's ${hhmm} · we're in the same time zone`
       :`It's ${hhmm} in ${city} · Caracas is ${Math.abs(diff)}h ${diff<0?'ahead':'behind'}`;
     el.innerHTML='<span lang="es">'+es+'</span><span lang="en">'+en+'</span>';
     el.hidden=false;
@@ -702,16 +826,19 @@ function startExperience(){
   if(html.dataset.intro==='skip'||!intro){bootStars();return}
   if(reduced||innerWidth<=320){intro.remove();bootStars();return}
   if(use3D){
-    introGuard=setTimeout(()=>{endIntro();bootStars()},11000);
+    introGuard=setTimeout(()=>{endIntro();bootStars()},16000);
     import('three').then(THREE=>runIntro(THREE,()=>bootStars()))
       .catch(e=>{console.error('three',e);endIntro();bootStars()});
-  }else{introGuard=setTimeout(endIntro,1800);runCssIntro()}
+  }else{introGuard=setTimeout(endIntro,4500);runCssIntro()}
 }
 if(html.dataset.intro==='skip'){intro?.remove();bootStars()}
 
 function runCssIntro(){
   clearTimeout(introGuard);
   const fall=$('#fall'),shot=$('#oldshot'),hint=$('#intro .hint');if(hint)hint.style.display='none';
+  const en=html.lang==='en',hT=$('#ihud-top'),hB=$('#ihud-bot');
+  if(hT)hT.innerHTML='<div class="fade"><span class="tag">'+(en?'Archive recovered':'Archivo recuperado')+'</span><span class="big">bryansank.github.io</span><span class="dim">'+(en?'Version 2022 · my previous site':'Versión 2022 · mi sitio anterior')+'</span><div class="line"></div></div>';
+  if(hB)hB.innerHTML='<div class="fade"><span class="dim">'+(en?'Last signal: July 2022 · status: obsolete':'Última señal: julio 2022 · estado: obsoleto')+'</span></div>';
   const D=Math.hypot(innerWidth,innerHeight),from=-D*.8,to=D*.8,ANG=-42,BLADE=Math.min(innerHeight*.4,280);
   const sweep=document.createElement('div');sweep.className='sweep';sweep.style.transform='rotate('+ANG+'deg)';
   sweep.innerHTML='<span class="trail"></span><span class="rider"><span class="halo"></span><span class="grip"></span><span class="blade"></span></span>';
@@ -735,7 +862,9 @@ function runCssIntro(){
   };
 
   const go=()=>{
-    const IGNITE=140,SWEEP_AT=420,SWEEP_MS=680;
+    const IGNITE=140,SWEEP_AT=1500,SWEEP_MS=760;
+    setTimeout(()=>{if(hT)hT.innerHTML='<div class="fade"><span class="tag">'+(en?'Replacement protocol':'Protocolo de reemplazo')+'</span><span class="big">/old_site/</span><span class="dim">'+(en?'Archived, still online':'Archivado, sigue en línea')+'</span><div class="line"></div></div>';if(hT)hT.dataset.state='dead';
+      if(hB)hB.innerHTML='<div class="fade"><span class="dim">'+(en?'Building the new ship…':'Construyendo la nave nueva…')+'</span></div>'},SWEEP_AT+SWEEP_MS*.5);
     const ig={duration:200,delay:IGNITE,easing:'cubic-bezier(.2,.9,.3,1.3)',fill:'both'};
     blade.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],ig);
     halo.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],ig);
@@ -743,7 +872,7 @@ function runCssIntro(){
     trail.animate([{transform:'scaleX(0)',opacity:1},{transform:'scaleX(1)',opacity:1,offset:.75},{transform:'scaleX(1)',opacity:0}],{duration:SWEEP_MS+420,delay:SWEEP_AT,easing:'linear',fill:'both'});
     setTimeout(()=>sfx.ignite(),IGNITE);
     setTimeout(slice,SWEEP_AT+SWEEP_MS*.52);
-    setTimeout(endIntro,SWEEP_AT+SWEEP_MS*.52+660);
+    setTimeout(endIntro,SWEEP_AT+SWEEP_MS*.52+1500);
   };
   if(shot&&shot.complete)go();else{let done=false;const once=()=>{if(!done){done=true;go()}};shot&&shot.addEventListener('load',once,{once:true});setTimeout(once,450)}
 }
@@ -794,12 +923,100 @@ function makeStars(THREE){
   const smat=new THREE.LineBasicMaterial({transparent:true,opacity:0,depthWrite:false,blending:THREE.AdditiveBlending});
   const streaks=new THREE.LineSegments(sgeo,smat);scene.add(streaks);
 
+  /* ----- Puente de mando: ventanal, vigas y consolas alrededor del contenido ----- */
+  const bridge=new THREE.Group();scene.add(bridge);
+  const DEPTH=300;
+  /* Silueta oscura: la nave se insinúa, nunca compite con el texto */
+  const UNIT=new THREE.BoxGeometry(1,1,1),QUAD=new THREE.PlaneGeometry(1,1);
+  const steel=new THREE.MeshStandardMaterial({color:0x0c0f16,metalness:.25,roughness:.9});
+  const steelDark=new THREE.MeshStandardMaterial({color:0x06080d,metalness:.2,roughness:.95});
+  const lamps=[];
+  function lamp(col,op){
+    const m=new THREE.Mesh(QUAD,new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false}));
+    lamps.push({m,base:op,ph:Math.random()*6.28,sp:.5+Math.random()*2.2});return m;
+  }
+  const beams=new THREE.Group(),mullions=new THREE.Group(),consoles=new THREE.Group();
+  bridge.add(beams,mullions,consoles);
+  /* techo: banda con nervios */
+  const roof=new THREE.Mesh(UNIT,steelDark);beams.add(roof);
+  for(let i=0;i<9;i++){const r=new THREE.Mesh(UNIT,steel);r.userData={rib:i};beams.add(r)}
+  for(let i=0;i<4;i++){const l=lamp(0xff4433,.45);l.userData={lampRow:i};beams.add(l)}
+  /* montantes del ventanal, inclinados hacia fuera */
+  for(let s=-1;s<=1;s+=2)for(let i=0;i<3;i++){
+    const g=new THREE.Group();
+    g.add(new THREE.Mesh(UNIT,steel));
+    const edge=lamp(0x7fd4ff,.22);edge.position.z=.6;g.add(edge);
+    g.userData={side:s,i};mullions.add(g);
+  }
+  /* consolas inferiores en las esquinas */
+  for(let s=-1;s<=1;s+=2){
+    const g=new THREE.Group();
+    g.add(new THREE.Mesh(UNIT,steelDark));
+    g.add(new THREE.Mesh(UNIT,steel));
+    for(let k=0;k<5;k++){const l=lamp(k%2?0xff5533:0xffbb44,.5);l.userData={k};g.add(l)}
+    g.userData={side:s};consoles.add(g);
+  }
+  scene.add(new THREE.AmbientLight(0x1a2436,.55));
+  const winLight=new THREE.DirectionalLight(0x6f8fc4,.55);winLight.position.set(0,.2,1);scene.add(winLight);
+
+  function layoutBridge(){
+    const hH=DEPTH*Math.tan(cam.fov*Math.PI/360),hW=hH*cam.aspect;
+    bridge.position.z=-DEPTH;
+    /* techo */
+    roof.scale.set(hW*3,hH*.5,18);roof.position.set(0,hH*1.19,8);
+    beams.children.forEach(o=>{
+      const d=o.userData;
+      if(d.rib!==undefined){const f=(d.rib/8-.5)*2;o.scale.set(hW*.035,hH*.34,22);o.position.set(f*hW*1.15,hH*1.0,10)}
+      if(d.lampRow!==undefined){const f=(d.lampRow/3-.5)*2;o.scale.set(hW*.14,2.5,1);o.position.set(f*hW*.82,hH*.93,13)}
+    });
+    /* montantes: solo en el 30% exterior de cada lado */
+    mullions.children.forEach(g=>{
+      const {side,i}=g.userData;
+      g.position.set(side*(hW*.70+i*hW*.17),0,6);
+      g.rotation.z=side*(.07+i*.05);
+      g.children[0].scale.set(hW*.028,hH*2.8,20);
+      g.children[1].scale.set(hW*.006,hH*2.6,1);g.children[1].position.x=side*hW*.017;
+    });
+    /* consolas */
+    consoles.children.forEach(g=>{
+      const s=g.userData.side;
+      g.position.set(s*hW*.78,-hH*1.02,14);
+      g.children[0].scale.set(hW*.72,hH*.12,26);g.children[0].position.y=hH*.24;
+      g.children[1].scale.set(hW*.72,hH*.5,20);
+      g.children.slice(2).forEach((l,k)=>{l.position.set((k-2)*hW*.13,hH*.27,15);l.scale.set(hW*.05,3,1)});
+    });
+  }
+
+  /* ----- Naves que cruzan el ventanal ----- */
+  const ships=[];
+  function makeShip(){
+    const g=new THREE.Group();
+    const mat=new THREE.MeshStandardMaterial({color:0x8d94a6,metalness:.7,roughness:.45});
+    g.add(new THREE.Mesh(new THREE.ConeGeometry(3.4,16,3),mat));
+    const w=new THREE.Mesh(new THREE.BoxGeometry(15,.7,4),mat);w.position.y=-3;g.add(w);
+    const e=new THREE.Mesh(new THREE.PlaneGeometry(9,2.4),new THREE.MeshBasicMaterial({color:0x77ccff,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false}));
+    e.position.y=-9;g.add(e);
+    g.rotation.z=Math.PI/2;scene.add(g);return{g,e,t:0,dur:0,from:new THREE.Vector3(),to:new THREE.Vector3(),live:false};
+  }
+  for(let i=0;i<2;i++)ships.push(makeShip());
+  let nextShip=6+Math.random()*7;
+  function launchShip(s){
+    const hH=DEPTH*Math.tan(cam.fov*Math.PI/360),hW=hH*cam.aspect,dir=Math.random()<.5?1:-1;
+    const z=-500-Math.random()*400,y=(Math.random()-.35)*hH*1.6;
+    s.from.set(-dir*hW*3.4,y,z);s.to.set(dir*hW*3.4,y+(Math.random()-.5)*hH*.5,z-120);
+    s.g.scale.setScalar(.6+Math.random()*.9);s.g.rotation.y=dir>0?0:Math.PI;
+    s.t=0;s.dur=3.2+Math.random()*2.6;s.live=true;s.g.visible=true;
+  }
+  ships.forEach(s=>s.g.visible=false);
+
   function paint(){const l=isLight();
     far.mat.color=near.mat.color=toThreeColor(THREE,cssColor(l?'--muted':'--fg'));
     far.mat.opacity=l?.34:.85;near.mat.opacity=l?.42:1;
     far.mat.blending=near.mat.blending=l?THREE.NormalBlending:THREE.AdditiveBlending;
     smat.color=toThreeColor(THREE,cssColor('--saber'));
     neb.forEach(m=>m.material.opacity=l?.22:.9);
+    bridge.visible=!l;
+    steel.color=toThreeColor(THREE,l?'#b9bec9':'#262a33');
     far.mat.needsUpdate=near.mat.needsUpdate=true;
   }
   paint();
@@ -808,11 +1025,21 @@ function makeStars(THREE){
   addEventListener('scroll',()=>{const dy=scrollY-lastY;lastY=scrollY;vel=Math.min(70,vel+Math.abs(dy)*.55);
     if(vel>34&&!warped){warped=true;sfx.warp();setTimeout(()=>warped=false,1600)}},{passive:true});
   addEventListener('pointermove',e=>{if(tilt.on)return;tx=(e.clientX/innerWidth-.5)*70;ty=-(e.clientY/innerHeight-.5)*46},{passive:true});
-  function resize(){renderer.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}
+  function resize(){renderer.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();layoutBridge()}
   resize();addEventListener('resize',resize);
   document.addEventListener('visibilitychange',()=>{visible=!document.hidden;last=performance.now()});
   (function loop(now){requestAnimationFrame(loop);if(!visible)return;
     const dt=Math.min(.05,(now-last)/1000);last=now;vel*=.93;
+    /* luces del puente */
+    const ts=now/1000;
+    for(const L of lamps)L.m.material.opacity=L.base*(.45+.55*Math.abs(Math.sin(ts*L.sp+L.ph)));
+    /* naves de paso */
+    nextShip-=dt;
+    if(nextShip<=0){const free=ships.find(s=>!s.live);if(free)launchShip(free);nextShip=7+Math.random()*9}
+    for(const s of ships){if(!s.live)continue;s.t+=dt/s.dur;
+      if(s.t>=1){s.live=false;s.g.visible=false;continue}
+      s.g.position.lerpVectors(s.from,s.to,s.t);
+      s.e.material.opacity=.55+Math.random()*.4;}
     const speed=(34+vel*26)*dt*60/60;
     for(const L of [far,near]){
       const a=L.geo.attributes.position.array,s=speed*(L===far?.4:1)*dt*60;
@@ -820,13 +1047,15 @@ function makeStars(THREE){
       L.geo.attributes.position.needsUpdate=true;L.mat.size=L.base+vel*.05;
     }
     const sa=sgeo.attributes.position.array,ss=speed*1.9*dt*60,len=Math.min(260,vel*7);
-    smat.opacity=Math.min(.85,vel*.02);
+    smat.opacity=Math.min(.45,vel*.012);
     if(smat.opacity>.01){for(let i=0;i<SN;i++){let z=sa[i*6+2]+ss;if(z>60){z=-1100;sa[i*6]=sa[i*6+3]=(Math.random()-.5)*1100;sa[i*6+1]=sa[i*6+4]=(Math.random()-.5)*1100}
       sa[i*6+2]=z;sa[i*6+5]=z-len}sgeo.attributes.position.needsUpdate=true}
     const targetX=tilt.on?tilt.x:tx,targetY=tilt.on?tilt.y:ty;
     cam.position.x+=(targetX-cam.position.x)*.045;cam.position.y+=(targetY-cam.position.y)*.045;
     neb.forEach((m,i)=>{m.rotation.z+=(i%2?.00012:-.00009)*dt*600});
-    cam.lookAt(0,0,-600);renderer.render(scene,cam);
+    /* el puente acompaña a la cámara: se mueve poco, como si estuviéramos dentro */
+    bridge.position.x=cam.position.x*.86;bridge.position.y=cam.position.y*.86;
+    cam.lookAt(cam.position.x*.4,cam.position.y*.4,-600);renderer.render(scene,cam);
   })(performance.now());
   canvas.classList.add('on');
   return{recolor:paint};
@@ -837,13 +1066,17 @@ async function runIntro(THREE,after){
   clearTimeout(introGuard);
   let ended=false,afterDone=false;
   const fire=()=>{if(!afterDone){afterDone=true;after&&after()}};
-  const bail=setTimeout(()=>{endIntro();fire()},9500);
+  const bail=setTimeout(()=>{endIntro();fire()},14500);
 
   const fall=$('#fall'),video=$('#oldvid'),hint=$('#intro .hint');
   fall.style.visibility='hidden';if(hint)hint.style.display='none';
+  const hudT=$('#ihud-top'),hudB=$('#ihud-bot');
+  const EN=()=>html.lang==='en';
+  const hud=(el,htmlStr,state)=>{if(!el)return;el.innerHTML='<div class="fade">'+htmlStr+'</div>';if(state)el.dataset.state=state};
   const canvas=document.createElement('canvas');intro.insertBefore(canvas,intro.firstChild);
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));renderer.setSize(innerWidth,innerHeight,false);
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
+  const DPR=Math.min(devicePixelRatio,2);
+  renderer.setPixelRatio(DPR);renderer.setSize(innerWidth,innerHeight,false);
   renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.92;
 
   const scene=new THREE.Scene();
@@ -858,9 +1091,11 @@ async function runIntro(THREE,after){
       import('three/addons/postprocessing/RenderPass.js'),
       import('three/addons/postprocessing/UnrealBloomPass.js'),
       import('three/addons/postprocessing/OutputPass.js')]);
-    composer=new EffectComposer(renderer);
+    const rt=new THREE.WebGLRenderTarget(innerWidth*DPR,innerHeight*DPR,{type:THREE.HalfFloatType,samples:renderer.capabilities.isWebGL2?4:0});
+    composer=new EffectComposer(renderer,rt);
+    composer.setPixelRatio(DPR);
     composer.addPass(new RenderPass(scene,cam));
-    bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth/2,innerHeight/2),.78,.45,.86);
+    bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.72,.42,.88);
     composer.addPass(bloom);composer.addPass(new OutputPass());
   }catch(e){composer=null}
   if(ended)return;
@@ -903,16 +1138,23 @@ async function runIntro(THREE,after){
   const flash=new THREE.PointLight(0xffffff,0,900,2);scene.add(flash);
 
   /* Sable */
-  const BL=PH*.78,saber=new THREE.Group();
-  const core=new THREE.Mesh(new THREE.CapsuleGeometry(2.6,BL,4,10),new THREE.MeshBasicMaterial({color:0xffffff}));
-  const gl1=new THREE.Mesh(new THREE.CapsuleGeometry(7.5,BL,4,14),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false}));
-  const gl2=new THREE.Mesh(new THREE.CapsuleGeometry(14,BL,4,14),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.16,blending:THREE.AdditiveBlending,depthWrite:false}));
-  const blade=new THREE.Group();blade.add(core,gl1,gl2);blade.scale.y=.001;saber.add(blade);
-  const metal=new THREE.MeshStandardMaterial({color:0xc2c7d4,metalness:.62,roughness:.38});
-  const hilt=new THREE.Mesh(new THREE.CylinderGeometry(6.5,7.5,58,16),metal);hilt.position.y=-BL/2-29;saber.add(hilt);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(7.6,1.5,8,20),new THREE.MeshBasicMaterial({color:saberCol}));ring.rotation.x=Math.PI/2;ring.position.y=-BL/2-3;saber.add(ring);
-  const pommel=new THREE.Mesh(new THREE.CylinderGeometry(5,6.5,10,16),metal);pommel.position.y=-BL/2-60;saber.add(pommel);
-  saber.position.set(PW*2.2,-PH*1.5,180);saber.rotation.z=-2.6;scene.add(saber);
+  const BL=PH*.82,saber=new THREE.Group();
+  /* Hoja: núcleo liso + halo suave en billboard cruzado (mucho más limpio que cápsulas gruesas) */
+  const core=new THREE.Mesh(new THREE.CapsuleGeometry(2.3,BL,10,28),new THREE.MeshBasicMaterial({color:0xffffff,toneMapped:false}));
+  const gl1=new THREE.Mesh(new THREE.CapsuleGeometry(5.2,BL,10,28),new THREE.MeshBasicMaterial({color:saberCol,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false,toneMapped:false}));
+  const haloTex=radialTex(THREE,[[0,'rgba(255,255,255,.85)'],[.22,'rgba(255,170,170,.45)'],[.55,'rgba(255,60,60,.14)'],[1,'rgba(255,0,0,0)']],256);
+  const haloMat=new THREE.MeshBasicMaterial({map:haloTex,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false,toneMapped:false,color:saberCol});
+  const halo1=new THREE.Mesh(new THREE.PlaneGeometry(64,BL+64),haloMat);
+  const halo2=halo1.clone();halo2.rotation.y=Math.PI/2;
+  const blade=new THREE.Group();blade.add(core,gl1,halo1,halo2);blade.scale.y=.001;saber.add(blade);
+  const metal=new THREE.MeshStandardMaterial({color:0xc8ccd8,metalness:.62,roughness:.34});
+  const darkMetal=new THREE.MeshStandardMaterial({color:0x2e323c,metalness:.7,roughness:.45});
+  const hilt=new THREE.Mesh(new THREE.CylinderGeometry(6.6,7.4,58,28),metal);hilt.position.y=-BL/2-29;saber.add(hilt);
+  const grip=new THREE.Mesh(new THREE.CylinderGeometry(7,7,22,28),darkMetal);grip.position.y=-BL/2-34;saber.add(grip);
+  const emitter=new THREE.Mesh(new THREE.CylinderGeometry(5.4,7,12,28),metal);emitter.position.y=-BL/2-2;saber.add(emitter);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(7.7,1.4,12,32),new THREE.MeshBasicMaterial({color:saberCol,toneMapped:false}));ring.rotation.x=Math.PI/2;ring.position.y=-BL/2-9;saber.add(ring);
+  const pommel=new THREE.Mesh(new THREE.CylinderGeometry(5.2,6.8,11,28),metal);pommel.position.y=-BL/2-61;saber.add(pommel);
+  saber.position.set(PW*2.4,-PH*1.6,180);saber.rotation.z=-2.6;scene.add(saber);
 
   /* Chispas: dos ráfagas aditivas que se desvanecen */
   function burst(dir,n){
@@ -965,62 +1207,73 @@ async function runIntro(THREE,after){
     const t=(now-t0)/1000,dt=Math.min(.05,t-lastT);lastT=t;
     if(dbg)window.__intro={t:Math.round(t*100)/100,phase,shards:shards.length};
 
-    /* A) El holograma se materializa */
-    const fadeIn=clamp01(t/1.1);
-    panel.material.opacity=fadeIn*(t<1.1?(.6+.4*Math.abs(Math.sin(t*22))):1);
+    /* A) El holograma se materializa y se identifica */
+    const fadeIn=clamp01(t/1.3);
+    panel.material.opacity=fadeIn*(t<1.3?(.55+.45*Math.abs(Math.sin(t*20))):1);
     bezel.material.opacity=fadeIn*.9;rim.material.opacity=fadeIn*.8;
     disc.material.opacity=fadeIn*.55;cone.material.opacity=fadeIn*.07;
     scan.material.opacity=fadeIn*.16;scanTex.offset.y=(t*.12)%1;
-    rig.rotation.y=Math.sin(t*.55)*.09;rig.position.y=Math.sin(t*.85)*5;
-    cam.position.z=900-280*easeIO(clamp01(t/2.4));
+    if(phase===0&&t>=.45){phase=.5;
+      hud(hudT,'<span class="tag">'+(EN()?'Archive recovered':'Archivo recuperado')+'</span><span class="big">bryansank.github.io</span><span class="dim">'+(EN()?'Version 2022 · my previous site':'Versión 2022 · mi sitio anterior')+'</span><div class="line"></div>','old');}
+    if(phase===.5&&t>=2.1){phase=.6;
+      hud(hudB,'<span class="dim">'+(EN()?'Last signal: July 2022 · status: obsolete':'Última señal: julio 2022 · estado: obsoleto')+'</span><br><span class="dim">'+(EN()?'Replacement protocol ready':'Protocolo de reemplazo listo')+'</span>');}
+
+    /* Contemplación: cámara en órbita lenta para que se lea el sitio viejo */
+    rig.rotation.y=Math.sin(t*.5)*.11;rig.position.y=Math.sin(t*.8)*5;
+    cam.position.z=900-300*easeIO(clamp01(t/3.2));
+    const orbit=Math.sin(t*.35)*.10*Math.min(1,t/2);
+    rig.rotation.x=orbit*.3;
 
     /* B) Llega la empuñadura */
-    if(t>=1.5&&t<2.35){const k=ease(clamp01((t-1.5)/.85));
-      saber.position.lerpVectors(new THREE.Vector3(PW*2.2,-PH*1.5,180),new THREE.Vector3(-PW*1.05,-PH*.62,170),k);
-      saber.rotation.z=-2.6+(0-(-2.6))*k+ (1-k)*Math.sin(k*12)*.5;}
+    if(t>=4.5&&t<5.5){const k=ease(clamp01((t-4.5)/1.0));
+      saber.position.lerpVectors(new THREE.Vector3(PW*2.4,-PH*1.6,180),new THREE.Vector3(-PW*1.05,-PH*.62,170),k);
+      saber.rotation.z=-2.6*(1-k)+(1-k)*Math.sin(k*14)*.45;}
 
     /* C) Encendido */
-    if(phase===0&&t>=2.35){phase=1;sfx.ignite();if(prefs.haptics&&navigator.vibrate)navigator.vibrate([16,36,26]);}
-    if(t>=2.35&&t<3.0){const k=ease(clamp01((t-2.35)/.55));
-      blade.scale.y=Math.max(.001,k*1.02);saberL.intensity=k*7;
+    if(phase<1&&t>=5.5){phase=1;sfx.ignite();if(prefs.haptics&&navigator.vibrate)navigator.vibrate([16,36,26]);
+      hud(hudT,'<span class="tag">'+(EN()?'Replacement protocol':'Protocolo de reemplazo')+'</span><span class="big">bryansank.github.io</span><span class="dim">'+(EN()?'Decommissioning the 2022 build…':'Dando de baja la versión 2022…')+'</span><div class="line"></div>','dead');}
+    if(t>=5.5&&t<6.25){const k=ease(clamp01((t-5.5)/.65));
+      blade.scale.y=Math.max(.001,k*1.02);saberL.intensity=k*8;
       saberL.position.set(saber.position.x,saber.position.y+BL*.3,170);}
-    if(t>=3.0)saberL.intensity=7+Math.sin(t*34)*.7;
+    if(t>=6.25)saberL.intensity=8+Math.sin(t*34)*.8;
 
     /* D) Primer tajo ↗ */
-    if(t>=3.2&&t<4.3){const k=easeIO(clamp01((t-3.2)/1.1));slash(A,k);
+    if(t>=6.5&&t<7.75){const k=easeIO(clamp01((t-6.5)/1.25));slash(A,k);
       if(phase===1&&k>.45){phase=2;
         panel.visible=false;bezel.visible=false;rim.visible=false;scan.visible=false;
         addShard([BLc,BR,TR],120,40,30,.3,.5,-.5);
         addShard([BLc,TR,TL],-120,-20,20,-.35,-.4,.5);
-        bursts.push(burst(A,120));flash.position.set(0,0,90);flash.intensity=9;shake=7;}}
+        bursts.push(burst(A,140));flash.position.set(0,0,90);flash.intensity=9;shake=7;}}
 
     /* E) Segundo tajo ↘ */
-    if(t>=4.5&&t<5.6){const k=easeIO(clamp01((t-4.5)/1.1));slash(B,k);
+    if(t>=8.0&&t<9.25){const k=easeIO(clamp01((t-8.0)/1.25));slash(B,k);
       if(phase===2&&k>.45){phase=3;
         shards.forEach(s=>{rig.remove(s.mesh);s.mesh.geometry.dispose()});shards.length=0;
         addShard([TL,TR,C],40,190,60,-.9,.4,.3);
         addShard([TR,BR,C],230,40,40,.4,-.9,-.5);
         addShard([BR,BLc,C],-40,-210,50,.9,.5,-.3);
         addShard([BLc,TL,C],-235,30,70,-.4,.9,.6);
-        bursts.push(burst(B,160));flash.intensity=11;shake=9;}}
+        bursts.push(burst(B,180));flash.intensity=12;shake=9;
+        hud(hudT,'<span class="tag">'+(EN()?'Archive preserved':'Archivo preservado')+'</span><span class="big">/old_site/</span><span class="dim">'+(EN()?'Nothing was lost: it is still online':'Nada se perdió: sigue en línea')+'</span><div class="line"></div>','old');
+        hud(hudB,'<span class="dim">'+(EN()?'Building the new ship…':'Construyendo la nave nueva…')+'</span>');}}
 
     /* F) Los fragmentos se van */
     if(phase>=2)for(const s of shards){
       s.v.y-=340*dt;
       s.mesh.position.x+=s.v.x*dt;s.mesh.position.y+=s.v.y*dt;s.mesh.position.z+=s.v.z*dt;
       s.mesh.rotation.x+=s.r.x*dt;s.mesh.rotation.y+=s.r.y*dt;s.mesh.rotation.z+=s.r.z*dt;
-      if(t>5.6)s.mesh.material.opacity=Math.max(0,s.mesh.material.opacity-dt*.85);
+      if(t>9.3)s.mesh.material.opacity=Math.max(0,s.mesh.material.opacity-dt*.8);
     }
-    if(phase>=3&&t>5.7){saber.position.x+=520*dt;saber.position.y+=210*dt;saber.rotation.z+=2.4*dt;saberL.intensity*=.965;
-      disc.material.opacity*=.93;cone.material.opacity*=.93;}
+    if(phase>=3&&t>9.4){saber.position.x+=520*dt;saber.position.y+=210*dt;saber.rotation.z+=2.4*dt;saberL.intensity*=.965;
+      disc.material.opacity*=.94;cone.material.opacity*=.94;}
     flash.intensity*=.86;
     for(const b of bursts)b.update(dt);
     if(shake>.02){shake*=.9;cam.position.x=(Math.random()-.5)*shake;cam.position.y=(Math.random()-.5)*shake}
     else{cam.position.x*=.9;cam.position.y*=.9}
 
     /* G) Fundido y salida */
-    if(t>=6.45){canvas.style.opacity=String(Math.max(0,1-(t-6.45)/.65))}
-    if(t>=7.05){ended=true;clearTimeout(bail);endIntro();
+    if(t>=10.5){const f=Math.max(0,1-(t-10.5)/.8);canvas.style.opacity=String(f);if(hudT)hudT.style.opacity=String(f);if(hudB)hudB.style.opacity=String(f)}
+    if(t>=11.3){ended=true;clearTimeout(bail);endIntro();
       setTimeout(()=>{renderer.dispose();tex.dispose();fire()},700);return}
 
     cam.lookAt(0,0,0);
