@@ -59,3 +59,31 @@ Cada texto del HTML está marcado con `data-t="clave"`:
   el JavaScript de `index.html`, porque se generan durante la animación.
 - El **contexto de perfil** (experiencia, fechas, logros) está documentado en
   `docs/02_contexto_bryan_key.md`.
+
+## Cuidado con las claves duplicadas
+
+Cada clave debe aparecer **exactamente 2 veces** en el HTML: una en el
+`lang="es"` y otra en el `lang="en"`. Si dos textos distintos comparten
+clave, `aplicar.js` sobrescribe uno con el otro y se pierde texto.
+
+`extraer.js` lo verifica y avisa:
+
+```
+⚠  CLAVES MAL USADAS (deberían aparecer 2 veces, una por idioma):
+   data-t="transmisiones.01" aparece 4 veces
+```
+
+Si sale ese aviso, corrige el HTML **antes** de ejecutar `aplicar.js`.
+
+## Reiniciar la experiencia
+
+El sitio guarda 4 cosas en `localStorage`: `bk-theme`, `bk-lang`,
+`bk-sound` y `bk-intro` (si ya viste la intro). Para volver a verlo todo
+desde cero hay dos formas:
+
+- El botón **«Reiniciar experiencia»** al final de la página.
+- Añadir `?reset` a la URL: `https://bryansank.github.io/?reset`
+  (útil como marcador para demos; la URL se limpia sola).
+
+No se borra en cada recarga a propósito: un reclutador que vuelve no
+debería tragarse la intro de 11 segundos otra vez.

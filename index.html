@@ -20,7 +20,9 @@
 <link rel="canonical" href="https://bryansank.github.io/">
 <noscript><style>#gate,#intro,#stars,.dock{display:none!important}.reveal{opacity:1;transform:none}</style></noscript>
 <script>
-(function(){try{var s=localStorage;var t=s.getItem('bk-theme');if(t)document.documentElement.dataset.theme=t;var l=s.getItem('bk-lang')||((navigator.language||'es').slice(0,2)==='en'?'en':'es');document.documentElement.lang=l;var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(rm||s.getItem('bk-intro')==='1'||innerWidth<321)document.documentElement.dataset.intro='skip';}catch(e){}})();
+(function(){try{var s=localStorage;
+if(location.search.indexOf('reset')>=0){s.removeItem('bk-theme');s.removeItem('bk-lang');s.removeItem('bk-sound');s.removeItem('bk-intro');history.replaceState(null,'',location.pathname);}
+var t=s.getItem('bk-theme');if(t)document.documentElement.dataset.theme=t;var l=s.getItem('bk-lang')||((navigator.language||'es').slice(0,2)==='en'?'en':'es');document.documentElement.lang=l;var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(rm||s.getItem('bk-intro')==='1'||innerWidth<321)document.documentElement.dataset.intro='skip';}catch(e){}})();
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 <style>
@@ -154,7 +156,12 @@ section+section{border-top:1px solid var(--line)}
 }
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,2.4vw,28px);backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
 .tilt:hover,.tilt:focus-within{border-color:var(--saber);box-shadow:0 20px 60px -30px var(--saber),0 0 0 1px var(--saber-soft)}
-.card header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.card header{display:flex;align-items:flex-start;gap:13px}
+.card .htxt{min-width:0;flex:1}
+.colog{margin:0;width:46px;height:46px;flex:none;border-radius:11px;display:grid;place-items:center;overflow:hidden;background:oklch(96% 0.008 90);border:1px solid var(--line);box-shadow:0 2px 10px -4px oklch(0% 0 0 / .6)}
+.colog img{width:100%;height:100%;object-fit:contain;padding:6px;box-sizing:border-box}
+.colog.init{background:linear-gradient(140deg,var(--saber),var(--accent));color:oklch(14% 0 0);font:900 clamp(13px,1.2vw,16px)/1 var(--display);letter-spacing:.01em;border-color:transparent}
+@media (max-width:380px){.colog{width:38px;height:38px;border-radius:9px}}
 .card h3{font-size:clamp(19px,1.4vw + 10px,24px);font-weight:800}
 .card .co{color:var(--accent);font-weight:700}
 .card time,.card .loc{display:block;font:600 12.5px var(--mono);letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
@@ -208,6 +215,8 @@ section+section{border-top:1px solid var(--line)}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between}
 .foot a{color:var(--fg)}
 .foot .socials{display:flex;gap:14px}
+.linkish{appearance:none;background:none;border:0;padding:0;font:inherit;color:var(--fg);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.linkish:hover{color:var(--saber)}
 /* ---------- Barra de progreso y raíl de navegación ---------- */
 .progress{position:fixed;left:0;top:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--saber),var(--accent));box-shadow:0 0 12px var(--saber);transition:width .1s linear;pointer-events:none}
 .rail{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:45;display:none;flex-direction:column;gap:13px}
@@ -244,6 +253,9 @@ html[data-intro="skip"] #gate{display:none}
 .power .txt{flex:1;min-width:0}
 .power .txt b{display:block;font-size:14.5px}
 .power .txt em{display:block;color:var(--muted);font-size:12.5px;line-height:1.35;font-style:normal;margin-top:2px}
+.power[disabled]{opacity:.5;cursor:not-allowed}
+.power[disabled]:hover{border-color:var(--line)}
+.power .why{display:block;margin-top:3px;font:700 10px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .power .sw{width:44px;height:26px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);position:relative;flex:none;transition:background .2s,border-color .2s}
 .power .sw::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s}
 .power[aria-checked="true"] .sw{background:var(--saber);border-color:var(--saber)}
@@ -346,7 +358,7 @@ html.saber-cursor #saber{display:block}
       <button type="button" class="btn primary" id="gate-go"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span lang="es" data-t="general.13">Entrar al puente</span><span lang="en" data-t="general.13">Enter the bridge</span></button>
       <p class="gate-skip"><a href="#puente" id="gate-skip"><span lang="es" data-t="general.14">Ver el perfil directo, sin efectos →</span><span lang="en" data-t="general.14">Go straight to the profile, no effects →</span></a></p>
     </div>
-    <p class="gate-note"><span lang="es" data-t="general.15">Sin ubicación, sin cámara, sin micrófono, sin cookies de terceros. Tus preferencias quedan solo en este navegador.</span><span lang="en" data-t="general.15">No location, no camera, no microphone, no third-party cookies. Your preferences stay in this browser only.</span></p>
+    <p class="gate-note"><span lang="es" data-t="general.15">Sin ubicación, sin cámara, sin micrófono, sin cookies de terceros. Se guardan 4 preferencias (tema, idioma, sonido e intro vista) solo en este navegador.</span><span lang="en" data-t="general.15">No location, no camera, no microphone, no third-party cookies. Four preferences (theme, language, sound and intro seen) are stored in this browser only.</span></p>
   </div>
 </div>
 
@@ -439,35 +451,35 @@ html.saber-cursor #saber{display:block}
       <h2 id="h-servicio"><span lang="es" data-t="servicio.02">Ruta de hiperespacio 2018 → 2026</span><span lang="en" data-t="servicio.02">Hyperspace route 2018 → 2026</span></h2>
       <p class="lede"><span lang="es" data-t="servicio.03">Cada parada, un sistema real: empresa, rol, fechas y el impacto que dejé.</span><span lang="en" data-t="servicio.03">Every stop is a real system: company, role, dates and the impact I left behind.</span></p>
       <ol class="route"><li class="stop now reveal"><article class="card tilt">
-          <header><h3><span lang="es" data-t="servicio.04">Desarrollador de software</span><span lang="en" data-t="servicio.04">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></header>
+          <header><figure class="colog init" aria-hidden="true">GCS</figure><div class="htxt"><h3><span lang="es" data-t="servicio.04">Desarrollador de software</span><span lang="en" data-t="servicio.04">Software Developer</span></h3><span class="co">Equipo Gerencial Con Solidez GCS, C.A.</span></div></header>
           <time datetime="2025-04"><span lang="es" data-t="servicio.05">abr 2025 – actualidad</span><span lang="en" data-t="servicio.05">Apr 2025 – present</span></time><span class="loc">Caracas · <span lang="es" data-t="servicio.06">presencial</span><span lang="en" data-t="servicio.06">on-site</span></span>
           <ul lang="es" data-t="servicio.07"><li>Backoffice Next.js + Supabase en Vercel con flujos administrativos para la operación interna.</li><li>App móvil React Native (Expo): clientes, pedidos, pagos y precios con geolocalización y Maps para operación en campo.</li><li>Cuestionarios dinámicos configurables y mantenimiento de un legacy React + .NET 4.5 + SQL Server con 25 años de historia: errores críticos corregidos en menos de 2 semanas.</li></ul>
           <ul lang="en" data-t="servicio.07"><li>Next.js + Supabase back-office on Vercel with administrative workflows for internal operations.</li><li>React Native (Expo) mobile app: customers, orders, payments and pricing with geolocation and Maps for field work.</li><li>Configurable dynamic questionnaires and maintenance of a 25-year-old React + .NET 4.5 + SQL Server legacy: critical bugs fixed in under 2 weeks.</li></ul>
           <div class="chips"><span>Next.js</span><span>Supabase</span><span>React Native</span><span>Expo</span><span>.NET</span><span>SQL Server</span><span>Vercel</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><h3>Senior Software Engineer</h3><span class="co">QPlus Software Solutions</span></header>
+          <header><figure class="colog init" aria-hidden="true">Q+</figure><div class="htxt"><h3>Senior Software Engineer</h3><span class="co">QPlus Software Solutions</span></div></header>
           <time datetime="2025-03"><span lang="es" data-t="servicio.08">mar – may 2025 · contrato</span><span lang="en" data-t="servicio.08">Mar – May 2025 · contract</span></time><span class="loc">Córdoba, AR · <span lang="es" data-t="servicio.09">remoto</span><span lang="en" data-t="servicio.09">remote</span></span>
           <ul lang="es" data-t="servicio.10"><li>Mejoras escalables para el sector minero: organización de rutas de servidor, integración multi-idioma y monitoreo en tiempo real de cambios mecánicos y su rentabilidad.</li></ul>
           <ul lang="en" data-t="servicio.10"><li>Scalable improvements for the mining sector: server route organization, multi-language integration and real-time monitoring of mechanical changes and their profitability.</li></ul>
           <div class="chips"><span>C#</span><span>.NET Framework</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></header>
+          <header><figure class="colog init" aria-hidden="true">LT</figure><div class="htxt"><h3><span lang="es" data-t="servicio.11">Descanso profesional</span><span lang="en" data-t="servicio.11">Career break</span></h3><span class="co">LibreTickets.com</span></div></header>
           <time datetime="2024-10"><span lang="es" data-t="servicio.12">oct 2024 – ene 2025</span><span lang="en" data-t="servicio.12">Oct 2024 – Jan 2025</span></time><span class="loc">Córdoba, AR</span>
           <ul lang="es" data-t="servicio.13"><li>Viaje y upskilling; colaboré en la mejora de la plataforma LibreTickets (Next.js) como crecimiento personal.</li></ul>
           <ul lang="en" data-t="servicio.13"><li>Travel and upskilling; contributed to improving the LibreTickets platform (Next.js) as personal growth.</li></ul>
           <div class="chips"><span>Next.js</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></header>
+          <header><figure class="colog init" aria-hidden="true">LZ</figure><div class="htxt"><h3>Software Engineer</h3><span class="co">Lapzo by Lernit · LMS B2B</span></div></header>
           <time datetime="2022-10"><span lang="es" data-t="servicio.14">oct 2022 – sep 2024</span><span lang="en" data-t="servicio.14">Oct 2022 – Sep 2024</span></time><span class="loc">CDMX · <span lang="es" data-t="servicio.15">remoto</span><span lang="en" data-t="servicio.15">remote</span></span>
           <ul lang="es" data-t="servicio.16"><li>Ciclo completo de creación y migración de un LMS empresarial con <b>+10 000 usuarios</b>; enfoque backend.</li><li>Tiempos de carga optimizados, reportes históricos, análisis en tiempo real a Excel y concurrencia de datos.</li><li>Vistas de alto impacto visual que hoy sostienen las demos de ventas.</li></ul>
           <ul lang="en" data-t="servicio.16"><li>Full build and migration cycle of an enterprise LMS with <b>10,000+ users</b>; backend focus.</li><li>Optimized load times, historical reports, real-time analysis to Excel and data concurrency.</li><li>High-impact views that still power the sales demos.</li></ul>
           <div class="chips"><span>NestJS</span><span>TypeScript</span><span>React</span><span>PostgreSQL</span><span>KNEX</span><span>Hasura</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><h3>Tech Mentor</h3><span class="co">Talently</span></header>
+          <header><figure class="colog"><img src="./assets/logos/talently.png" alt="Talently" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Tech Mentor</h3><span class="co">Talently</span></div></header>
           <time datetime="2022-06"><span lang="es" data-t="servicio.17">jun 2022 – ago 2023 · autónomo</span><span lang="en" data-t="servicio.17">Jun 2022 – Aug 2023 · freelance</span></time><span class="loc">Argentina</span>
           <ul lang="es" data-t="servicio.18"><li>Mentoría 1:1 a <b>+30 desarrolladores</b> senior para pruebas técnicas y proyectos; roadmap con más del 60 % de colocación en los empleos deseados.</li></ul>
           <ul lang="en" data-t="servicio.18"><li>1:1 mentoring of <b>30+ senior developers</b> for technical interviews and projects; roadmap with over 60% placement into the jobs they wanted.</li></ul>
@@ -478,21 +490,21 @@ html.saber-cursor #saber{display:block}
         <summary><span lang="es" data-t="servicio.19">Historial anterior · 3 paradas (2018–2022)</span><span lang="en" data-t="servicio.19">Earlier history · 3 stops (2018–2022)</span></summary>
         <ol class="route" start="6">
 <li class="stop reveal"><article class="card tilt">
-          <header><h3><span lang="es" data-t="servicio.20">Programador Web Junior → Senior</span><span lang="en" data-t="servicio.20">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></header>
+          <header><figure class="colog"><img src="./assets/logos/arturos.png" alt="Arturo's" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.20">Programador Web Junior → Senior</span><span lang="en" data-t="servicio.20">Web Developer, Junior → Senior</span></h3><span class="co">Arturo's · PAICA, C.A.</span></div></header>
           <time datetime="2019-05"><span lang="es" data-t="servicio.21">may 2019 – sep 2022</span><span lang="en" data-t="servicio.21">May 2019 – Sep 2022</span></time><span class="loc">Caracas</span>
           <ul lang="es" data-t="servicio.22"><li>Extendí Odoo ERP con JavaScript y Python: facturación fiscal (.chk con IGTF) para Aloha, eliminando módulos de terceros.</li><li>App móvil/desktop de tasa y precios en restaurantes a nivel nacional: <b>100 % automatizado</b>, 0 % manipulación manual.</li><li>Sitio oficial, monitoreo help-desk híbrido, migración responsive de SharePoint 2010 y reportes XML→JSON.</li></ul>
           <ul lang="en" data-t="servicio.22"><li>Extended Odoo ERP with JavaScript and Python: fiscal invoicing (.chk with IGTF) for Aloha, removing third-party modules.</li><li>Nationwide restaurant price/exchange-rate app: <b>100% automated</b>, 0% manual handling.</li><li>Official website, hybrid help-desk monitoring, responsive SharePoint 2010 migration and XML→JSON reports.</li></ul>
           <div class="chips"><span>TypeScript</span><span>React</span><span>Angular</span><span>Ionic</span><span>Firebase</span><span>Python</span><span>Odoo</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><h3><span lang="es" data-t="servicio.23">Analista Programador</span><span lang="en" data-t="servicio.23">Programmer Analyst</span></h3><span class="co">Andromeda Ventures</span></header>
+          <header><figure class="colog"><img src="./assets/logos/andromeda.png" alt="Andromeda Ventures" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3><span lang="es" data-t="servicio.23">Analista Programador</span><span lang="en" data-t="servicio.23">Programmer Analyst</span></h3><span class="co">Andromeda Ventures</span></div></header>
           <time datetime="2020-09"><span lang="es" data-t="servicio.24">sep – nov 2020 · contrato</span><span lang="en" data-t="servicio.24">Sep – Nov 2020 · contract</span></time><span class="loc">Caracas</span>
           <ul lang="es" data-t="servicio.25"><li>Migré una pasarela de pagos de Sails.js a NestJS + TypeScript con ORMs y stored procedures en PostgreSQL (RxJS, Redux, SOAP): código más legible y escalable.</li></ul>
           <ul lang="en" data-t="servicio.25"><li>Migrated a payment gateway from Sails.js to NestJS + TypeScript with ORMs and PostgreSQL stored procedures (RxJS, Redux, SOAP): more readable, scalable code.</li></ul>
           <div class="chips"><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span></div>
         </article></li>
         <li class="stop reveal"><article class="card tilt">
-          <header><h3>Full-stack Developer</h3><span class="co">Inversiones KED Perú</span></header>
+          <header><figure class="colog"><img src="./assets/logos/ked.png" alt="Inversiones KED Perú" width="46" height="46" loading="lazy" decoding="async"></figure><div class="htxt"><h3>Full-stack Developer</h3><span class="co">Inversiones KED Perú</span></div></header>
           <time datetime="2018-01"><span lang="es" data-t="servicio.26">ene 2018 – ene 2020</span><span lang="en" data-t="servicio.26">Jan 2018 – Jan 2020</span></time><span class="loc">Perú · <span lang="es" data-t="servicio.27">remoto</span><span lang="en" data-t="servicio.27">remote</span></span>
           <ul lang="es" data-t="servicio.28"><li>App web de paquetería con 5 módulos, tracking en tiempo real y backoffice; optimización de cargas.</li></ul>
           <ul lang="en" data-t="servicio.28"><li>Parcel-logistics web app with 5 modules, real-time tracking and back-office; load-time optimization.</li></ul>
@@ -609,7 +621,7 @@ html.saber-cursor #saber{display:block}
   <div class="wrap">
     <p><span lang="es" data-t="transmisiones.06">Hecho con ❤ y la Fuerza · Vanilla HTML/CSS/JS + Three.js · </span><span lang="en" data-t="transmisiones.06">Made with ❤ and the Force · Vanilla HTML/CSS/JS + Three.js · </span>© 2026 Bryan Key</p>
     <div class="socials"><a href="https://twitter.com/bryansank" target="_blank" rel="noopener">X/Twitter</a><a href="https://www.instagram.com/bryansank/" target="_blank" rel="noopener">Instagram</a><a href="https://github.com/bryansank" target="_blank" rel="noopener">GitHub</a></div>
-    <p><a href="./old_site/"><span lang="es" data-t="transmisiones.07">Ver la nave anterior (2022) →</span><span lang="en" data-t="transmisiones.07">See the previous ship (2022) →</span></a> · <span lang="es" data-t="transmisiones.08">Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar</span><span lang="en" data-t="transmisiones.08">Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber</span></p>
+    <p><a href="./old_site/"><span lang="es" data-t="transmisiones.07">Ver la nave anterior (2022) →</span><span lang="en" data-t="transmisiones.07">See the previous ship (2022) →</span></a> · <span lang="es" data-t="transmisiones.08">Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar</span><span lang="en" data-t="transmisiones.08">Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber</span> · <button type="button" id="resetBtn" class="linkish"><span lang="es" data-t="footer.01">Reiniciar experiencia</span><span lang="en" data-t="footer.01">Reset experience</span></button></p>
   </div>
 </footer>
 
@@ -697,6 +709,12 @@ if(!reduced&&matchMedia('(pointer:fine)').matches){
   $$('.magnetic').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 }
 
+/* ---------- Reiniciar experiencia: borra lo guardado y recarga ---------- */
+$('#resetBtn')?.addEventListener('click',()=>{
+  try{['bk-theme','bk-lang','bk-sound','bk-intro'].forEach(k=>localStorage.removeItem(k))}catch(e){}
+  sfx.tick();location.href=location.pathname;
+});
+
 /* ---------- Raíl de navegación, progreso y aviso de sección ---------- */
 (function nav(){
   const prog=$('#prog'),rail=$('#rail');
@@ -781,10 +799,23 @@ function enableTilt(){
 (function setupGate(){
   if(!gate)return;
   if(html.dataset.intro==='skip'){gate.remove();return}
+  const EN=()=>html.lang==='en';
+  const coarse=matchMedia('(pointer: coarse)').matches;
+  const why={
+    tilt:(!canTilt||!coarse)?(EN()?'Phone or tablet only':'Solo en móvil o tablet'):'',
+    haptics:(!canVibrate||!coarse)?(EN()?'Phone only':'Solo en móvil'):'',
+    cinema:!canFS?(EN()?'Not available here':'No disponible aquí'):'',
+    sound:''
+  };
   $$('.power',gate).forEach(btn=>{
     const p=btn.dataset.p,li=btn.parentElement;
-    if(p==='tilt'&&!canTilt)return;if(p==='haptics'&&!canVibrate)return;if(p==='cinema'&&!canFS)return;
-    if(p==='sound'||li.hidden)li.hidden=false;
+    li.hidden=false;
+    if(why[p]){
+      btn.disabled=true;btn.setAttribute('aria-checked','false');prefs[p]=false;
+      const em=btn.querySelector('.txt');
+      if(em)em.insertAdjacentHTML('beforeend','<span class="why">'+why[p]+'</span>');
+      return;
+    }
     prefs[p]=btn.getAttribute('aria-checked')==='true';
     btn.addEventListener('click',()=>{
       const on=btn.getAttribute('aria-checked')!=='true';

@@ -56,8 +56,8 @@
     "en": "Go straight to the profile, no effects →"
   },
   "general.15": {
-    "es": "Sin ubicación, sin cámara, sin micrófono, sin cookies de terceros. Tus preferencias quedan solo en este navegador.",
-    "en": "No location, no camera, no microphone, no third-party cookies. Your preferences stay in this browser only."
+    "es": "Sin ubicación, sin cámara, sin micrófono, sin cookies de terceros. Se guardan 4 preferencias (tema, idioma, sonido e intro vista) solo en este navegador.",
+    "en": "No location, no camera, no microphone, no third-party cookies. Four preferences (theme, language, sound and intro seen) are stored in this browser only."
   },
   "general.16": {
     "es": "Cargando la nave anterior…",
@@ -350,6 +350,10 @@
   "transmisiones.08": {
     "es": "Pulsa <kbd>Shift</kbd>+<kbd>S</kbd> para desenfundar",
     "en": "Press <kbd>Shift</kbd>+<kbd>S</kbd> to draw your saber"
+  },
+  "footer.01": {
+    "es": "Reiniciar experiencia",
+    "en": "Reset experience"
   },
   "transmisiones.09": {
     "es": "Puente",
